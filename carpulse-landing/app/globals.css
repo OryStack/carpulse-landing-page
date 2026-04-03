@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #121212;
+  --cp-orange: #ff7a22;
+  --cp-orange-2: #ff7a22;
+  --cp-ink: #121212;
+  --cp-muted: #6b7280;
+  --cp-card: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cp-orange: var(--cp-orange);
+  --color-cp-orange-2: var(--cp-orange-2);
+  --color-cp-ink: var(--cp-ink);
+  --color-cp-muted: var(--cp-muted);
+  --color-cp-card: var(--cp-card);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
