@@ -33,3 +33,36 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Témoignages : défilement vertical continu (bas → haut) */
+@keyframes testimonials-marquee-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+.testimonials-marquee-track {
+  animation: testimonials-marquee-up linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
+    animation: none;
+  }
+}
+
+/* Mobile : liste témoignages statique (maquette Figma) */
+@media (max-width: 767px) {
+  .testimonials-static-mobile .testimonials-marquee-track {
+    animation: none;
+  }
+  .testimonials-static-mobile .testimonials-marquee-col {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
