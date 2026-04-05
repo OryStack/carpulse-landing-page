@@ -146,7 +146,7 @@ export function CarOpportunityCard({
 
         <button
           type="button"
-          className="mt-4 w-full rounded-2xl bg-[#F3F4F6] py-3.5 text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]"
+          className="mt-4 w-full rounded-[16px] bg-[#F3F4F6] py-3.5 text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]"
         >
           Voir détails
         </button>

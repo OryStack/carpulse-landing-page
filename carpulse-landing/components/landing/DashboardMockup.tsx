@@ -145,7 +145,7 @@ function DealRowDesktop({
         </div>
         <button
           type="button"
-          className="mt-1 rounded-lg px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm"
+          className="mt-1 rounded-[16px] px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm"
           style={{ background: ORANGE }}
         >
           Voir détails
@@ -191,7 +191,7 @@ function MobileActivityView() {
       <header className="flex items-center gap-2 bg-[#141414] px-2.5 py-2.5">
         <button
           type="button"
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white/90 transition hover:bg-white/10"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[16px] text-white/90 transition hover:bg-white/10"
           aria-label="Retour"
         >
           <ChevronLeft className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -201,7 +201,7 @@ function MobileActivityView() {
         </h2>
         <button
           type="button"
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white/90 transition hover:bg-white/10"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[16px] text-white/90 transition hover:bg-white/10"
           aria-label="Rechercher"
         >
           <Search className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -329,12 +329,12 @@ export function DashboardMockup() {
               <div className="ml-auto flex items-center gap-3">
                 <button
                   type="button"
-                  className="rounded-full p-2 text-gray-500 hover:bg-gray-50"
+                  className="rounded-[16px] p-2 text-gray-500 hover:bg-gray-50"
                   aria-label="Notifications"
                 >
                   <Bell className="h-5 w-5" />
                 </button>
-                <div className="flex items-center gap-2 rounded-full border border-gray-200 py-1 pl-1 pr-2">
+                <div className="flex items-center gap-2 rounded-[16px] border border-gray-200 py-1 pl-1 pr-2">
                   <span className="h-8 w-8 rounded-full bg-gradient-to-br from-orange-200 to-orange-100" />
                   <div className="text-left">
                     <p className="text-[12px] font-semibold text-[#1A1A1A]">

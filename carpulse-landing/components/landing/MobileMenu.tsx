@@ -24,7 +24,7 @@ export function MobileMenu() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <>
       <button
         type="button"
         className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-[#1A1A1A] transition hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE6C0E]/40"
@@ -78,7 +78,7 @@ export function MobileMenu() {
                 variant="secondary"
                 size="md"
                 fullWidth
-                className="rounded-xl"
+                className="rounded-[16px]"
                 onClick={() => setOpen(false)}
               >
                 Démo
@@ -87,6 +87,6 @@ export function MobileMenu() {
           </div>
         </>
       ) : null}
-    </div>
+    </>
   );
 }

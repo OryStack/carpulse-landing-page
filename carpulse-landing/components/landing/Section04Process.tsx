@@ -70,7 +70,7 @@ function ProcessNavDot({
 }
 
 const navBtnClass =
-  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45";
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[16px] border border-white/30 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45";
 
 export function Section04Process() {
   const [index, setIndex] = useState(0);

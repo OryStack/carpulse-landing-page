@@ -34,12 +34,13 @@ const VARIANT_STYLES: Record<
   },
 };
 
+/** Rayon max 16px (spec design) */
 const SIZE_CLASSES: Record<ButtonSize, string> = {
   xs: "h-9 px-4 text-[13px] rounded-xl",
-  sm: "h-10 px-5 text-[13px] rounded-full",
-  md: "h-11 px-6 text-[14px] rounded-xl",
-  lg: "h-12 px-8 text-[15px] rounded-2xl",
-  xl: "h-14 px-10 text-[16px] rounded-2xl",
+  sm: "h-10 px-5 text-[13px] rounded-[16px]",
+  md: "h-11 px-6 text-[14px] rounded-[16px]",
+  lg: "h-12 px-8 text-[15px] rounded-[16px]",
+  xl: "h-14 px-10 text-[16px] rounded-[16px]",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

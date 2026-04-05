@@ -123,7 +123,7 @@ export function Section07Audience() {
               <Button
                 variant="primary"
                 size="lg"
-                className="mt-8 rounded-2xl sm:mt-10"
+                className="mt-8 rounded-[16px] sm:mt-10"
                 fullWidth
                 style={{
                   background:
@@ -574,7 +574,7 @@ export function Section10FaqCta() {
               <Button
                 variant="primary"
                 size="lg"
-                className="mt-8 rounded-full px-10"
+                className="mt-8 rounded-[16px] px-10"
                 style={{
                   background: FAQ_CTA_ORANGE,
                   borderColor: "#FFB366",

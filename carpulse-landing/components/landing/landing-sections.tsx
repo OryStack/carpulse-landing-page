@@ -79,12 +79,19 @@ export function Section01Hero() {
       />
 
       <Container>
-        <header className="flex items-center justify-between gap-4 py-5 sm:gap-6 sm:py-7">
-          <a href="#" className="inline-flex items-center">
-            <CarPulseLogo priority />
-          </a>
-          <MobileMenu />
-          <nav className="hidden items-center gap-5 text-[12px] font-medium text-[#4B5563] md:flex md:gap-6 md:text-[13px]">
+        <header className="flex flex-col gap-4 py-5 sm:gap-6 sm:py-7 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center justify-between gap-4 md:contents">
+            <a href="#" className="inline-flex shrink-0 items-center">
+              <CarPulseLogo priority />
+            </a>
+            <div className="shrink-0 md:hidden">
+              <MobileMenu />
+            </div>
+          </div>
+          <nav
+            className="flex w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] font-medium text-[#4B5563] sm:gap-x-5 md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[13px]"
+            aria-label="Navigation principale"
+          >
             <a href="#comment" className="hover:text-[#1A1A1A]">
               Comment ça marche
             </a>
@@ -94,7 +101,7 @@ export function Section01Hero() {
             <a href="#connexion" className="hover:text-[#1A1A1A]">
               Se connecter
             </a>
-            <Button variant="secondary" size="sm" className="ml-1">
+            <Button variant="secondary" size="sm" className="ml-0 md:ml-1">
               Démo
             </Button>
           </nav>
@@ -115,7 +122,7 @@ export function Section01Hero() {
             <Button
               variant="primary"
               size="md"
-              className="w-full max-w-[320px] rounded-xl px-8 sm:w-auto sm:min-w-[200px]"
+              className="w-full max-w-[320px] rounded-[16px] px-8 sm:w-auto sm:min-w-[200px]"
               style={{
                 background: `linear-gradient(180deg, ${MOBILE_ACCENT} 0%, #FF8A3D 100%)`,
                 borderColor: "#FFB366",
@@ -466,19 +473,31 @@ export function Section05Opportunities() {
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <Container>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-[#1A1A1A] sm:text-3xl md:text-left md:text-4xl">
-            Opportunités{" "}
-            <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
-          </h2>
-          <Button
-            variant="primary"
-            size="sm"
-            className="hidden shrink-0 rounded-full px-6 text-[12px] font-bold md:inline-flex"
-            style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-          >
-            Analyses complètes
-          </Button>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="text-center text-2xl font-bold tracking-tight text-[#1A1A1A] sm:text-3xl md:text-left md:text-4xl">
+              Opportunités{" "}
+              <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
+            </h2>
+            <Button
+              variant="primary"
+              size="sm"
+              className="hidden shrink-0 rounded-[16px] px-6 text-[12px] font-bold md:inline-flex"
+              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
+            >
+              Analyses complètes
+            </Button>
+          </div>
+          <div className="flex justify-center md:hidden">
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full max-w-md rounded-[16px] px-8 text-[14px] font-bold"
+              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
+            >
+              Analyses complètes
+            </Button>
+          </div>
         </div>
 
         <div className="mt-10 rounded-[28px] p-4 sm:mt-12 sm:p-6">
@@ -524,17 +543,6 @@ export function Section05Opportunities() {
               imageAlt="Renault Mégane blanche"
             />
           </div>
-        </div>
-
-        <div className="mt-8 flex justify-center md:hidden">
-          <Button
-            variant="primary"
-            size="lg"
-            className="w-full max-w-md rounded-full px-8 text-[14px] font-bold"
-            style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-          >
-            Analyses complètes
-          </Button>
         </div>
       </Container>
     </section>
@@ -613,7 +621,7 @@ export function Section06Automation() {
     >
       <AutomationDecor />
       <Container className="relative">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <h2 className="max-w-xl text-balance text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl">
             Une analyse du marché{" "}
             <span className="text-[#FE5E00]">entièrement automatisée</span>
@@ -621,7 +629,7 @@ export function Section06Automation() {
           <Button
             variant="primary"
             size="lg"
-            className="shrink-0 rounded-2xl px-7"
+            className="w-full max-w-md shrink-0 self-center rounded-[16px] px-7 md:w-auto md:max-w-none md:self-auto"
             style={{
               background:
                 "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
@@ -785,7 +793,7 @@ export function Section06Automation() {
           <Button
             variant="primary"
             size="xl"
-            className="rounded-2xl px-10"
+            className="rounded-[16px] px-10"
             style={{
               background:
                 "linear-gradient(69.08deg, #FE6C0E 7.63%, #FF963A 54.5%)",
