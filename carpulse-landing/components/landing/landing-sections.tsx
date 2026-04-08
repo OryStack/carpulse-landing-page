@@ -8,6 +8,7 @@ import { CarPulseLogo } from "./CarPulseLogo";
 import { Container } from "./Container";
 import { DashboardMockup } from "./DashboardMockup";
 import { MobileMenu } from "./MobileMenu";
+import { DemoFlowButton } from "./DemoFlowButton";
 import { Section04Process } from "./Section04Process";
 import {
   Section07Audience,
@@ -98,12 +99,17 @@ export function Section01Hero() {
             <a href="#faq" className="hover:text-[#1A1A1A]">
               FAQ
             </a>
-            <a href="#connexion" className="hover:text-[#1A1A1A]">
+            <a
+              href="https://dev.getcarpulse.com/login"
+              className="hover:text-[#1A1A1A]"
+              target="_blank"
+              rel="noreferrer"
+            >
               Se connecter
             </a>
-            <Button variant="secondary" size="sm" className="ml-0 md:ml-1">
+            <DemoFlowButton variant="secondary" size="sm" className="ml-0 md:ml-1">
               Démo
-            </Button>
+            </DemoFlowButton>
           </nav>
         </header>
 
@@ -149,15 +155,17 @@ export function Section01Hero() {
               <div className="md:hidden">
                 <DashboardMockup />
               </div>
-              <Image
-                src="/landing/dashboard-mes-deals.png"
-                alt="Aperçu du dashboard CarPulse (Mes deals)"
-                width={1024}
-                height={752}
-                priority
-                className="hidden h-auto w-full select-none md:block"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
+              <div className="hidden justify-center md:flex">
+                <Image
+                  src="/landing/dashboard-mes-deals.png"
+                  alt="Aperçu du dashboard CarPulse (Mes deals)"
+                  width={1024}
+                  height={752}
+                  priority
+                  className="h-auto max-w-full select-none"
+                  sizes="(max-width: 1200px) 100vw, 1024px"
+                />
+              </div>
             </div>
           </div>
         </Container>
@@ -216,7 +224,7 @@ function FeatureCard({
 }) {
   return (
     <div
-      className="rounded-3xl border border-[#FFE4CC] bg-[#FFF7ED] p-6 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.06)] sm:p-7 md:border-[1.5px] md:border-[#FFD8A8] md:bg-gradient-to-b md:from-[#FDEFDE] md:to-[#FFFCF8] md:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.14)]"
+      className="rounded-3xl border border-[#FFE4CC] bg-[#FFF7ED] p-6 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.06)] sm:p-7 md:border-[1.5px] md:border-[#FFD8A8] md:bg-linear-to-b md:from-[#FDEFDE] md:to-[#FFFCF8] md:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.14)]"
     >
       <div className="text-[#FE6C0E] md:text-[#FF7A22]">{icon}</div>
       <h3 className="mt-4 text-[15px] font-bold leading-snug text-[#1A1A1A] sm:mt-5">
@@ -344,10 +352,10 @@ export function Section03SingleFlow() {
                 Découvrez comment CarPulse détecte les meilleures affaires avant
                 tout le monde.
               </p>
-              <Button
+              <DemoFlowButton
                 variant="secondary"
                 size="lg"
-                className="mt-8 max-md:w-full max-md:max-w-sm max-md:!border-[#1F1F1F] max-md:!bg-[#1F1F1F] max-md:!text-white max-md:hover:opacity-95"
+                className="mt-8 max-md:w-full max-md:max-w-sm max-md:border-[#1F1F1F]! max-md:bg-[#1F1F1F]! max-md:text-white! max-md:hover:opacity-95"
                 style={{
                   boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
                 }}
@@ -356,7 +364,7 @@ export function Section03SingleFlow() {
                 <span className="hidden md:inline">
                   Réserver une démo gratuite
                 </span>
-              </Button>
+              </DemoFlowButton>
             </div>
           </div>
         </div>
@@ -451,7 +459,7 @@ export function Section04Why() {
             Prenez de l&apos;avance avec{" "}
             <span className="text-[#FE6C0E]">CarPulse</span>
           </p>
-          <Button
+          <DemoFlowButton
             variant="primary"
             size="lg"
             className="mt-8"
@@ -462,7 +470,7 @@ export function Section04Why() {
             }}
           >
             Réserver une démo gratuite
-          </Button>
+          </DemoFlowButton>
         </div>
       </Container>
     </section>
@@ -512,8 +520,9 @@ export function Section05Opportunities() {
               margin="+2 800 CHF"
               marginBadge="+10.9%  Bonne"
               marginTone="blue"
-              imageSrc="/opportunities/card-volvo.png"
+              imageSrc="/opportunities/card-volvo.jpg"
               imageAlt="Volvo V60 grise"
+              imageAspectRatio="1024 / 705"
             />
             <CarOpportunityCard
               showMapPin
@@ -526,8 +535,9 @@ export function Section05Opportunities() {
               margin="+3 800 CHF"
               marginBadge="+12.2%  Elevée"
               marginTone="green"
-              imageSrc="/opportunities/card-audi.png"
+              imageSrc="/opportunities/card-audi.jpg"
               imageAlt="Audi Q3 rouge"
+              imageAspectRatio="1024 / 573"
             />
             <CarOpportunityCard
               showMapPin
@@ -539,8 +549,9 @@ export function Section05Opportunities() {
               margin="+1 400 CHF"
               marginBadge="+7.8%  Bonne"
               marginTone="blue"
-              imageSrc="/opportunities/card-renault.png"
+              imageSrc="/opportunities/card-renault.jpg"
               imageAlt="Renault Mégane blanche"
+              imageAspectRatio="1024 / 566"
             />
           </div>
         </div>
@@ -549,50 +560,11 @@ export function Section05Opportunities() {
   );
 }
 
-function BeigePanel({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`rounded-[28px] bg-[#FDF8F3] p-4 shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/[0.04] sm:p-6 ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function AutomationIllustration({
-  src,
-  alt,
-  priority,
-}: {
-  src: string;
-  alt: string;
-  priority?: boolean;
-}) {
-  return (
-    <div className="overflow-hidden rounded-[22px] bg-[#FDF8F3] sm:rounded-[24px]">
-      <Image
-        src={src}
-        alt={alt}
-        width={720}
-        height={540}
-        sizes="(min-width: 768px) min(50vw, 560px), 100vw"
-        priority={priority}
-        className="h-auto w-full object-contain object-center"
-      />
-    </div>
-  );
-}
 
 function AutomationDecor() {
   return (
     <svg
-      className="pointer-events-none absolute inset-0 h-full w-full text-[#FE5E00]/[0.12]"
+      className="pointer-events-none absolute inset-0 h-full w-full text-[#FE5E00]/12"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 1200 900"
@@ -626,7 +598,7 @@ export function Section06Automation() {
             Une analyse du marché{" "}
             <span className="text-[#FE5E00]">entièrement automatisée</span>
           </h2>
-          <Button
+          <DemoFlowButton
             variant="primary"
             size="lg"
             className="w-full max-w-md shrink-0 self-center rounded-[16px] px-7 md:w-auto md:max-w-none md:self-auto"
@@ -638,19 +610,16 @@ export function Section06Automation() {
             }}
           >
             Réserver une démo gratuite
-          </Button>
+          </DemoFlowButton>
         </div>
 
         <div className="mt-14 grid gap-16 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-20">
           <div className="space-y-16 md:space-y-20">
             <div>
-              <BeigePanel>
-                <AutomationIllustration
-                  src="/automation/analyse-intelligente.png"
-                  alt="Veille des annonces : cartes opportunités et indicateur de performance"
-                  priority
-                />
-              </BeigePanel>
+              <div
+                aria-label="Veille des annonces : cartes opportunités et indicateur de performance"
+                className="aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/analyse-intelligente.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Analyse intelligente du marché
               </h3>
@@ -661,12 +630,10 @@ export function Section06Automation() {
             </div>
 
             <div>
-              <BeigePanel>
-                <AutomationIllustration
-                  src="/automation/scoring-objectif.png"
-                  alt="Scoring : comparaison prix marché, prix d’achat et marge potentielle"
-                />
-              </BeigePanel>
+              <div
+                aria-label="Scoring : comparaison prix marché, prix d’achat et marge potentielle"
+                className="aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/scoring-objectif.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Scoring clair et objectif
               </h3>
@@ -677,12 +644,10 @@ export function Section06Automation() {
             </div>
 
             <div>
-              <BeigePanel>
-                <AutomationIllustration
-                  src="/automation/filtrage-sur-mesure.png"
-                  alt="Filtres avancés : marque, kilométrage, localisation, rayon et fourchette de prix"
-                />
-              </BeigePanel>
+              <div
+                aria-label="Filtres avancés : marque, kilométrage, localisation, rayon et fourchette de prix"
+                className="aspect-809/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/filtrage-sur-mesure.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Filtrage sur mesure (Plan Pro)
               </h3>
@@ -703,12 +668,11 @@ export function Section06Automation() {
                 Soyez notifié dès qu’un modèle à fort potentiel apparaît sur le
                 marché — avant qu’il ne soit visible partout.
               </p>
-              <BeigePanel className="mt-8">
-                <AutomationIllustration
-                  src="/automation/alerte-instantanee.png"
-                  alt="Alertes : véhicule mis en avant et notifications sur les annonces"
-                />
-              </BeigePanel>
+              <div
+                aria-label="Alertes : véhicule mis en avant et notifications sur les annonces"
+                className="mt-8 aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/alerte-instantanee.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
+
             </div>
 
             <div>
@@ -720,12 +684,10 @@ export function Section06Automation() {
                 annonces proches de votre point de vente pour réduire les
                 frictions logistiques.
               </p>
-              <BeigePanel className="mt-8">
-                <AutomationIllustration
-                  src="/automation/zone-action.png"
-                  alt="Carte avec rayon d’action et annonces à proximité"
-                />
-              </BeigePanel>
+              <div
+                aria-label="Carte avec rayon d’action et annonces à proximité"
+                className="mt-8 aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/zone-action.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
             </div>
 
             <div>
@@ -736,12 +698,10 @@ export function Section06Automation() {
                 Visualisez marges, volumes et rentabilité : comprenez ce qui
                 fonctionne sur votre marché et ajustez votre sourcing.
               </p>
-              <BeigePanel className="mt-8">
-                <AutomationIllustration
-                  src="/automation/suivi-performance.png"
-                  alt="Tableau de bord analytique : bénéfices et statistiques"
-                />
-              </BeigePanel>
+              <div
+                aria-label="Tableau de bord analytique : bénéfices et statistiques"
+                className="mt-8 aspect-813/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/suivi-performance.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+              />
             </div>
           </div>
         </div>

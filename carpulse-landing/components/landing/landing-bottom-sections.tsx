@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { CarPulseLogo } from "./CarPulseLogo";
 import { Container } from "./Container";
+import { DemoFlowButton } from "./DemoFlowButton";
 import {
   PricingPlanCard,
   type PlanFeature,
@@ -571,7 +572,7 @@ export function Section10FaqCta() {
                 <span style={{ color: FAQ_CTA_ORANGE }}>meilleures affaires</span>{" "}
                 avant tout le monde ?
               </h2>
-              <Button
+              <DemoFlowButton
                 variant="primary"
                 size="lg"
                 className="mt-8 rounded-[16px] px-10"
@@ -581,7 +582,7 @@ export function Section10FaqCta() {
                 }}
               >
                 Réserver ma démo maintenant
-              </Button>
+              </DemoFlowButton>
             </div>
           </div>
         </Container>

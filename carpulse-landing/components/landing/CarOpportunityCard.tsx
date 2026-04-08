@@ -4,6 +4,8 @@ type CarOpportunityCardProps = {
   imageClass?: string;
   imageSrc?: string;
   imageAlt?: string;
+  /** Ratio de l'image (ex: "1024 / 705") pour respecter la taille originale. */
+  imageAspectRatio?: string;
   /** Pin carte (maquette mobile) */
   showMapPin?: boolean;
   rating: string;
@@ -22,6 +24,7 @@ export function CarOpportunityCard({
   imageClass = "from-slate-300 to-slate-200",
   imageSrc,
   imageAlt = "",
+  imageAspectRatio = "16 / 10",
   rating,
   title,
   meta,
@@ -65,17 +68,20 @@ export function CarOpportunityCard({
 
       <div className="relative w-full bg-white p-3">
         <div className="relative overflow-hidden rounded-2xl bg-[#F3F4F6]">
-          <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <div
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: imageAspectRatio }}
+          >
             {imageSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             ) : (
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${imageClass}`}
+                className={`absolute inset-0 bg-linear-to-br ${imageClass}`}
                 aria-hidden
               />
             )}

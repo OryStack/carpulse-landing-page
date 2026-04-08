@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { Button } from "../ui/button";
+import { DemoFlowButton } from "./DemoFlowButton";
 
 const LINKS = [
   { href: "#comment", label: "Comment ça marche" },
@@ -74,7 +74,7 @@ export function MobileMenu() {
               ))}
             </nav>
             <div className="mt-8">
-              <Button
+              <DemoFlowButton
                 variant="secondary"
                 size="md"
                 fullWidth
@@ -82,7 +82,7 @@ export function MobileMenu() {
                 onClick={() => setOpen(false)}
               >
                 Démo
-              </Button>
+              </DemoFlowButton>
             </div>
           </div>
         </>
