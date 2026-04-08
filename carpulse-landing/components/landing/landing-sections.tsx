@@ -522,7 +522,8 @@ export function Section05Opportunities() {
               marginTone="blue"
               imageSrc="/opportunities/card-volvo.jpg"
               imageAlt="Volvo V60 grise"
-              imageAspectRatio="1024 / 705"
+              imageAspectRatio="1024 / 682"
+              imageFit="cover"
             />
             <CarOpportunityCard
               showMapPin
@@ -538,6 +539,7 @@ export function Section05Opportunities() {
               imageSrc="/opportunities/card-audi.jpg"
               imageAlt="Audi Q3 rouge"
               imageAspectRatio="1024 / 573"
+              imageFit="cover"
             />
             <CarOpportunityCard
               showMapPin
@@ -551,7 +553,8 @@ export function Section05Opportunities() {
               marginTone="blue"
               imageSrc="/opportunities/card-renault.jpg"
               imageAlt="Renault Mégane blanche"
-              imageAspectRatio="1024 / 566"
+              imageAspectRatio="1024 / 741"
+              imageFit="cover"
             />
           </div>
         </div>
@@ -618,7 +621,7 @@ export function Section06Automation() {
             <div>
               <div
                 aria-label="Veille des annonces : cartes opportunités et indicateur de performance"
-                className="aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/analyse-intelligente.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/analyse-intelligente.png')] bg-contain bg-center bg-no-repeat"
               />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Analyse intelligente du marché
@@ -632,7 +635,7 @@ export function Section06Automation() {
             <div>
               <div
                 aria-label="Scoring : comparaison prix marché, prix d’achat et marge potentielle"
-                className="aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/scoring-objectif.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/scoring-objectif.png')] bg-contain bg-center bg-no-repeat"
               />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Scoring clair et objectif
@@ -646,7 +649,7 @@ export function Section06Automation() {
             <div>
               <div
                 aria-label="Filtres avancés : marque, kilométrage, localisation, rayon et fourchette de prix"
-                className="aspect-809/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/filtrage-sur-mesure.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="aspect-809/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/filtrage-sur-mesure.png')] bg-contain bg-center bg-no-repeat"
               />
               <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
                 Filtrage sur mesure (Plan Pro)
@@ -670,7 +673,7 @@ export function Section06Automation() {
               </p>
               <div
                 aria-label="Alertes : véhicule mis en avant et notifications sur les annonces"
-                className="mt-8 aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/alerte-instantanee.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="mt-8 aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/alerte-instantanee.png')] bg-contain bg-center bg-no-repeat"
               />
 
             </div>
@@ -686,7 +689,7 @@ export function Section06Automation() {
               </p>
               <div
                 aria-label="Carte avec rayon d’action et annonces à proximité"
-                className="mt-8 aspect-811/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/zone-action.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="mt-8 aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/zone-action.png')] bg-contain bg-center bg-no-repeat"
               />
             </div>
 
@@ -700,7 +703,7 @@ export function Section06Automation() {
               </p>
               <div
                 aria-label="Tableau de bord analytique : bénéfices et statistiques"
-                className="mt-8 aspect-813/720 w-full rounded-[28px] bg-[#FDF8F3] bg-[url('/automation/suivi-performance.png')] bg-contain bg-center bg-no-repeat shadow-[0_12px_40px_rgba(17,24,39,0.06)] ring-1 ring-black/4"
+                className="mt-8 aspect-813/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/suivi-performance.png')] bg-contain bg-center bg-no-repeat "
               />
             </div>
           </div>

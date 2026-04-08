@@ -1,11 +1,17 @@
 import { MapPin } from "lucide-react";
 
+function cx(...parts: Array<string | false | null | undefined>) {
+  return parts.filter(Boolean).join(" ");
+}
+
 type CarOpportunityCardProps = {
   imageClass?: string;
   imageSrc?: string;
   imageAlt?: string;
   /** Ratio de l'image (ex: "1024 / 705") pour respecter la taille originale. */
   imageAspectRatio?: string;
+  /** Object-fit pour l'image (maquette: cover). */
+  imageFit?: "cover" | "contain";
   /** Pin carte (maquette mobile) */
   showMapPin?: boolean;
   rating: string;
@@ -25,6 +31,7 @@ export function CarOpportunityCard({
   imageSrc,
   imageAlt = "",
   imageAspectRatio = "16 / 10",
+  imageFit = "cover",
   rating,
   title,
   meta,
@@ -77,7 +84,7 @@ export function CarOpportunityCard({
               <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="h-full w-full object-contain"
+                className={cx("h-full w-full", imageFit === "contain" ? "object-contain" : "object-cover")}
               />
             ) : (
               <div

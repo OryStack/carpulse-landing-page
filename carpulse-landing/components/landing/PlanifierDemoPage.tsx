@@ -502,7 +502,7 @@ export function PlanifierDemoPage() {
               ) : null}
 
               <form
-                className="planifier-demo-form mx-auto w-full max-w-[820px]"
+                className="planifier-demo-form w-full"
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div className="planifier-demo-form-grid">
