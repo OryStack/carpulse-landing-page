@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 
 import { CarOpportunityCard } from "./CarOpportunityCard";
-import { AutoplayVideo } from "./AutoplayVideo";
+import { DriveVideo } from "../DriveVideo";
 import { CarPulseLogo } from "./CarPulseLogo";
 import { Container } from "./Container";
 import { DashboardMockup } from "./DashboardMockup";
@@ -33,12 +33,12 @@ const ORANGE = "#FF7A22";
 const MOBILE_ACCENT = "#FE6C0E";
 
 /**
- * Vidéo hero : ne pas committer de fichier > 100 Mo (limite GitHub).
- * En prod, définir `NEXT_PUBLIC_HERO_VIDEO_URL` (URL HTTPS hébergée).
- * En local, placer `VF CarPulse.mp4` dans `public/Video/` (ignoré par Git).
+ * Vidéo hero :
+ * - Google Drive > 100 Mo : utiliser une iframe `/preview` (pas une balise `<video>`).
+ * - Définir `NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID` si besoin.
  */
-const HERO_VIDEO_SRC =
-  process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/Video/VF%20CarPulse.mp4";
+const HERO_VIDEO_DRIVE_ID =
+  process.env.NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID ?? "1zT8mgqqjVJ-kyIdTlO3befMHMImON06l";
 
 const brandLogos = [
   { alt: "BMW", src: "/brands/bmw.png", w: 64, h: 64 },
@@ -281,7 +281,11 @@ export function Section03SingleFlow() {
             }}
           >
             <div className="relative aspect-video w-full">
-              <AutoplayVideo src={HERO_VIDEO_SRC} />
+              <DriveVideo
+                fileId={HERO_VIDEO_DRIVE_ID}
+                title="Vidéo CarPulse"
+                maxWidth="100%"
+              />
             </div>
           </div>
         </div>
