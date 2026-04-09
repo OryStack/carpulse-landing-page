@@ -18,15 +18,9 @@ import {
   SiteFooter,
 } from "./landing-bottom-sections";
 import { Button } from "../ui/button";
-import {
-  BarChart3,
-  CarFront,
-  ScanSearch,
-  Search,
-  Timer,
-  TrendingUp,
-  Sparkles,
-} from "lucide-react";
+import { BarChart3, ScanSearch, Search, Sparkles, Medal, ClockFading ,ChartNoAxesColumn,Car} from "lucide-react";
+
+import { ScallopedPercentBadgeIcon } from "./ScallopedPercentBadgeIcon";
 
 const ORANGE = "#FF7A22";
 /** Orange maquette mobile / Figma */
@@ -294,20 +288,22 @@ export function Section03SingleFlow() {
 
         <div className="relative z-10 mt-8 grid gap-4 sm:mt-10 md:mt-12 md:grid-cols-3 md:gap-6">
           <FeatureCard
-            icon={<Timer className="h-8 w-8" aria-hidden />}
+            icon={<ClockFading className="h-8 w-8 shrink-0" aria-hidden />}
             title="Gagnez du temps"
           >
             Plus besoin de fouiller les plateformes, les meilleures opportunités
             viennent à vous.
           </FeatureCard>
           <FeatureCard
-            icon={<TrendingUp className="h-8 w-8" aria-hidden />}
+            icon={
+              <ScallopedPercentBadgeIcon className="h-8 w-8 shrink-0" aria-hidden />
+            }
             title="Augmentez vos marges"
           >
             Chaque véhicule est noté selon son écart au prix du marché.
           </FeatureCard>
           <FeatureCard
-            icon={<Sparkles className="h-8 w-8" aria-hidden />}
+            icon={<Medal  className="h-8 w-8" aria-hidden />}
             title="Décidez plus vite"
           >
             Un mini-rapport explique en quelques secondes pourquoi le deal vaut
@@ -434,7 +430,7 @@ export function Section04Why() {
           <WhyStatCard
             title="70 % des bonnes affaires"
             icon={
-              <BarChart3 className="h-8 w-8" aria-hidden strokeWidth={1.75} />
+              <ChartNoAxesColumn className="h-8 w-8" aria-hidden strokeWidth={1.75} />
             }
           >
             Partent en quelques heures
@@ -724,13 +720,13 @@ export function Section06Automation() {
                 k: "2",
                 n: "+6000",
                 l: "Nouvelles annonces chaque jour",
-                icon: <BarChart3 className="h-7 w-7" aria-hidden strokeWidth={1.75} />,
+                icon: <ChartNoAxesColumn className="h-7 w-10" aria-hidden strokeWidth={1.75} />,
               },
               {
                 k: "3",
                 n: "+80",
                 l: "Opportunité rentable envoyée par jour",
-                icon: <CarFront className="h-7 w-7" aria-hidden strokeWidth={1.75} />,
+                icon: <Car className="h-7 w-7" aria-hidden strokeWidth={1.75} />,
               },
             ].map((s) => (
               <div
