@@ -2,7 +2,6 @@
 
 import * as React from "react";
 
-import { DemoModal } from "../ui/DemoModal";
 import { Button } from "../ui/button";
 
 type DemoFlowButtonProps = {
@@ -12,9 +11,9 @@ type DemoFlowButtonProps = {
   className?: string;
   style?: React.CSSProperties;
   fullWidth?: boolean;
-  /** Destination après clic dans le modal. */
+  /** Destination après clic. */
   planifierDemoHref?: string;
-  /** Callback optionnel au clic (avant ouverture modal). */
+  /** Callback optionnel au clic (avant redirection). */
   onClick?: () => void;
 };
 
@@ -25,33 +24,23 @@ export function DemoFlowButton({
   className,
   style,
   fullWidth,
-  planifierDemoHref = "/planifier-demo",
+  planifierDemoHref = "https://dev.getcarpulse.com/planifier-demo",
   onClick,
 }: DemoFlowButtonProps) {
-  const [open, setOpen] = React.useState(false);
-
   return (
-    <>
-      <Button
-        variant={variant}
-        size={size}
-        fullWidth={fullWidth}
-        className={className}
-        style={style}
-        onClick={() => {
-          onClick?.();
-          setOpen(true);
-        }}
-      >
-        {children}
-      </Button>
-
-      <DemoModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        planifierDemoHref={planifierDemoHref}
-      />
-    </>
+    <Button
+      variant={variant}
+      size={size}
+      fullWidth={fullWidth}
+      className={className}
+      style={style}
+      onClick={() => {
+        onClick?.();
+        window.location.assign(planifierDemoHref);
+      }}
+    >
+      {children}
+    </Button>
   );
 }
 
