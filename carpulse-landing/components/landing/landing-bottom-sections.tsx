@@ -175,7 +175,7 @@ function TestimonialCard({
       <StarRow />
       <p className="mt-4 text-[15px] leading-relaxed text-[#374151]">{quote}</p>
       <div className="mt-6 flex items-center gap-3">
-        <div className="h-11 w-11 shrink-0 rounded-lg bg-gradient-to-br from-gray-300 to-gray-200" />
+        <div className="h-11 w-11 shrink-0 rounded-lg bg-linear-to-br from-gray-300 to-gray-200" />
         <div>
           <p className="font-bold text-[#1A1A1A]">{name}</p>
           <p className="text-[13px] text-[#6B7280]">{role}</p>
@@ -219,7 +219,7 @@ export function Section08Testimonials() {
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
-                className="h-10 w-10 rounded-full border-2 border-white bg-gradient-to-br from-orange-200 to-amber-100 sm:h-11 sm:w-11"
+                className="h-10 w-10 rounded-full border-2 border-white bg-linear-to-br from-orange-200 to-amber-100 sm:h-11 sm:w-11"
               />
             ))}
           </div>
@@ -232,8 +232,8 @@ export function Section08Testimonials() {
         </div>
 
         <div className="relative mx-auto mt-14 max-w-5xl">
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent sm:h-20" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-white to-transparent sm:h-32" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-linear-to-b from-white to-transparent sm:h-20" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-linear-to-t from-white to-transparent sm:h-32" />
           <div className="grid gap-6 md:grid-cols-2 md:gap-8">
             {[
               {
@@ -606,70 +606,39 @@ function SocialIcon({ children, label }: { children: ReactNode; label: string })
 }
 
 const footerNav = {
-  produit: [
-    { href: "#comment", label: "Comment ça marche" },
+  main: [
+    { href: "#comment", label: "Comment ça marche ?" },
     { href: "#marche", label: "Analyse du marché" },
-    { href: "#offres", label: "Tarifs" },
-  ],
-  ressources: [
-    { href: "#faq", label: "FAQ" },
     { href: "#temoignages", label: "Témoignages" },
-    { href: "#connexion", label: "Se connecter" },
-  ],
-  legal: [
-    { href: "#confidentialite", label: "Politique de confidentialité" },
-    { href: "#", label: "Mentions légales" },
+    { href: "#confidentialite", label: "Politique de Confidentialité" },
   ],
 } as const;
-
-function FooterColumn({
-  title,
-  items,
-}: {
-  title: string;
-  items: readonly { href: string; label: string }[];
-}) {
-  return (
-    <div>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#666666]">
-        {title}
-      </p>
-      <ul className="mt-4 space-y-3.5">
-        {items.map((item) => (
-          <li key={item.href + item.label}>
-            <a
-              href={item.href}
-              className="text-[15px] font-normal text-white transition hover:text-white/85"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export function SiteFooter() {
   return (
     <footer className="bg-[#111111] text-white">
       <Container className="py-12 md:py-16">
         <div className="flex flex-col gap-10 md:gap-12">
-          <a
-            href="#"
-            className="inline-flex w-fit items-center rounded-xl bg-white px-4 py-2.5 shadow-sm ring-1 ring-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
-          >
-            <CarPulseLogo />
-          </a>
+          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <a href="#" className="inline-flex items-center">
+              <CarPulseLogo />
+            </a>
 
-          <nav
-            className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8 lg:gap-16"
-            aria-label="Liens pied de page"
-          >
-            <FooterColumn title="Produit" items={footerNav.produit} />
-            <FooterColumn title="Ressources" items={footerNav.ressources} />
-            <FooterColumn title="Légal" items={footerNav.legal} />
-          </nav>
+            <nav
+              className="flex flex-wrap items-center justify-start gap-x-6 gap-y-3 text-[12px] font-medium text-white/85 md:justify-end md:gap-x-8"
+              aria-label="Liens pied de page"
+            >
+              {footerNav.main.map((item) => (
+                <a
+                  key={item.href + item.label}
+                  href={item.href}
+                  className="transition hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/* Séparateur Figma : pas toute la largeur du conteneur */}

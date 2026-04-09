@@ -230,10 +230,10 @@ input[type="reset"]:not(:disabled),
 }
 
 .planifier-demo-header {
-  padding: 24px 40px;
+  padding: 12px 20px;
   background-color: #ffffff;
   position: sticky;
-  top: 0;
+  top: 3%;
   z-index: 100;
   width: 100%;
   box-sizing: border-box;
@@ -255,7 +255,6 @@ input[type="reset"]:not(:disabled),
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
 }
 
 @media (max-width: 768px) {
@@ -274,7 +273,7 @@ input[type="reset"]:not(:disabled),
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px 24px;
+  padding: 22px 24px;
   width: 100%;
   box-sizing: border-box;
   overflow: visible;
@@ -340,8 +339,8 @@ input[type="reset"]:not(:disabled),
 }
 
 .planifier-demo-section-title-text {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #ff8e01;
   margin: 0;
 }
@@ -355,8 +354,8 @@ input[type="reset"]:not(:disabled),
 .planifier-demo-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 22px;
-  max-width: 820px;
+  gap: 24px 22px;
+  width: 100%;
 }
 
 .planifier-demo-form-field {
@@ -366,19 +365,19 @@ input[type="reset"]:not(:disabled),
 }
 
 .planifier-demo-form-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: #111827;
 }
 
 .planifier-demo-input,
 .planifier-demo-select {
-  height: 30px;
+  height: 40px;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0 12px;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   color: #111827;
   background-color: #ffffff;
   outline: none;
@@ -405,11 +404,11 @@ input[type="reset"]:not(:disabled),
 
 /* HeroUI Select (Step 1) — mêmes specs que .planifier-demo-select */
 .planifier-demo-heroui-trigger {
-  height: 30px;
-  min-height: 30px;
+  height: 40px;
+  min-height: 40px;
   width: 100%;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #ffffff;
   padding: 0 12px;
   box-shadow: none;
@@ -431,8 +430,8 @@ input[type="reset"]:not(:disabled),
 }
 
 .planifier-demo-heroui-value {
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   color: #111827;
 }
 
@@ -523,7 +522,7 @@ input[type="reset"]:not(:disabled),
 
 @media (max-width: 768px) {
   .planifier-demo-main {
-    padding: 0 16px 32px 16px;
+    padding: 12px 16px 32px 16px;
   }
 
   .planifier-demo-title {
@@ -532,7 +531,7 @@ input[type="reset"]:not(:disabled),
 
   .planifier-demo-form-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px;
   }
 
   .planifier-demo-actions {
