@@ -8,6 +8,7 @@ import {
   Search,
   User,
 } from "lucide-react";
+import { DemoFlowButton } from "./DemoFlowButton";
 
 const ORANGE = "#FE6C0E";
 
@@ -143,13 +144,14 @@ function DealRowDesktop({
           <p className="text-[#6B7280]">Marge potentielle</p>
           <p className="text-sm font-bold text-emerald-600">{margin}</p>
         </div>
-        <button
-          type="button"
+        <DemoFlowButton
+          variant="primary"
+          size="xs"
           className="mt-1 rounded-[16px] px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm"
-          style={{ background: ORANGE }}
+          style={{ background: ORANGE, borderColor: ORANGE }}
         >
           Voir détails
-        </button>
+        </DemoFlowButton>
       </div>
     </div>
   );

@@ -119,17 +119,20 @@ export function Section01Hero() {
             marge.
           </p>
           <div className="mt-7 flex justify-center sm:mt-8">
-            <Button
-              variant="primary"
-              size="md"
-              className="w-full max-w-[320px] rounded-[16px] px-8 sm:w-auto sm:min-w-[200px]"
+            <a
+              href="#comment"
+              className="inline-flex h-11 w-full max-w-[320px] select-none items-center justify-center whitespace-nowrap rounded-[16px] px-8 text-[14px] font-bold leading-none transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF963A]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto sm:min-w-[200px]"
               style={{
                 background: `linear-gradient(180deg, ${MOBILE_ACCENT} 0%, #FF8A3D 100%)`,
+                borderStyle: "solid",
+                borderWidth: "0.5px",
                 borderColor: "#FFB366",
+                boxShadow: "0px 1px 2.5px 0px #FFFFFF8C inset",
+                color: "#FFFFFF",
               }}
             >
               Découvrir CarPulse
-            </Button>
+            </a>
           </div>
         </div>
       </Container>
@@ -483,24 +486,24 @@ export function Section05Opportunities() {
               Opportunités{" "}
               <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
             </h2>
-            <Button
+            <DemoFlowButton
               variant="primary"
               size="sm"
               className="hidden shrink-0 rounded-[16px] px-6 text-[12px] font-bold md:inline-flex"
               style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
             >
               Analyses complètes
-            </Button>
+            </DemoFlowButton>
           </div>
           <div className="flex justify-center md:hidden">
-            <Button
+            <DemoFlowButton
               variant="primary"
               size="lg"
               className="w-full max-w-md rounded-[16px] px-8 text-[14px] font-bold"
               style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
             >
               Analyses complètes
-            </Button>
+            </DemoFlowButton>
           </div>
         </div>
 
@@ -749,7 +752,7 @@ export function Section06Automation() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <Button
+          <DemoFlowButton
             variant="primary"
             size="xl"
             className="rounded-[16px] px-10"
@@ -761,7 +764,7 @@ export function Section06Automation() {
             }}
           >
             Voir les opportunités CarPulse
-          </Button>
+          </DemoFlowButton>
         </div>
       </Container>
     </section>

@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import { DemoFlowButton } from "./DemoFlowButton";
 
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
@@ -157,12 +158,19 @@ export function CarOpportunityCard({
           </span>
         </div>
 
-        <button
-          type="button"
-          className="mt-4 w-full rounded-[16px] bg-[#F3F4F6] py-3.5 text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]"
+        <DemoFlowButton
+          variant="tertiary"
+          size="md"
+          className="mt-4 w-full rounded-[16px] py-3.5 text-[13px] font-semibold"
+          style={{
+            background: "#F3F4F6",
+            borderColor: "#E5E7EB",
+            color: "rgba(17, 24, 39, 0.8)",
+            boxShadow: "none",
+          }}
         >
           Voir détails
-        </button>
+        </DemoFlowButton>
       </div>
       </article>
     </div>
