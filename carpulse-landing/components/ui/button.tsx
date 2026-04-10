@@ -7,6 +7,11 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
   fullWidth?: boolean;
+  /**
+   * Permet de rendre un autre élément (ex: <a>) en héritant des styles.
+   * Utilisation: <Button asChild><a href="...">...</a></Button>
+   */
+  asChild?: boolean;
 };
 
 function clsx(...parts: Array<string | false | null | undefined>) {
@@ -52,35 +57,49 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       style,
       type = "button",
+      asChild,
       ...props
     },
     ref,
   ) => {
     const v = VARIANT_STYLES[variant];
+    const mergedClassName = clsx(
+      "inline-flex items-center justify-center font-bold leading-none",
+      "select-none whitespace-nowrap",
+      "transition duration-150",
+      "disabled:opacity-60 disabled:pointer-events-none",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF963A]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+      fullWidth && "w-full",
+      SIZE_CLASSES[size],
+      className,
+    );
+
+    const mergedStyle: React.CSSProperties = {
+      background: v.background,
+      color: v.text,
+      boxShadow: "0px 1px 2.5px 0px #FFFFFF8C inset",
+      borderStyle: "solid",
+      borderWidth: "0.5px",
+      borderColor: v.borderColor,
+      ...style,
+    };
+
+    if (asChild && React.isValidElement(props.children)) {
+      const child = props.children as React.ReactElement<any>;
+      const childClassName = clsx(child.props?.className, mergedClassName);
+      const childStyle = { ...(child.props?.style ?? {}), ...mergedStyle };
+      return React.cloneElement(child, {
+        className: childClassName,
+        style: childStyle,
+      });
+    }
 
     return (
       <button
         ref={ref}
         type={type}
-        className={clsx(
-          "inline-flex items-center justify-center font-bold leading-none",
-          "select-none whitespace-nowrap",
-          "transition duration-150",
-          "disabled:opacity-60 disabled:pointer-events-none",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF963A]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
-          fullWidth && "w-full",
-          SIZE_CLASSES[size],
-          className,
-        )}
-        style={{
-          background: v.background,
-          color: v.text,
-          boxShadow: "0px 1px 2.5px 0px #FFFFFF8C inset",
-          borderStyle: "solid",
-          borderWidth: "0.5px",
-          borderColor: v.borderColor,
-          ...style,
-        }}
+        className={mergedClassName}
+        style={mergedStyle}
         {...props}
       />
     );

@@ -127,8 +127,9 @@ export function Section01Hero() {
                 background: `linear-gradient(180deg, ${MOBILE_ACCENT} 0%, #FF8A3D 100%)`,
                 borderColor: "#FFB366",
               }}
+              asChild
             >
-              Découvrir CarPulse
+              <a href="#comment">Découvrir CarPulse</a>
             </Button>
           </div>
         </div>
@@ -452,24 +453,24 @@ export function Section05Opportunities() {
               Opportunités{" "}
               <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
             </h2>
-            <Button
+            <DemoFlowButton
               variant="primary"
               size="sm"
               className="hidden shrink-0 rounded-[16px] px-6 text-[12px] font-bold md:inline-flex"
               style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
             >
               Analyses complètes
-            </Button>
+            </DemoFlowButton>
           </div>
           <div className="flex justify-center md:hidden">
-            <Button
+            <DemoFlowButton
               variant="primary"
               size="lg"
               className="w-full max-w-md rounded-[16px] px-8 text-[14px] font-bold"
               style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
             >
               Analyses complètes
-            </Button>
+            </DemoFlowButton>
           </div>
         </div>
 
@@ -718,7 +719,7 @@ export function Section06Automation() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <Button
+          <DemoFlowButton
             variant="primary"
             size="xl"
             className="rounded-[16px] px-10"
@@ -730,7 +731,7 @@ export function Section06Automation() {
             }}
           >
             Voir les opportunités CarPulse
-          </Button>
+          </DemoFlowButton>
         </div>
       </Container>
     </section>

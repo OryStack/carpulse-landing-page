@@ -34,12 +34,14 @@ export function DemoFlowButton({
       fullWidth={fullWidth}
       className={className}
       style={style}
-      onClick={() => {
-        onClick?.();
-        window.location.assign(planifierDemoHref);
-      }}
+      asChild
     >
-      {children}
+      <a
+        href={planifierDemoHref}
+        onClick={() => onClick?.()}
+      >
+        {children}
+      </a>
     </Button>
   );
 }
