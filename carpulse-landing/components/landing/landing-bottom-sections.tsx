@@ -341,118 +341,7 @@ const PRICING_ENTERPRISE_FEATURES: PlanFeature[] = [
   { text: "Reporting avancé", available: true },
 ];
 
-type ApiPlan = {
-  id: string;
-  name: string;
-  description: string;
-  price: string;
-  billing_cycle: "monthly" | "yearly" | string;
-  is_active: boolean;
-  kind: "standard" | "personalized" | string;
-  max_collaborators: number;
-  max_deals_per_month: number;
-  deal_criteria_limit: number;
-  priority_level: number;
-  allow_filter_creation: boolean;
-  deal_distribution_enabled: boolean;
-  distribution_strategy: "exclusive" | string;
-  max_recipients_per_deal: number;
-};
-
-type PlansResponse = {
-  count: number;
-  page: number;
-  page_size: number;
-  results: ApiPlan[];
-};
-
-function joinUrl(base: string, path: string) {
-  const b = base.endsWith("/") ? base : `${base}/`;
-  const p = path.startsWith("/") ? path.slice(1) : path;
-  return `${b}${p}`;
-}
-
-async function fetchPlans(): Promise<ApiPlan[] | null> {
-  const base = process.env.CARPULSE_CLIENT_API;
-  if (!base) return null;
-
-  const url = new URL(joinUrl(base, "plans"));
-  url.searchParams.set("page", "1");
-  url.searchParams.set("page_size", "20");
-  url.searchParams.set("status", "active");
-  url.searchParams.set("type", "all");
-  url.searchParams.set("sort_by", "price");
-  url.searchParams.set("sort_order", "asc");
-
-  const res = await fetch(url.toString(), { next: { revalidate: 300 } });
-  if (!res.ok) return null;
-  const data = (await res.json()) as PlansResponse;
-  return Array.isArray(data?.results) ? data.results : null;
-}
-
-function formatPlanPrice(plan: ApiPlan) {
-  const priceNum = plan.price?.trim();
-  if (!priceNum) return null;
-  return `${priceNum} CHF`;
-}
-
-function formatPlanPeriod(plan: ApiPlan) {
-  if (plan.billing_cycle === "monthly") return " / mois";
-  if (plan.billing_cycle === "yearly") return " / an";
-  return " / mois";
-}
-
-function planFeaturesFromApi(plan: ApiPlan): PlanFeature[] {
-  const f: PlanFeature[] = [];
-
-  if (Number.isFinite(plan.max_deals_per_month) && plan.max_deals_per_month > 0) {
-    f.push({ text: `Jusqu'à ${plan.max_deals_per_month} deals / mois`, available: true });
-  }
-  if (Number.isFinite(plan.max_collaborators) && plan.max_collaborators > 0) {
-    f.push({ text: `Jusqu'à ${plan.max_collaborators} collaborateurs`, available: true });
-  }
-  if (Number.isFinite(plan.deal_criteria_limit) && plan.deal_criteria_limit > 0) {
-    f.push({ text: `${plan.deal_criteria_limit} critères de deal`, available: true });
-  }
-
-  f.push({
-    text: "Création de filtres",
-    available: Boolean(plan.allow_filter_creation),
-  });
-
-  f.push({
-    text: "Distribution des deals",
-    available: Boolean(plan.deal_distribution_enabled),
-  });
-
-  if (plan.deal_distribution_enabled && plan.distribution_strategy) {
-    f.push({
-      text: `Stratégie: ${plan.distribution_strategy}`,
-      available: true,
-    });
-  }
-
-  if (Number.isFinite(plan.max_recipients_per_deal) && plan.max_recipients_per_deal > 0) {
-    f.push({ text: `Jusqu'à ${plan.max_recipients_per_deal} destinataires / deal`, available: true });
-  }
-
-  if (Number.isFinite(plan.priority_level) && plan.priority_level > 0) {
-    f.push({ text: `Priorité support: niveau ${plan.priority_level}`, available: true });
-  }
-
-  return f;
-}
-
-export async function Section09PricingTrust() {
-  let plansFromApi: ApiPlan[] | null = null;
-
-  try {
-    const plans = await fetchPlans();
-    plansFromApi = plans?.filter((p) => p.is_active) ?? null;
-  } catch {
-    // fallback silencieux sur le contenu statique (design)
-  }
-
+export function Section09PricingTrust() {
   return (
     <section id="offres" className="bg-white py-16 sm:py-20 lg:py-24">
       <Container>
@@ -470,93 +359,43 @@ export async function Section09PricingTrust() {
           </p>
         </div>
 
-        <div
-          className={`mt-14 grid gap-6 lg:items-stretch lg:gap-5 ${
-            plansFromApi?.length ? "lg:grid-cols-3" : "lg:grid-cols-3"
-          }`}
-        >
-          {plansFromApi?.length
-            ? plansFromApi.map((plan, idx) => {
-                const isCustom = plan.kind === "personalized";
-                const variant = isCustom
-                  ? "custom"
-                  : idx === 0
-                    ? "starter"
-                    : "premium";
-
-                const buttonVariant = isCustom
-                  ? "custom"
-                  : idx === 0
-                    ? "starter"
-                    : "premium";
-
-                const price = formatPlanPrice(plan) ?? undefined;
-
-                return (
-                  <PricingPlanCard
-                    key={plan.id}
-                    variant={variant}
-                    name={plan.name}
-                    description={plan.description}
-                    price={isCustom ? undefined : price}
-                    period={isCustom ? undefined : formatPlanPeriod(plan)}
-                    customPriceLabel={
-                      isCustom ? "Tarification personnalisée" : undefined
-                    }
-                    dealCountLabel={
-                      plan.max_deals_per_month
-                        ? `Jusqu'à ${plan.max_deals_per_month} deals`
-                        : "—"
-                    }
-                    features={planFeaturesFromApi(plan)}
-                    buttonText={isCustom ? "Demander une offre personnalisée" : `Choisir ${plan.name}`}
-                    buttonVariant={buttonVariant}
-                    isPopular={!isCustom && idx === 1}
-                    className="h-full"
-                  />
-                );
-              })
-            : [
-                <PricingPlanCard
-                  key="starter-fallback"
-                  variant="starter"
-                  name="Starter"
-                  description="Pour les petits garages et marchands qui démarrent leur veille sur l’occasion."
-                  price="149 CHF"
-                  period=" / mois"
-                  dealCountLabel="Jusqu'à 20 deals"
-                  features={PRICING_STARTER_FEATURES}
-                  buttonText="Commencer avec Starter"
-                  buttonVariant="starter"
-                  className="h-full"
-                />,
-                <PricingPlanCard
-                  key="pro-fallback"
-                  variant="premium"
-                  name="Pro"
-                  description="Pour les professionnels qui veulent scaler leur sourcing et leur marge."
-                  price="279 CHF"
-                  period=" / mois"
-                  dealCountLabel="Jusqu'à 40 deals"
-                  features={PRICING_PRO_FEATURES}
-                  buttonText="Passer à Pro"
-                  buttonVariant="premium"
-                  isPopular
-                  className="h-full"
-                />,
-                <PricingPlanCard
-                  key="enterprise-fallback"
-                  variant="custom"
-                  name="Entreprise"
-                  description="Pour les groupes et gros volumes qui nécessitent un accompagnement sur mesure."
-                  customPriceLabel="Tarification personnalisée"
-                  dealCountLabel="Volume et exclusivités des deals selon vos besoins"
-                  features={PRICING_ENTERPRISE_FEATURES}
-                  buttonText="Demander une offre personnalisée"
-                  buttonVariant="custom"
-                  className="h-full"
-                />,
-              ]}
+        <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:items-stretch lg:gap-5">
+          <PricingPlanCard
+            variant="starter"
+            name="Starter"
+            description="Pour les petits garages et marchands qui démarrent leur veille sur l’occasion."
+            price="149 CHF"
+            period=" / mois"
+            dealCountLabel="Jusqu'à 20 deals"
+            features={PRICING_STARTER_FEATURES}
+            buttonText="Commencer avec Starter"
+            buttonVariant="starter"
+            className="h-full"
+          />
+          <PricingPlanCard
+            variant="premium"
+            name="Pro"
+            description="Pour les professionnels qui veulent scaler leur sourcing et leur marge."
+            price="279 CHF"
+            period=" / mois"
+            dealCountLabel="Jusqu'à 40 deals"
+            features={PRICING_PRO_FEATURES}
+            buttonText="Passer à Pro"
+            buttonVariant="premium"
+            isPopular
+            className="h-full"
+          />
+          <PricingPlanCard
+            variant="custom"
+            name="Entreprise"
+            description="Pour les groupes et gros volumes qui nécessitent un accompagnement sur mesure."
+            customPriceLabel="Tarification personnalisée"
+            dealCountLabel="Volume et exclusivités des deals selon vos besoins"
+            features={PRICING_ENTERPRISE_FEATURES}
+            buttonText="Demander une offre personnalisée"
+            buttonVariant="custom"
+            className="h-full"
+          />
         </div>
 
         <div className="mt-16 rounded-[28px] bg-[#FFF9F2] px-6 py-10 sm:px-10 sm:py-12">
@@ -782,7 +621,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-10 md:gap-12">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <a href="#" className="inline-flex items-center">
-              <CarPulseLogo variant="image" />
+              <CarPulseLogo />
             </a>
 
             <nav

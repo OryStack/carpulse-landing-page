@@ -9,6 +9,7 @@ import {
   User,
 } from "lucide-react";
 import { DemoFlowButton } from "./DemoFlowButton";
+import Link from "next/link";
 
 const ORANGE = "#FE6C0E";
 
