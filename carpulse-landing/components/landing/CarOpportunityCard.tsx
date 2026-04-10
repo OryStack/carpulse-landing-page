@@ -4,6 +4,8 @@ function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
+const DEMO_HREF = "https://dev.getcarpulse.com/planifier-demo";
+
 type CarOpportunityCardProps = {
   imageClass?: string;
   imageSrc?: string;
@@ -157,12 +159,12 @@ export function CarOpportunityCard({
           </span>
         </div>
 
-        <button
-          type="button"
-          className="mt-4 w-full rounded-[16px] bg-[#F3F4F6] py-3.5 text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]"
+        <a
+          href={DEMO_HREF}
+          className="mt-4 flex w-full items-center justify-center rounded-[16px] bg-[#F3F4F6] py-3.5 text-center text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]"
         >
           Voir détails
-        </button>
+        </a>
       </div>
       </article>
     </div>

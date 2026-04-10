@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 const ORANGE = "#FE6C0E";
+const DEMO_HREF = "https://dev.getcarpulse.com/planifier-demo";
 
 function NavItem({
   label,
@@ -143,13 +144,13 @@ function DealRowDesktop({
           <p className="text-[#6B7280]">Marge potentielle</p>
           <p className="text-sm font-bold text-emerald-600">{margin}</p>
         </div>
-        <button
-          type="button"
+        <a
+          href={DEMO_HREF}
           className="mt-1 rounded-[16px] px-3 py-1.5 text-[11px] font-semibold text-white shadow-sm"
           style={{ background: ORANGE }}
         >
           Voir détails
-        </button>
+        </a>
       </div>
     </div>
   );
