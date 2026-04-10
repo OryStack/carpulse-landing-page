@@ -19,20 +19,10 @@ import {
 } from "./landing-bottom-sections";
 import { Button } from "../ui/button";
 import { BarChart3, ScanSearch, Search, Sparkles, Medal, ClockFading ,ChartNoAxesColumn,Car} from "lucide-react";
-
 import { ScallopedPercentBadgeIcon } from "./ScallopedPercentBadgeIcon";
 
-const ORANGE = "#FF7A22";
-/** Orange maquette mobile / Figma */
 const MOBILE_ACCENT = "#FE6C0E";
-
-/**
- * Vidéo hero :
- * - Google Drive > 100 Mo : utiliser une iframe `/preview` (pas une balise `<video>`).
- * - Définir `NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID` si besoin.
- */
-const HERO_VIDEO_DRIVE_ID =
-  process.env.NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID ?? "1zT8mgqqjVJ-kyIdTlO3befMHMImON06l";
+const HERO_VIDEO_URL = "https://vimeo.com/1181924989?share=copy&fl=sv&fe=ci";
 
 const brandLogos = [
   { alt: "BMW", src: "/brands/bmw.png", w: 64, h: 64 },
@@ -240,7 +230,7 @@ export function Section03SingleFlow() {
           >
             <div className="relative aspect-video w-full">
               <DriveVideo
-                fileId={HERO_VIDEO_DRIVE_ID}
+                driveUrl={HERO_VIDEO_URL}
                 title="Vidéo CarPulse"
                 maxWidth="100%"
                 autoplayOnView
