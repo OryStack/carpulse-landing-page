@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 
 import { CarOpportunityCard } from "./CarOpportunityCard";
-import { AutoplayVideo } from "./AutoplayVideo";
+import { DriveVideo } from "../DriveVideo";
 import { CarPulseLogo } from "./CarPulseLogo";
 import { Container } from "./Container";
 import { DashboardMockup } from "./DashboardMockup";
@@ -27,12 +27,12 @@ const ORANGE = "#FF7A22";
 const MOBILE_ACCENT = "#FE6C0E";
 
 /**
- * Vidéo hero : ne pas committer de fichier > 100 Mo (limite GitHub).
- * En prod, définir `NEXT_PUBLIC_HERO_VIDEO_URL` (URL HTTPS hébergée).
- * En local, placer `VF CarPulse.mp4` dans `public/Video/` (ignoré par Git).
+ * Vidéo hero :
+ * - Google Drive > 100 Mo : utiliser une iframe `/preview` (pas une balise `<video>`).
+ * - Définir `NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID` si besoin.
  */
-const HERO_VIDEO_SRC =
-  process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/Video/VF%20CarPulse.mp4";
+const HERO_VIDEO_DRIVE_ID =
+  process.env.NEXT_PUBLIC_HERO_VIDEO_DRIVE_ID ?? "1zT8mgqqjVJ-kyIdTlO3befMHMImON06l";
 
 const brandLogos = [
   { alt: "BMW", src: "/brands/bmw.png", w: 64, h: 64 },
@@ -74,7 +74,7 @@ export function Section01Hero() {
       />
 
       <Container>
-        <header className="flex flex-col gap-4 py-5 sm:gap-6 sm:py-7 md:flex-row md:items-center md:justify-between">
+        <header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
           <div className="flex items-center justify-between gap-4 md:contents">
             <a href="#" className="inline-flex shrink-0 items-center">
               <CarPulseLogo priority />
@@ -84,7 +84,7 @@ export function Section01Hero() {
             </div>
           </div>
           <nav
-            className="flex w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] font-medium text-[#4B5563] sm:gap-x-5 md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[13px]"
+            className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[13px]"
             aria-label="Navigation principale"
           >
             <a href="#comment" className="hover:text-[#1A1A1A]">
@@ -139,28 +139,22 @@ export function Section01Hero() {
 
       <div className="relative mt-8 sm:mt-12">
         <Container>
-          <div className="mx-auto max-w-[1080px]">
-            <div className="relative z-10 overflow-hidden rounded-[28px] border border-white/80 bg-white p-1 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.12)] sm:rounded-[32px] sm:p-1.5 md:shadow-[0_28px_90px_-18px_rgba(0,0,0,0.16)]">
-              <div
-                className="pointer-events-none absolute -left-6 top-[18%] h-28 w-28 rounded-full border-2 border-[#FE6C0E]/20 sm:-left-8 sm:h-32 sm:w-32 sm:border-[#FE6C0E]/25"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute -right-8 top-[22%] h-36 w-36 rounded-full border-2 border-[#FE6C0E]/18 sm:-right-10 sm:h-40 sm:w-40"
-                aria-hidden
-              />
-              <div className="md:hidden">
-                <DashboardMockup />
-              </div>
-              <div className="hidden justify-center md:flex">
+          <div className="mx-auto w-fit max-w-full">
+            <div
+              className="h-[12px] w-[980px] mx-auto rounded-t-[12px]"
+              style={{ boxShadow: "0px -8px 16.8px 0px #0000000F" }}
+              aria-hidden
+            />
+            <div className="relative z-10 overflow-hidden rounded-[12px] border border-[#E5E5E5] border-solid border-1px sm:rounded-[16px]">
+              <div className="flex justify-center">
                 <Image
                   src="/landing/dashboard-mes-deals.png"
                   alt="Aperçu du dashboard CarPulse (Mes deals)"
                   width={1024}
                   height={752}
                   priority
-                  className="h-auto max-w-full select-none"
-                  sizes="(max-width: 1200px) 100vw, 1024px"
+                  className="h-auto w-[1024px] max-w-full select-none"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
                 />
               </div>
             </div>
@@ -245,40 +239,15 @@ export function Section03SingleFlow() {
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-1/2 top-[58%] z-0 hidden -translate-x-1/2 -translate-y-1/2 rounded-[999px] md:block"
-            style={{
-              width: "clamp(860px, 135vw, 1468px)",
-              maxWidth: 1468,
-              aspectRatio: "1468 / 999",
-              borderWidth: 5,
-              borderStyle: "solid",
-              borderImageSource:
-                "linear-gradient(356.32deg, #FFFFFF 20.45%, #FF963A 100.49%)",
-              borderImageSlice: 1,
-              padding: "clamp(18px, 3.2vw, 44px)",
-              opacity: 0.9,
-            }}
-            aria-hidden
-          >
-            <div
-              className="h-full w-full rounded-[999px]"
-              style={{
-                background:
-                  "linear-gradient(94.43deg, #FFF9F1 4.05%, #FFFFFF 56.01%)",
-                opacity: 0.85,
-              }}
-            />
-          </div>
-
-          <div
             className="relative z-10 overflow-hidden rounded-2xl border-2 border-white bg-[#E5E5E5] sm:rounded-[28px]"
-            style={{
-              boxShadow:
-                "0px 15px 32px 0px #0000001A, 0px 59px 59px 0px #00000017, 0px 132px 79px 0px #0000000D, 0px 234px 94px 0px #00000003, 0px 366px 103px 0px #00000000",
-            }}
           >
             <div className="relative aspect-video w-full">
-              <AutoplayVideo src={HERO_VIDEO_SRC} />
+              <DriveVideo
+                fileId={HERO_VIDEO_DRIVE_ID}
+                title="Vidéo CarPulse"
+                maxWidth="100%"
+                autoplayOnView
+              />
             </div>
           </div>
         </div>
