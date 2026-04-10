@@ -75,6 +75,10 @@ const navBtnClass =
 export function Section04Process() {
   const [index, setIndex] = useState(0);
   const n = slides.length;
+  const isSlide1 = index === 0;
+  const isSlide2 = index === 1;
+  const isSlide3 = index === 2;
+  const hasGradientTitle = isSlide1 || isSlide2 || isSlide3;
 
   const go = useCallback((delta: number) => {
     setIndex((i) => (i + delta + n) % n);
@@ -116,18 +120,19 @@ export function Section04Process() {
           priority
         />
         {/* Léger voile pour la lisibilité du texte à gauche, sans masquer la texture Figma */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/55 via-black/25 to-black/35" />
+        <div className="absolute inset-0 bg-linear-to-br from-black/55 via-black/25 to-black/35" />
       </div>
 
       <Container className="relative z-10">
         <p
-          className="text-center text-[11px] font-bold uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.2em]"
-          style={{ color: BRAND_ORANGE }}
+          className="mx-auto max-w-[860px] text-[#FFBC71] text-center text-balance text-2xl leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight"
         >
-          Comment CarPulse détecte les opportunités du marché
+          Comment CarPulse détecte les opportunités
+          du marché
+          <br />
         </p>
         <h2 className="mx-auto mt-5 max-w-[860px] text-center text-balance text-2xl font-bold leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
-          Un processus simple qui transforme des milliers d’annonces en
+          Un processus simple qui transforme des milliers <br />d’annonces en
           opportunités exploitables.
         </h2>
 
@@ -137,56 +142,167 @@ export function Section04Process() {
         >
           <div className="min-w-0 lg:pr-4">
             <h3
-              className="text-2xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight"
-              style={{ color: BRAND_ORANGE }}
+              className={
+                hasGradientTitle
+                  ? "bg-clip-text text-[38px] font-bold leading-[1.02] tracking-tight text-transparent sm:text-[44px] lg:text-[52px]"
+                  : "text-2xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight"
+              }
+              style={
+                hasGradientTitle
+                  ? {
+                      backgroundImage:
+                        "linear-gradient(43.89deg, #FE5E00 0%, #FFBC71 100%)",
+                    }
+                  : { color: BRAND_ORANGE }
+              }
             >
-              {slide.title}
+              {isSlide1 ? (
+                <>
+                  1. Analyse des
+                  <br />
+                  annonces
+                </>
+              ) : isSlide2 ? (
+                <>
+                  2. Comparaison
+                  <br />
+                  avec le marché
+                </>
+              ) : isSlide3 ? (
+                <>
+                  3. Détection des
+                  <br />
+                  opportunités
+                </>
+              ) : (
+                slide.title
+              )}
             </h3>
-            <p className="mt-5 text-[15px] leading-relaxed text-white/88">
-              {slide.body}
+            <p
+              className={
+                isSlide1 || isSlide2
+                  ? "mt-6 max-w-[520px] text-[13px] leading-[1.55] text-white/80 sm:text-[13.5px]"
+                  : "mt-5 text-[15px] leading-relaxed text-white/88"
+              }
+            >
+              {isSlide1 ? (
+                <>
+                  CarPulse scanne en continu les nouvelles annonces
+                  <br />
+                  publiées sur les principales plateformes automobiles.
+                  <br />
+                  Chaque véhicule est analysé selon plusieurs critères : prix,
+                  <br />
+                  kilométrage, version, équipements et historique du marché.
+                </>
+              ) : isSlide2 ? (
+                <>
+                  L&apos;algorithme compare chaque véhicule aux transactions et
+                  <br />
+                  annonces similaires.
+                  <br />
+                  Cela permet d&apos;identifier rapidement les écarts de prix et les
+                  <br />
+                  véhicules potentiellement sous-évalués.
+                </>
+              ) : isSlide3 ? (
+                <>
+                  Les véhicules présentant un potentiel sont automatiquement sélectionnés
+                  <br />
+                  et classés. Chaque opportunité inclut un score, une estimation du prix
+                  <br />
+                  marché et une analyse rapide du véhicule.
+                </>
+              ) : (
+                slide.body
+              )}
             </p>
 
             {slide.footer === "objectif" ? (
-              <div className="mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-sm">
+              <div
+                className={
+                  isSlide1
+                    ? "mt-7 inline-flex max-w-[520px] items-start gap-3 rounded-[10px] px-4 py-3"
+                    : "mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/6 p-4 backdrop-blur-sm"
+                }
+              >
                 <ScanSearch
-                  className="mt-0.5 h-6 w-6 shrink-0"
-                  style={{ color: BRAND_ORANGE }}
+                  className={isSlide1 ? "mt-0.5 h-[18px] w-[18px] shrink-0" : "mt-0.5 h-6 w-6 shrink-0"}
+                  style={{ color: isSlide1 ? "#FF8E2B" : BRAND_ORANGE }}
                   aria-hidden
                 />
-                <p className="text-[14px] leading-relaxed text-white/90">
-                  <span className="font-bold" style={{ color: BRAND_ORANGE }}>
+                <p
+                  className={
+                    isSlide1
+                      ? "text-[12.5px] leading-[1.45]"
+                      : "text-[14px] leading-relaxed text-white/90"
+                  }
+                  style={isSlide1 ? { color: "#FFD8A8" } : undefined}
+                >
+                  <span className="font-bold" style={{ color: isSlide1 ? "#FF8E2B" : BRAND_ORANGE }}>
                     Objectif :
                   </span>{" "}
-                  repérer les véhicules sous-évalués dès leur mise en ligne.
+                  repérer les véhicules sous-évalués dès leur <br /> mise en ligne.
                 </p>
               </div>
             ) : null}
 
             {slide.footer === "resultat" ? (
-              <div className="mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-sm">
+              <div
+                className={
+                  isSlide3
+                    ? "mt-7 inline-flex max-w-[560px] items-start gap-3"
+                    : "mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/6 p-4 backdrop-blur-sm"
+                }
+              >
                 <Rocket
-                  className="mt-0.5 h-6 w-6 shrink-0"
-                  style={{ color: BRAND_ORANGE }}
+                  className={isSlide3 ? "mt-0.5 h-[18px] w-[18px] shrink-0" : "mt-0.5 h-6 w-6 shrink-0"}
+                  style={{ color: isSlide3 ? "#FF8E2B" : BRAND_ORANGE }}
                   aria-hidden
                 />
-                <p className="text-[14px] leading-relaxed text-white/90">
-                  <span className="font-bold" style={{ color: BRAND_ORANGE }}>
+                <p
+                  className={isSlide3 ? "text-[12.5px] leading-[1.45]" : "text-[14px] leading-relaxed text-white/90"}
+                  style={isSlide3 ? { color: "#FFD8A8" } : undefined}
+                >
+                  <span className="font-bold" style={{ color: isSlide3 ? "#FF8E2B" : BRAND_ORANGE }}>
                     Résultat :
                   </span>{" "}
-                  vous ne manquez plus aucune bonne affaire. Vous décidez,
-                  achetez et revendez plus vite avec des marges maîtrisées.
+                  {isSlide3 ? (
+                    <>
+                      vous ne manquez plus aucune bonne
+                      <br />
+                      affaire. Vous décidez, achetez et revendez plus vite
+                      <br />
+                      avec des marges maîtrisées.
+                    </>
+                  ) : (
+                    <>
+                      vous ne manquez plus aucune bonne affaire. Vous décidez,
+                      achetez et revendez plus vite avec des marges maîtrisées.
+                    </>
+                  )}
                 </p>
               </div>
             ) : null}
           </div>
 
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none lg:justify-self-end">
-            <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
+            <div
+              className={
+                isSlide1
+                  ? "relative aspect-5/4 w-full overflow-visible"
+                  : "relative aspect-4/3 w-full sm:aspect-5/4"
+              }
+            >
               <Image
                 src={slide.visualSrc}
                 alt={slide.visualAlt}
                 fill
-                className="object-contain object-center drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)]"
+                className={
+                  isSlide1
+                    ? "object-contain object-right drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)] lg:scale-[1.06] lg:translate-x-4"
+                    : "object-contain object-center drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)]"
+                }
                 sizes="(min-width: 1024px) 50vw, 90vw"
                 priority={index === 0}
               />
