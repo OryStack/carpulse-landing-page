@@ -121,7 +121,7 @@ export function Section07Audience() {
                   plus intelligemment.
                 </p>
               </div>
-              <Button
+              <DemoFlowButton
                 variant="primary"
                 size="lg"
                 className="mt-8 rounded-[16px] sm:mt-10"
@@ -134,7 +134,7 @@ export function Section07Audience() {
                 }}
               >
                 Essayer CarPulse
-              </Button>
+              </DemoFlowButton>
             </div>
           </div>
         </div>
