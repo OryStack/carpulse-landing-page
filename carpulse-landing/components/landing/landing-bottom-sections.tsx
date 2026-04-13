@@ -71,11 +71,30 @@ export function Section07Audience() {
           </h2>
 
           <div className="relative mx-auto mt-14 max-w-5xl sm:mt-16">
+            {/* Mobile : liste verticale avec ligne */}
+            <div className="relative mx-auto max-w-sm sm:hidden">
+              <div
+                className="pointer-events-none absolute left-8 top-2 h-[calc(100%-16px)] w-px bg-[#FE6C0E]/35"
+                aria-hidden
+              />
+              <div className="space-y-6">
+                {personas.map((p) => (
+                  <div key={p.label} className="flex items-center gap-5">
+                    <AudienceIconCircle>{p.icon}</AudienceIconCircle>
+                    <p className="text-[18px] font-semibold leading-snug text-black">
+                      {p.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop/tablette : grille existante */}
             <div
               className="pointer-events-none absolute left-[8%] right-[8%] top-[32px] hidden h-px bg-[#FE6C0E]/35 sm:block"
               aria-hidden
             />
-            <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-4 lg:gap-6">
+            <div className="hidden grid-cols-2 gap-10 sm:grid sm:grid-cols-4 sm:gap-4 lg:gap-6">
               {personas.map((p) => (
                 <div
                   key={p.label}
@@ -199,10 +218,11 @@ export function Section08Testimonials() {
       </div>
 
       <Container className="relative">
-        <h2 className="text-center text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-[2.5rem]">
+        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-[2.5rem]">
           <span className="md:hidden">
-            <span className="text-[#FE6C0E]">Ils en parlent</span>{" "}
-            <span className="text-[#1A1A1A]">mieux que nous</span>
+            <span className="text-[#FE6C0E]">Ils en parlent</span> <span>mieux</span>
+            <br />
+            <span className="text-[#1A1A1A]">que nous</span>
           </span>
           <span className="hidden md:inline">
             <span style={{ color: ORANGE }}>Ils en parlent</span>{" "}
@@ -214,7 +234,7 @@ export function Section08Testimonials() {
           même longueur d&apos;avance.
         </p>
 
-        <div className="mx-auto mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+        <div className="mx-auto mt-8 flex items-center justify-center gap-4 sm:gap-4">
           <div className="flex -space-x-2" aria-hidden>
             {[0, 1, 2].map((i) => (
               <div
@@ -223,7 +243,7 @@ export function Section08Testimonials() {
               />
             ))}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
             <StarRow n={4} />
             <span className="text-[15px] font-bold text-[#1A1A1A]">
               +500 utilisateurs

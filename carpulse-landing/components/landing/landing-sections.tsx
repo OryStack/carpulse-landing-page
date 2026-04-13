@@ -452,26 +452,18 @@ export function Section05Opportunities() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="text-center text-2xl font-bold tracking-tight text-[#1A1A1A] sm:text-3xl md:text-left md:text-4xl">
               Opportunités{" "}
-              <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
+              <span style={{ color: MOBILE_ACCENT }}>détectées</span> <br/> pour vous
             </h2>
-            <DemoFlowButton
-              variant="primary"
-              size="sm"
-              className="hidden shrink-0 rounded-[16px] px-6 text-[12px] font-bold md:inline-flex"
-              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-            >
-              Analyses complètes
-            </DemoFlowButton>
-          </div>
-          <div className="flex justify-center md:hidden">
-            <DemoFlowButton
-              variant="primary"
-              size="lg"
-              className="w-full max-w-md rounded-[16px] px-8 text-[14px] font-bold"
-              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-            >
-              Analyses complètes
-            </DemoFlowButton>
+            <div className="hidden shrink-0 lg:flex lg:items-end">
+              <DemoFlowButton
+                variant="primary"
+                size="sm"
+                className="rounded-[16px] px-6 text-[12px] font-bold"
+                style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
+              >
+                Analyses complètes
+              </DemoFlowButton>
+            </div>
           </div>
         </div>
 
@@ -525,6 +517,17 @@ export function Section05Opportunities() {
             />
           </div>
         </div>
+
+        <div className="mt-8 flex justify-center md:hidden">
+          <DemoFlowButton
+            variant="primary"
+            size="sm"
+            className="rounded-[16px] px-10 text-[13px] font-bold"
+            style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
+          >
+            Analyses complètes
+          </DemoFlowButton>
+        </div>
       </Container>
     </section>
   );
@@ -564,23 +567,25 @@ export function Section06Automation() {
       <AutomationDecor />
       <Container className="relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <h2 className="max-w-xl text-balance text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl">
+          <h2 className="mx-auto max-w-xl text-balance text-center text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl md:mx-0 md:text-left">
             Une analyse du marché{" "}
             <span className="text-[#FE5E00]">entièrement automatisée</span>
           </h2>
-          <DemoFlowButton
-            variant="primary"
-            size="lg"
-            className="w-full max-w-md shrink-0 self-center rounded-[16px] px-7 md:w-auto md:max-w-none md:self-auto"
-            style={{
-              background:
-                "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
-              borderColor: "#FFBC71",
-              boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
-            }}
-          >
-            Réserver une démo gratuite
-          </DemoFlowButton>
+          <div className="hidden shrink-0 md:flex md:items-start md:self-auto">
+            <DemoFlowButton
+              variant="primary"
+              size="lg"
+              className="w-auto max-w-none self-auto rounded-[16px] px-7"
+              style={{
+                background:
+                  "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
+                borderColor: "#FFBC71",
+                boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
+              }}
+            >
+              Réserver une démo gratuite
+            </DemoFlowButton>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-16 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-20">
@@ -674,6 +679,22 @@ export function Section06Automation() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="mt-10 flex justify-center md:hidden">
+          <DemoFlowButton
+            variant="primary"
+            size="sm"
+            className="rounded-[16px] px-10 text-[13px] font-bold"
+            style={{
+              background:
+                "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
+              borderColor: "#FFBC71",
+              boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
+            }}
+          >
+            Réserver une démo gratuite
+          </DemoFlowButton>
         </div>
 
         <h2 className="mx-auto mt-24 max-w-3xl text-center text-balance text-3xl font-bold tracking-tight text-black sm:text-4xl">
