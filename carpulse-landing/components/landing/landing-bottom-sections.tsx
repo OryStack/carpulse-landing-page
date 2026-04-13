@@ -331,20 +331,26 @@ export function Section08Testimonials() {
 
         <div className="mx-auto mt-8 flex items-center justify-center gap-4 sm:gap-4">
           <div className="flex -space-x-2" aria-hidden>
-            {[0, 1, 2].map((i) => (
+            {["/Ellipse%20747.png", "/Ellipse%20748.png", "/Ellipse%20749.png"].map(
+              (src, i) => (
               <div
                 key={i}
                 className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white sm:h-11 sm:w-11"
               >
-                <Image
-                  src={''}
-                  alt={`Utilisateur ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="44px"
-                />
+                {src ? (
+                  <Image
+                    src={src}
+                    alt={`Utilisateur ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="44px"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-[#FE6C0E]" aria-hidden />
+                )}
               </div>
-            ))}
+              ),
+            )}
           </div>
           <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
             <StarRow n={4} />
