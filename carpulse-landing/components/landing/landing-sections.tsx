@@ -1,38 +1,38 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import { CarOpportunityCard } from "./CarOpportunityCard";
-import { DriveVideo } from "../DriveVideo";
-import { CarPulseLogo } from "./CarPulseLogo";
-import { Container } from "./Container";
-import { DashboardMockup } from "./DashboardMockup";
-import { MobileMenu } from "./MobileMenu";
-import { DemoFlowButton } from "./DemoFlowButton";
-import { Section04Process } from "./Section04Process";
+import { CarOpportunityCard } from './CarOpportunityCard';
+import { DriveVideo } from '../DriveVideo';
+import { CarPulseLogo } from './CarPulseLogo';
+import { Container } from './Container';
+import { DashboardMockup } from './DashboardMockup';
+import { MobileMenu } from './MobileMenu';
+import { DemoFlowButton } from './DemoFlowButton';
+import { Section04Process } from './Section04Process';
 import {
   Section07Audience,
   Section08Testimonials,
   Section09PricingTrust,
   Section10FaqCta,
   SiteFooter,
-} from "./landing-bottom-sections";
-import { Button } from "../ui/button";
-import { Search, Medal, ClockFading } from "lucide-react";
-import { ScallopedPercentBadgeIcon } from "./ScallopedPercentBadgeIcon";
+} from './landing-bottom-sections';
+import { Button } from '../ui/button';
+import { Search, Medal, ClockFading } from 'lucide-react';
+import { ScallopedPercentBadgeIcon } from './ScallopedPercentBadgeIcon';
 
-const MOBILE_ACCENT = "#FE6C0E";
-const HERO_VIDEO_URL = "https://vimeo.com/1181924989?share=copy&fl=sv&fe=ci";
+const MOBILE_ACCENT = '#FE6C0E';
+const HERO_VIDEO_URL = 'https://vimeo.com/1181924989?share=copy&fl=sv&fe=ci';
 
 const brandLogos = [
-  { alt: "BMW", src: "/brands/bmw.png", w: 64, h: 64 },
-  { alt: "Jaguar", src: "/brands/jaguar.png", w: 114, h: 64 },
-  { alt: "Mercedes-Benz", src: "/brands/mercedes.png", w: 128, h: 72 },
-  { alt: "Audi", src: "/brands/audi.png", w: 87, h: 32 },
-  { alt: "Tesla", src: "/brands/tesla.png", w: 62, h: 64 },
-  { alt: "Chevrolet", src: "/brands/chevrolet.png", w: 113, h: 64 },
-  { alt: "Kia", src: "/brands/kia.png", w: 113, h: 64 },
-  { alt: "Hyundai", src: "/brands/hyundai.png", w: 118, h: 64 },
+  { alt: 'BMW', src: '/brands/bmw.png', w: 64, h: 64 },
+  { alt: 'Jaguar', src: '/brands/jaguar.png', w: 114, h: 64 },
+  { alt: 'Mercedes-Benz', src: '/brands/mercedes.png', w: 128, h: 72 },
+  { alt: 'Audi', src: '/brands/audi.png', w: 87, h: 32 },
+  { alt: 'Tesla', src: '/brands/tesla.png', w: 62, h: 64 },
+  { alt: 'Chevrolet', src: '/brands/chevrolet.png', w: 113, h: 64 },
+  { alt: 'Kia', src: '/brands/kia.png', w: 113, h: 64 },
+  { alt: 'Hyundai', src: '/brands/hyundai.png', w: 118, h: 64 },
 ] as const;
 
 function SectionGlow() {
@@ -50,7 +50,7 @@ export function Section01Hero() {
       className="relative overflow-hidden pb-10 pt-3 sm:pb-14 sm:pt-4"
       style={{
         background:
-          "linear-gradient(1.29deg, #FF882B -22.66%, #FFF7ED 42.29%, #FFFFFF 94.04%)",
+          'linear-gradient(1.29deg, #FF882B -22.66%, #FFF7ED 42.29%, #FFFFFF 94.04%)',
       }}
     >
       {/* glows proches du design (bas gauche/droite) */}
@@ -91,7 +91,11 @@ export function Section01Hero() {
             >
               Se connecter
             </a>
-            <DemoFlowButton variant="secondary" size="sm" className="ml-0 md:ml-1">
+            <DemoFlowButton
+              variant="secondary"
+              size="sm"
+              className="ml-0 md:ml-1"
+            >
               Démo
             </DemoFlowButton>
           </nav>
@@ -99,8 +103,8 @@ export function Section01Hero() {
 
         <div className="relative pb-4 pt-2 text-center">
           <h1 className="mx-auto max-w-[920px] text-balance text-[28px] font-bold leading-[1.1] tracking-tight text-[#1A1A1A] sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
-            Détectez les{" "}
-            <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{" "}
+            Détectez les{' '}
+            <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{' '}
             avant vos concurrents.
           </h1>
           <p className="mx-auto mt-4 max-w-[640px] text-pretty text-[14px] leading-relaxed text-[#6B7280] sm:mt-5 md:mt-6">
@@ -115,7 +119,7 @@ export function Section01Hero() {
               className="w-full max-w-[320px] rounded-[16px] px-8 sm:w-auto sm:min-w-[200px]"
               style={{
                 background: `linear-gradient(180deg, ${MOBILE_ACCENT} 0%, #FF8A3D 100%)`,
-                borderColor: "#FFB366",
+                borderColor: '#FFB366',
               }}
               asChild
             >
@@ -130,7 +134,7 @@ export function Section01Hero() {
           <div className="mx-auto w-fit max-w-full">
             <div
               className="h-[12px] w-[980px] mx-auto rounded-t-[12px]"
-              style={{ boxShadow: "0px -8px 16.8px 0px #0000000F" }}
+              style={{ boxShadow: '0px -8px 16.8px 0px #0000000F' }}
               aria-hidden
             />
             <div className="relative z-10 overflow-hidden rounded-[12px] border border-[#E5E5E5] border-solid border-1px sm:rounded-[16px]">
@@ -155,14 +159,12 @@ export function Section01Hero() {
 
 export function Section02Logos() {
   return (
-    <section
-      className="relative z-20 -mt-20 bg-white py-9 pt-16 sm:-mt-20 sm:py-10 "
-    >
+    <section className="relative z-20 -mt-20 bg-white py-9 pt-16 sm:-mt-20 sm:py-10 ">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(90.02deg, #FFFFFF -3.45%, rgba(255, 255, 255, 0.425676) 17.96%, rgba(255, 255, 255, 0) 75.41%, #FFFFFF 104.13%)",
+            'linear-gradient(90.02deg, #FFFFFF -3.45%, rgba(255, 255, 255, 0.425676) 17.96%, rgba(255, 255, 255, 0) 75.41%, #FFFFFF 104.13%)',
         }}
         aria-hidden
       />
@@ -202,9 +204,7 @@ function FeatureCard({
   children: ReactNode;
 }) {
   return (
-    <div
-      className="rounded-3xl border border-[#FFE4CC] bg-[#FFF7ED] p-6 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.06)] sm:p-7 md:border-[1.5px] md:border-[#FFD8A8] md:bg-linear-to-b md:from-[#FDEFDE] md:to-[#FFFCF8] md:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.14)]"
-    >
+    <div className="rounded-3xl border border-[#FFE4CC] bg-[#FFF7ED] p-6 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.06)] sm:p-7 md:border-[1.5px] md:border-[#FFD8A8] md:bg-linear-to-b md:from-[#FDEFDE] md:to-[#FFFCF8] md:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.14)]">
       <div className="text-[#FE6C0E] md:text-[#FF7A22]">{icon}</div>
       <h3 className="mt-4 text-[15px] font-bold leading-snug text-[#1A1A1A] sm:mt-5">
         {title}
@@ -226,9 +226,7 @@ export function Section03SingleFlow() {
             className="pointer-events-none absolute left-1/2 top-[52%] z-0 hidden h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,122,34,0.20),transparent_62%)] blur-2xl md:block"
             aria-hidden
           />
-          <div
-            className="relative z-10 overflow-hidden rounded-2xl border-2 border-white bg-[#E5E5E5] sm:rounded-[28px]"
-          >
+          <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white bg-[#E5E5E5] sm:rounded-[28px]">
             <div className="relative aspect-video w-full">
               <DriveVideo
                 driveUrl={HERO_VIDEO_URL}
@@ -241,8 +239,8 @@ export function Section03SingleFlow() {
         </div>
 
         <h2 className="relative z-10 mx-auto mt-10 max-w-4xl text-center text-balance text-2xl font-bold tracking-tight text-[#1A1A1A] sm:mt-14 sm:text-3xl md:text-4xl">
-          Un seul flux pour les{" "}
-          <span style={{ color: MOBILE_ACCENT }}>meilleures opportunités</span>{" "}
+          Un seul flux pour les{' '}
+          <span style={{ color: MOBILE_ACCENT }}>meilleures opportunités</span>{' '}
           automobiles
         </h2>
 
@@ -256,14 +254,17 @@ export function Section03SingleFlow() {
           </FeatureCard>
           <FeatureCard
             icon={
-              <ScallopedPercentBadgeIcon className="h-8 w-8 shrink-0" aria-hidden />
+              <ScallopedPercentBadgeIcon
+                className="h-8 w-8 shrink-0"
+                aria-hidden
+              />
             }
             title="Augmentez vos marges"
           >
             Chaque véhicule est noté selon son écart au prix du marché.
           </FeatureCard>
           <FeatureCard
-            icon={<Medal  className="h-8 w-8" aria-hidden />}
+            icon={<Medal className="h-8 w-8" aria-hidden />}
             title="Décidez plus vite"
           >
             Un mini-rapport explique en quelques secondes pourquoi le deal vaut
@@ -298,11 +299,9 @@ export function Section03SingleFlow() {
               <rect width="100%" height="100%" fill="url(#topo-cta-m)" />
             </svg>
             <div className="relative">
-              <p className="text-xl font-bold leading-snug text-white max-md:text-[1.35rem] md:text-[1.65rem]">
-                <span className="md:hidden">Prêt à booster vos ventes ?</span>
-                <span className="hidden md:inline">
-                  Réservez une démo gratuite de 15 minutes
-                </span>
+              <p className="text-xl font-bold leading-snug text-white max-md:text-[1.5rem] md:text-[1.65rem]">
+                Réservez une démo <br className="md:hidden" />
+                gratuite de 15 minutes
               </p>
               <p className="mx-auto mt-4 max-w-xl text-[14px] leading-relaxed text-white/95 md:text-[15px]">
                 Découvrez comment CarPulse détecte les meilleures affaires avant
@@ -313,13 +312,10 @@ export function Section03SingleFlow() {
                 size="lg"
                 className="mt-8 max-md:w-full max-md:max-w-sm max-md:border-[#1F1F1F]! max-md:bg-[#1F1F1F]! max-md:text-white! max-md:hover:opacity-95"
                 style={{
-                  boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
+                  boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
                 }}
               >
-                <span className="md:hidden">Réserver ma démo maintenant</span>
-                <span className="hidden md:inline">
-                  Réserver une démo gratuite
-                </span>
+                <span className="md:inline">Réserver une démo gratuite</span>
               </DemoFlowButton>
             </div>
           </div>
@@ -333,7 +329,7 @@ function WhyStatCard({
   icon,
   title,
   children,
-  titleClass = "text-[#111827]",
+  titleClass = 'text-[#111827]',
 }: {
   icon: ReactNode;
   title: string;
@@ -360,23 +356,28 @@ export function Section04Why() {
             <span className="inline-flex items-center rounded-full border border-[#FE6C0E]/35 bg-[#FFF7ED] px-4 py-1.5 text-[12px] font-semibold text-[#FE6C0E]">
               Pourquoi CarPulse ?
             </span>
-            <h2 className="mt-6 text-balance text-3xl font-bold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl">
-              <span className="text-[#FE6C0E]">Le sourcing automobile,</span>
-              <br />
-              c’est devenu une course contre la montre
+            <h2 className="mt-6 text-3xl font-bold leading-[1.2] tracking-tight sm:text-4xl sm:leading-[1.15]">
+              <span className="block text-[#FE6C0E]">
+                Le sourcing{'\u00A0'}automobile,
+              </span>
+              <span className="mt-1 block text-[#111827] sm:mt-0.5">
+                c’est devenu une <br className="md:hidden" />
+                course contre la montre
+              </span>
             </h2>
           </div>
           <div className="space-y-5 text-[15px] leading-relaxed text-[#6B7280] lg:pt-1">
             <p>
-              Chaque jour, des milliers de nouvelles annonces apparaissent.
-              Les marges se resserrent et les meilleures opportunités disparaissent
-              souvent en quelques heures.
+              Chaque jour, des milliers de nouvelles annonces apparaissent.{' '}
+              <br />
+              Les marges se resserrent et les meilleures opportunités
+              disparaissent souvent en quelques heures.
             </p>
             <p>
-              Trouver le bon véhicule demande du temps : parcourir les annonces,
-              comparer les prix, appeler les vendeurs. CarPulse surveille le marché
-              en continu et vous alerte dès qu’un véhicule réellement rentable
-              apparaît.
+              Trouver le bon véhicule demande du temps : <br />
+              parcourir les annonces, comparer les prix, appeler les vendeurs.
+              CarPulse surveille le marché en continu et vous alerte dès qu’un
+              véhicule réellement rentable apparaît.
             </p>
           </div>
         </div>
@@ -431,25 +432,21 @@ export function Section04Why() {
           </WhyStatCard>
         </div>
 
-        <div
-          className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center sm:mt-14 sm:px-10 sm:py-12 lg:mt-16"
-          style={{
-            background:
-              "linear-gradient(180deg, #FEF8F2 0%, #FFFFFF 55%, #FFFFFF 100%)",
-          }}
-        >
-          <p className="mx-auto max-w-2xl text-balance text-3xl font-bold leading-snug text-[#111827] sm:text-4xl">
-            Prenez de l&apos;avance avec{" "}
-            <span className="text-[#FE6C0E]">CarPulse</span>
+        <div className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center max-sm:border-[#FEB578] max-sm:bg-[radial-gradient(ellipse_130%_110%_at_50%_38%,#FFFFFF_0%,#FFFCF9_35%,#FEF3EA_100%)] max-sm:py-12 sm:mt-14 sm:bg-[linear-gradient(180deg,#FEF8F2_0%,#FFFFFF_55%,#FFFFFF_100%)] sm:px-10 sm:py-12 lg:mt-16">
+          <p className="mx-auto max-w-2xl text-xl font-bold leading-snug text-[#111827] max-sm:text-[1.35rem] max-sm:leading-tight sm:text-balance sm:text-2xl">
+            Prenez de l&apos;avance avec <br className="sm:hidden" />
+            <span className="mt-1 block text-[#FE6C0E] sm:mt-0 sm:inline">
+              CarPulse
+            </span>
           </p>
           <DemoFlowButton
             variant="primary"
             size="lg"
-            className="mt-8"
+            className="mt-8 max-sm:mx-auto max-sm:w-full max-sm:max-w-sm"
             style={{
               background:
-                "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
-              boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
+                'linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)',
+              boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
             }}
           >
             Réserver une démo gratuite
@@ -467,27 +464,20 @@ export function Section05Opportunities() {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="text-center text-2xl font-bold tracking-tight text-[#1A1A1A] sm:text-3xl md:text-left md:text-4xl">
-              Opportunités{" "}
-              <span style={{ color: MOBILE_ACCENT }}>détectées</span> pour vous
+              Opportunités{' '}
+              <span style={{ color: MOBILE_ACCENT }}>détectées</span> <br />{' '}
+              pour vous
             </h2>
-            <DemoFlowButton
-              variant="primary"
-              size="sm"
-              className="hidden shrink-0 rounded-[16px] px-6 text-[12px] font-bold md:inline-flex"
-              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-            >
-              Analyses complètes
-            </DemoFlowButton>
-          </div>
-          <div className="flex justify-center md:hidden">
-            <DemoFlowButton
-              variant="primary"
-              size="lg"
-              className="w-full max-w-md rounded-[16px] px-8 text-[14px] font-bold"
-              style={{ background: "#FE6C0E", borderColor: "#FE6C0E" }}
-            >
-              Analyses complètes
-            </DemoFlowButton>
+            <div className="hidden shrink-0 lg:flex lg:items-end">
+              <DemoFlowButton
+                variant="primary"
+                size="sm"
+                className="rounded-[16px] px-6 text-[12px] font-bold"
+                style={{ background: '#FE6C0E', borderColor: '#FE6C0E' }}
+              >
+                Analyses complètes
+              </DemoFlowButton>
+            </div>
           </div>
         </div>
 
@@ -541,11 +531,21 @@ export function Section05Opportunities() {
             />
           </div>
         </div>
+
+        <div className="mt-8 flex justify-center md:hidden">
+          <DemoFlowButton
+            variant="primary"
+            size="sm"
+            className="rounded-[16px] px-10 text-[13px] font-bold"
+            style={{ background: '#FE6C0E', borderColor: '#FE6C0E' }}
+          >
+            Analyses complètes
+          </DemoFlowButton>
+        </div>
       </Container>
     </section>
   );
 }
-
 
 function AutomationDecor() {
   return (
@@ -580,23 +580,25 @@ export function Section06Automation() {
       <AutomationDecor />
       <Container className="relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <h2 className="max-w-xl text-balance text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl">
-            Une analyse du marché{" "}
+          <h2 className="mx-auto max-w-xl text-balance text-center text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl md:mx-0 md:text-left">
+            Une analyse du marché{' '}
             <span className="text-[#FE5E00]">entièrement automatisée</span>
           </h2>
-          <DemoFlowButton
-            variant="primary"
-            size="lg"
-            className="w-full max-w-md shrink-0 self-center rounded-[16px] px-7 md:w-auto md:max-w-none md:self-auto"
-            style={{
-              background:
-                "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
-              borderColor: "#FFBC71",
-              boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
-            }}
-          >
-            Réserver une démo gratuite
-          </DemoFlowButton>
+          <div className="hidden shrink-0 md:flex md:items-start md:self-auto">
+            <DemoFlowButton
+              variant="primary"
+              size="lg"
+              className="w-auto max-w-none self-auto rounded-[16px] px-7"
+              style={{
+                background:
+                  'linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)',
+                borderColor: '#FFBC71',
+                boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
+              }}
+            >
+              Réserver une démo gratuite
+            </DemoFlowButton>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-16 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-20">
@@ -626,8 +628,8 @@ export function Section06Automation() {
               </h3>
               <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
                 Chaque véhicule est évalué selon un indice de rentabilité et de
-                cohérence marché. Plus de doute : uniquement des décisions rapides
-                et fiables.
+                cohérence marché. Plus de doute : uniquement des décisions
+                rapides et fiables.
               </p>
             </div>
 
@@ -641,8 +643,8 @@ export function Section06Automation() {
               </h3>
               <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
                 Créez vos propres filtres : marque, année, kilométrage,
-                budget... L’application ne vous montre que ce que vous
-                voulez vraiment acheter.
+                budget... L’application ne vous montre que ce que vous voulez
+                vraiment acheter.
               </p>
             </div>
           </div>
@@ -661,7 +663,6 @@ export function Section06Automation() {
                 aria-label="Alertes : véhicule mis en avant et notifications sur les annonces"
                 className="mt-8 aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/alerte-instantanee.png')] bg-contain bg-center bg-no-repeat"
               />
-
             </div>
 
             <div>
@@ -695,18 +696,39 @@ export function Section06Automation() {
           </div>
         </div>
 
+        <div className="mt-10 flex justify-center md:hidden">
+          <DemoFlowButton
+            variant="primary"
+            size="sm"
+            className="rounded-[16px] px-10 text-[13px] font-bold"
+            style={{
+              background:
+                'linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)',
+              borderColor: '#FFBC71',
+              boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
+            }}
+          >
+            Réserver une démo gratuite
+          </DemoFlowButton>
+        </div>
+
         <h2 className="mx-auto mt-24 max-w-3xl text-center text-balance text-3xl font-bold tracking-tight text-black sm:text-4xl">
           Le <span className="text-[#FE6C0E]">marché automobile</span> analysé
           en continu
         </h2>
 
-        <div className="mx-auto mt-10 max-w-5xl rounded-[32px] border border-[1.5px] border-[#FFD8A8] px-6 py-10 sm:px-10 sm:py-12" style={{ background: "linear-gradient(180deg, #FFFCF8 30.29%, #FDEFDE 100%)" }}>
+        <div
+          className="mx-auto mt-10 max-w-5xl rounded-[32px] border border-[1.5px] border-[#FFD8A8] px-6 py-10 sm:px-10 sm:py-12"
+          style={{
+            background: 'linear-gradient(180deg, #FFFCF8 30.29%, #FDEFDE 100%)',
+          }}
+        >
           <div className="grid gap-10 divide-y divide-[#FFBC71] sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-y-0 sm:divide-[#FFBC71]">
             {[
               {
-                k: "1",
-                n: "+300K",
-                l: "Annonces analysées",
+                k: '1',
+                n: '+300K',
+                l: 'Annonces analysées',
                 icon: (
                   <svg
                     width="40"
@@ -779,9 +801,9 @@ export function Section06Automation() {
                 ),
               },
               {
-                k: "2",
-                n: "+6000",
-                l: "Nouvelles annonces chaque jour",
+                k: '2',
+                n: '+6000',
+                l: 'Nouvelles annonces chaque jour',
                 icon: (
                   <svg
                     width="40"
@@ -854,9 +876,9 @@ export function Section06Automation() {
                 ),
               },
               {
-                k: "3",
-                n: "+80",
-                l: "Opportunité rentable envoyée par jour",
+                k: '3',
+                n: '+80',
+                l: 'Opportunité rentable envoyée par jour',
                 icon: (
                   <svg
                     width="40"
@@ -929,10 +951,7 @@ export function Section06Automation() {
                 ),
               },
             ].map((s) => (
-              <div
-                key={s.k}
-                className="text-left sm:px-6 sm:py-1 lg:px-10"
-              >
+              <div key={s.k} className="text-left sm:px-6 sm:py-1 lg:px-10">
                 <div className="inline-flex text-[#FE6C0E]">{s.icon}</div>
                 <p className="mt-4 text-3xl font-bold text-black sm:text-4xl">
                   {s.n}
@@ -952,9 +971,9 @@ export function Section06Automation() {
             className="rounded-[16px] px-10"
             style={{
               background:
-                "linear-gradient(69.08deg, #FE6C0E 7.63%, #FF963A 54.5%)",
-              borderColor: "#FFBC71",
-              boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
+                'linear-gradient(69.08deg, #FE6C0E 7.63%, #FF963A 54.5%)',
+              borderColor: '#FFBC71',
+              boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
             }}
           >
             Voir les opportunités CarPulse
