@@ -337,7 +337,7 @@ export function Section08Testimonials() {
                 className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white sm:h-11 sm:w-11"
               >
                 <Image
-                  src={src}
+                  src={''}
                   alt={`Utilisateur ${i + 1}`}
                   fill
                   className="object-cover"
