@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { DemoFlowButton } from "./DemoFlowButton";
 
 const LINKS = [
-  { href: "#comment", label: "Comment ça marche" },
+  { href: "#processus", label: "Comment ça marche" },
   { href: "#faq", label: "FAQ" },
   { href: "#connexion", label: "Se connecter" },
 ] as const;
@@ -27,7 +27,7 @@ export function MobileMenu() {
     <>
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-[#1A1A1A] transition hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE6C0E]/40"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-[#1A1A1A] transition hover:bg-black/4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE6C0E]/40"
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
