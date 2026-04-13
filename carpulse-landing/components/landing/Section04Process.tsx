@@ -62,15 +62,15 @@ function ProcessNavDot({
       aria-current={active ? "step" : undefined}
       className={
         active
-          ? "h-2 w-8 rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.4)] transition-[width,opacity]"
-          : "h-2 w-2 rounded-full bg-white/30 transition hover:bg-white/45"
+          ? "h-2 w-2 shrink-0 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.35)] transition-[width,opacity] lg:h-2 lg:w-8 lg:shadow-[0_0_14px_rgba(255,255,255,0.4)]"
+          : "h-2 w-2 shrink-0 rounded-full bg-white/25 transition hover:bg-white/40 lg:bg-white/30 lg:hover:bg-white/45"
       }
     />
   );
 }
 
 const navBtnClass =
-  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[16px] border border-white/30 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45";
+  "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#A67C52]/70 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45 lg:h-11 lg:w-11 lg:rounded-[16px] lg:border-white/30";
 
 export function Section04Process() {
   const [index, setIndex] = useState(0);
@@ -124,18 +124,26 @@ export function Section04Process() {
           className="text-center text-[11px] font-bold uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.2em]"
           style={{ color: BRAND_ORANGE }}
         >
-          Comment CarPulse détecte les opportunités du marché
+          <span className="lg:hidden">Comment ça marche&nbsp;?</span>
+          <span className="hidden lg:inline">
+            Comment CarPulse détecte les opportunités du marché
+          </span>
         </p>
         <h2 className="mx-auto mt-5 max-w-[860px] text-center text-balance text-2xl font-bold leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
-          Un processus simple qui transforme des milliers d’annonces en
-          opportunités exploitables.
+          <span className="lg:hidden">
+            CarPulse travaille pour vous – 24h/24, sans rien laisser passer
+          </span>
+          <span className="hidden lg:inline">
+            Un processus simple qui transforme des milliers d’annonces en
+            opportunités exploitables.
+          </span>
         </h2>
 
         <div
           key={index}
-          className="mt-12 grid items-center gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
+          className="mt-10 grid items-center gap-8 max-lg:mt-12 max-lg:gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
         >
-          <div className="min-w-0 lg:pr-4">
+          <div className="order-2 min-w-0 max-lg:text-left lg:order-1 lg:pr-4">
             <h3
               className="text-2xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight"
               style={{ color: BRAND_ORANGE }}
@@ -147,7 +155,7 @@ export function Section04Process() {
             </p>
 
             {slide.footer === "objectif" ? (
-              <div className="mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-sm">
+              <div className="mt-8 flex gap-3">
                 <ScanSearch
                   className="mt-0.5 h-6 w-6 shrink-0"
                   style={{ color: BRAND_ORANGE }}
@@ -163,7 +171,7 @@ export function Section04Process() {
             ) : null}
 
             {slide.footer === "resultat" ? (
-              <div className="mt-8 flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-sm">
+              <div className="mt-8 flex gap-3">
                 <Rocket
                   className="mt-0.5 h-6 w-6 shrink-0"
                   style={{ color: BRAND_ORANGE }}
@@ -180,7 +188,7 @@ export function Section04Process() {
             ) : null}
           </div>
 
-          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none lg:justify-self-end">
+          <div className="relative order-1 mx-auto w-full max-w-[560px] lg:order-2 lg:max-w-none lg:justify-self-end">
             <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
               <Image
                 src={slide.visualSrc}
@@ -195,7 +203,7 @@ export function Section04Process() {
         </div>
 
         <div
-          className="mt-12 flex items-center justify-center gap-5 sm:mt-14 sm:gap-6"
+          className="mt-10 flex items-center justify-center gap-6 sm:mt-12 sm:gap-6 lg:mt-14 lg:gap-6"
           role="group"
           aria-label="Contrôles du carrousel"
         >

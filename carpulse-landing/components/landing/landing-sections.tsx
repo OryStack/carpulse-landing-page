@@ -308,11 +308,10 @@ export function Section03SingleFlow() {
               <rect width="100%" height="100%" fill="url(#topo-cta-m)" />
             </svg>
             <div className="relative">
-              <p className="text-xl font-bold leading-snug text-white max-md:text-[1.35rem] md:text-[1.65rem]">
-                <span className="md:hidden">Prêt à booster vos ventes ?</span>
-                <span className="hidden md:inline">
-                  Réservez une démo gratuite de 15 minutes
-                </span>
+              <p className="text-xl font-bold leading-snug text-white max-md:text-[1.5rem] md:text-[1.65rem]">
+                Réservez une démo{' '}
+                <br className="md:hidden" />
+                gratuite de 15 minutes
               </p>
               <p className="mx-auto mt-4 max-w-xl text-[14px] leading-relaxed text-white/95 md:text-[15px]">
                 Découvrez comment CarPulse détecte les meilleures affaires avant
@@ -326,8 +325,8 @@ export function Section03SingleFlow() {
                   boxShadow: "0px 4px 10px 0px #FFFFFF40 inset",
                 }}
               >
-                <span className="md:hidden">Réserver ma démo maintenant</span>
-                <span className="hidden md:inline">
+               
+                <span className="md:inline">
                   Réserver une démo gratuite
                 </span>
               </DemoFlowButton>
@@ -370,22 +369,25 @@ export function Section04Why() {
             <span className="inline-flex items-center rounded-full border border-[#FE6C0E]/35 bg-[#FFF7ED] px-4 py-1.5 text-[12px] font-semibold text-[#FE6C0E]">
               Pourquoi CarPulse ?
             </span>
-            <h2 className="mt-6 text-balance text-3xl font-bold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl">
-              <span className="text-[#FE6C0E]">Le sourcing automobile,</span>
-              <br />
-              c’est devenu une course contre la montre
+            <h2 className="mt-6 text-3xl font-bold leading-[1.2] tracking-tight sm:text-4xl sm:leading-[1.15]">
+              <span className="block text-[#FE6C0E]">
+                Le sourcing{'\u00A0'}automobile,
+              </span>
+              <span className="mt-1 block text-[#111827] sm:mt-0.5">
+                c’est devenu une{' '}
+                <br className="md:hidden" />
+                course contre la montre
+              </span>
             </h2>
           </div>
           <div className="space-y-5 text-[15px] leading-relaxed text-[#6B7280] lg:pt-1">
             <p>
-              Les bonnes affaires disparaissent en quelques heures. Sans
-              veille structurée, vous passez à côté des véhicules les plus
-              rentables.
+            Chaque jour, des milliers de nouvelles annonces apparaissent. <br />
+            Les marges se resserrent et les meilleures opportunités disparaissent souvent en quelques heures.
             </p>
             <p>
-              CarPulse surveille le marché en continu et ne vous envoie que ce
-              qui mérite vraiment votre attention : écart de prix, liquidité,
-              et potentiel de marge.
+            Trouver le bon véhicule demande du temps :  <br />parcourir les annonces, comparer les prix, appeler les vendeurs. 
+            CarPulse surveille le marché en continu et vous alerte dès qu’un véhicule réellement rentable apparaît.
             </p>
           </div>
         </div>
@@ -415,20 +417,19 @@ export function Section04Why() {
         </div>
 
         <div
-          className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center sm:mt-14 sm:px-10 sm:py-12 lg:mt-16"
-          style={{
-            background:
-              "linear-gradient(180deg, #FEF8F2 0%, #FFFFFF 55%, #FFFFFF 100%)",
-          }}
+          className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center max-sm:border-[#FEB578] max-sm:bg-[radial-gradient(ellipse_130%_110%_at_50%_38%,#FFFFFF_0%,#FFFCF9_35%,#FEF3EA_100%)] max-sm:py-12 sm:mt-14 sm:bg-[linear-gradient(180deg,#FEF8F2_0%,#FFFFFF_55%,#FFFFFF_100%)] sm:px-10 sm:py-12 lg:mt-16"
         >
-          <p className="mx-auto max-w-2xl text-balance text-xl font-bold leading-snug text-[#111827] sm:text-2xl">
+          <p className="mx-auto max-w-2xl text-xl font-bold leading-snug text-[#111827] max-sm:text-[1.35rem] max-sm:leading-tight sm:text-balance sm:text-2xl">
             Prenez de l&apos;avance avec{" "}
-            <span className="text-[#FE6C0E]">CarPulse</span>
+            <br className="sm:hidden" />
+            <span className="mt-1 block text-[#FE6C0E] sm:mt-0 sm:inline">
+              CarPulse
+            </span>
           </p>
           <DemoFlowButton
             variant="primary"
             size="lg"
-            className="mt-8"
+            className="mt-8 max-sm:mx-auto max-sm:w-full max-sm:max-w-sm"
             style={{
               background:
                 "linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)",
