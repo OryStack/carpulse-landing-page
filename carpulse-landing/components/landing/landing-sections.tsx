@@ -547,37 +547,64 @@ export function Section05Opportunities() {
   );
 }
 
-function AutomationDecor() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full text-[#FE5E00]/12"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 1200 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <path
-        d="M-40 120 C 200 40, 400 280, 620 200 S 980 80, 1240 200"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M80 420 C 320 300, 520 520, 780 440 S 1080 360, 1280 520"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-    </svg>
-  );
-}
-
 export function Section06Automation() {
+  const features = [
+    {
+      k: "analyse",
+      title: "Analyse intelligente du marché",
+      desc: "CarPulse scanne en continu toutes les nouvelles annonces disponibles. Aucune ne passe à la trappe : chaque véhicule est analysé au moment même de sa mise en ligne.",
+      aria: "Veille des annonces : cartes opportunités et indicateur de performance",
+      bg: "/automation/analyse-intelligente.png",
+      bgSize: "85%",
+    },
+    {
+      k: "scoring",
+      title: "Scoring clair et objectif",
+      desc: "Chaque véhicule est évalué selon un indice de rentabilité et de cohérence marché. Plus de doute : uniquement des décisions rapides et fiables.",
+      aria: "Scoring : comparaison prix marché, prix d’achat et marge potentielle",
+      bg: "/automation/scoring-objectif.png",
+      bgSize: "85%",
+    },
+    {
+      k: "filtrage",
+      title: "Filtrage sur mesure (Plan Pro)",
+      desc: "Créez vos propres filtres : marque, année, kilométrage, budget... L’application ne vous montre que ce que vous voulez vraiment acheter.",
+      aria:
+        "Filtres avancés : marque, kilométrage, localisation, rayon et fourchette de prix",
+      bg: "/automation/filtrage-sur-mesure.png",
+      bgSize: "82%",
+    },
+    {
+      k: "alerte",
+      title: "Alerte instantanée",
+      desc: "Dès qu’un modèle à fort potentiel apparaît, vous êtes prévenu avant tout le monde. Fini les heures passées à rafraîchir les plateformes.",
+      aria: "Alertes : véhicule mis en avant et notifications sur les annonces",
+      bg: "/automation/alerte-instantanee.png",
+      bgSize: "82%",
+    },
+    {
+      k: "zone",
+      title: "Zone d'action personnalisée",
+      desc: "Définissez votre rayon d'action — CarPulse ne vous envoie que les opportunités dans votre périmètre réel.",
+      aria: "Carte avec rayon d’action et annonces à proximité",
+      bg: "/automation/zone-action.png",
+      bgSize: "82%",
+    },
+    {
+      k: "suivi",
+      title: "Suivi analytique de performance",
+      desc: "Visualisez vos marges, achats et reventes dans un mini tableau de bord. Gardez une vision claire de votre rentabilité mensuelle.",
+      aria: "Tableau de bord analytique : bénéfices et statistiques",
+      bg: "/automation/suivi-performance.png",
+      bgSize: "80%",
+    },
+  ] as const;
+
   return (
     <section
       id="marche"
       className="relative overflow-hidden bg-white pb-20 pt-16 sm:pb-24 sm:pt-20"
     >
-      <AutomationDecor />
       <Container className="relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <h2 className="mx-auto max-w-xl text-balance text-center text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl md:mx-0 md:text-left">
@@ -601,99 +628,45 @@ export function Section06Automation() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-16 md:mt-16 md:grid-cols-2 md:gap-x-14 md:gap-y-20">
-          <div className="space-y-16 md:space-y-20">
-            <div>
-              <div
-                aria-label="Veille des annonces : cartes opportunités et indicateur de performance"
-                className="aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/analyse-intelligente.png')] bg-contain bg-center bg-no-repeat"
-              />
-              <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
-                Analyse intelligente du marché
-              </h3>
-              <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
-                CarPulse scanne en continu toutes les nouvelles annonces
-                disponibles. Aucune ne passe à la trappe : chaque véhicule est
-                analysé au moment même de sa mise en ligne.
-              </p>
-            </div>
+        <div className="mt-12 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:mx-auto lg:mt-16 lg:max-w-5xl lg:grid-cols-2">
+          {features.map((f, idx) => (
+            <article
+              key={f.k}
+              className="group relative overflow-hidden rounded-[24px] border border-[#F3E4D7] bg-[#FDF8F3] shadow-[0px_10px_28px_rgba(17,24,39,0.06)]"
+            >
+              <div className="flex h-full flex-col gap-4 px-4 py-5 sm:gap-5 sm:px-5">
+                <header
+                  className={[
+                    "space-y-2",
+                    idx % 2 === 1 ? "order-1" : "order-2",
+                  ].join(" ")}
+                >
+                  <h3 className="text-[18px] font-bold leading-tight tracking-tight text-[#111827] sm:text-[19px]">
+                    {f.title}
+                  </h3>
+                  <p className="text-[13.5px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                    {f.desc}
+                  </p>
+                </header>
 
-            <div>
-              <div
-                aria-label="Scoring : comparaison prix marché, prix d’achat et marge potentielle"
-                className="aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/scoring-objectif.png')] bg-contain bg-center bg-no-repeat"
-              />
-              <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
-                Scoring clair et objectif
-              </h3>
-              <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
-                Chaque véhicule est évalué selon un indice de rentabilité et de
-                cohérence marché. Plus de doute : uniquement des décisions
-                rapides et fiables.
-              </p>
-            </div>
-
-            <div>
-              <div
-                aria-label="Filtres avancés : marque, kilométrage, localisation, rayon et fourchette de prix"
-                className="aspect-809/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/filtrage-sur-mesure.png')] bg-contain bg-center bg-no-repeat"
-              />
-              <h3 className="mt-6 text-xl font-bold text-[#111827] sm:text-2xl">
-                Filtrage sur mesure (Plan Pro)
-              </h3>
-              <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
-                Créez vos propres filtres : marque, année, kilométrage,
-                budget... L’application ne vous montre que ce que vous voulez
-                vraiment acheter.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-16 md:space-y-20">
-            <div>
-              <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">
-                Alerte instantanée
-              </h3>
-              <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
-                Dès qu’un modèle à fort potentiel apparaît, vous êtes prévenu
-                avant tout le monde. Fini les heures passées à rafraîchir les
-                plateformes.
-              </p>
-              <div
-                aria-label="Alertes : véhicule mis en avant et notifications sur les annonces"
-                className="mt-8 aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/alerte-instantanee.png')] bg-contain bg-center bg-no-repeat"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">
-                Zone d&apos;action personnalisée
-              </h3>
-              <p className="mt-3 max-w-md text-[18px] leading-relaxed text-[#6B7280]">
-                Définissez votre rayon d&apos;action — CarPulse ne vous envoie
-                que les opportunités dans votre périmètre réel.
-              </p>
-              <div
-                aria-label="Carte avec rayon d’action et annonces à proximité"
-                className="mt-8 aspect-811/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/zone-action.png')] bg-contain bg-center bg-no-repeat"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">
-                Suivi analytique de performance
-              </h3>
-              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6B7280]">
-                Visualisez vos marges, achats et reventes dans un mini tableau
-                de bord. Gardez une vision claire de votre rentabilité
-                mensuelle.
-              </p>
-              <div
-                aria-label="Tableau de bord analytique : bénéfices et statistiques"
-                className="mt-8 aspect-813/720 w-full rounded-[40px] bg-[#FDF8F3] bg-[url('/automation/suivi-performance.png')] bg-contain bg-center bg-no-repeat "
-              />
-            </div>
-          </div>
+                <div
+                  className={[
+                    "rounded-[22px] bg-[#F7EFE6] ",
+                    idx % 2 === 1 ? "order-2" : "order-1",
+                  ].join(" ")}
+                >
+                  <div
+                    aria-label={f.aria}
+                    className="h-[160px] w-full rounded-[18px] bg-center bg-no-repeat sm:h-[175px] lg:h-[180px]"
+                    style={{
+                      backgroundImage: `url('${f.bg}')`,
+                      backgroundSize: "contain",
+                    }}
+                  />
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
 
         <div className="mt-10 flex justify-center md:hidden">
@@ -717,12 +690,7 @@ export function Section06Automation() {
           en continu
         </h2>
 
-        <div
-          className="mx-auto mt-10 max-w-5xl rounded-[32px] border border-[1.5px] border-[#FFD8A8] px-6 py-10 sm:px-10 sm:py-12"
-          style={{
-            background: 'linear-gradient(180deg, #FFFCF8 30.29%, #FDEFDE 100%)',
-          }}
-        >
+        <div className="mx-auto mt-10 max-w-5xl rounded-[32px] border-[1.5px] border-[#FFD8A8] px-6 py-10 sm:px-10 sm:py-12" style={{ background: "linear-gradient(180deg, #FFFCF8 30.29%, #FDEFDE 100%)" }}>
           <div className="grid gap-10 divide-y divide-[#FFBC71] sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-y-0 sm:divide-[#FFBC71]">
             {[
               {
