@@ -628,29 +628,41 @@ export function Section06Automation() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:mt-16 lg:grid-cols-3">
-          {features.map((f) => (
+        <div className="mt-12 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:mx-auto lg:mt-16 lg:max-w-5xl lg:grid-cols-2">
+          {features.map((f, idx) => (
             <article
               key={f.k}
-              className="group relative overflow-hidden rounded-[24px] border border-[#FFE1C2] bg-white shadow-[0px_10px_28px_rgba(17,24,39,0.06)]"
+              className="group relative overflow-hidden rounded-[24px] border border-[#F3E4D7] bg-[#FDF8F3] shadow-[0px_10px_28px_rgba(17,24,39,0.06)]"
             >
-              <div className="relative bg-[#FDF8F3] px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
-                <div
-                  aria-label={f.aria}
-                  className="h-[150px] w-full rounded-[18px] bg-center bg-no-repeat sm:h-[170px] lg:h-[180px]"
-                  style={{
-                    backgroundImage: `url('${f.bg}')`,
-                    backgroundSize: f.bgSize,
-                  }}
-                />
-
-                <div className="-mt-8 rounded-[18px] border border-[#FFE1C2] bg-white/95 px-4 py-4 backdrop-blur sm:-mt-10 sm:px-5">
-                  <h3 className="text-[16px] font-bold leading-snug text-[#111827] sm:text-[17px]">
+              <div className="flex h-full flex-col gap-4 px-4 py-5 sm:gap-5 sm:px-5">
+                <header
+                  className={[
+                    "space-y-2",
+                    idx % 2 === 1 ? "order-1" : "order-2",
+                  ].join(" ")}
+                >
+                  <h3 className="text-[18px] font-bold leading-tight tracking-tight text-[#111827] sm:text-[19px]">
                     {f.title}
                   </h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                  <p className="text-[13.5px] leading-relaxed text-[#6B7280] sm:text-[14px]">
                     {f.desc}
                   </p>
+                </header>
+
+                <div
+                  className={[
+                    "rounded-[22px] bg-[#F7EFE6] ",
+                    idx % 2 === 1 ? "order-2" : "order-1",
+                  ].join(" ")}
+                >
+                  <div
+                    aria-label={f.aria}
+                    className="h-[160px] w-full rounded-[18px] bg-center bg-no-repeat sm:h-[175px] lg:h-[180px]"
+                    style={{
+                      backgroundImage: `url('${f.bg}')`,
+                      backgroundSize: "contain",
+                    }}
+                  />
                 </div>
               </div>
             </article>
