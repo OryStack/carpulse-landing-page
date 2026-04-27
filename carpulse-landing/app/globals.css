@@ -42,6 +42,15 @@ input[type="reset"]:not(:disabled),
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-100%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
 /* Témoignages : défilement vertical continu (bas → haut) */
 @keyframes testimonials-marquee-up {
   from {

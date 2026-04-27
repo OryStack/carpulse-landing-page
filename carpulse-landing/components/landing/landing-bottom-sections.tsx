@@ -268,8 +268,6 @@ function TestimonialCard({
   role: string;
   faded?: boolean;
 }) {
-  const initials = getInitials(name);
-
   return (
     <article
       className={`rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] sm:p-8 ${
@@ -277,10 +275,16 @@ function TestimonialCard({
       }`}
     >
       <StarRow />
-      <p className="mt-4 text-[15px] leading-relaxed text-[#374151]">{quote}</p>
+      <p className="mt-4 text-[16px] leading-relaxed text-[#374151]">{quote}</p>
       <div className="mt-6 flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#FF7A22] to-[#FFA560] text-sm font-bold text-white">
-          {initials}
+        <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg">
+          <Image
+            src="/decor/Rectangle_852.png"
+            alt={name}
+            fill
+            className="object-cover"
+            sizes="44px"
+          />
         </div>
         <div>
           <p className="font-bold text-[#1A1A1A]">{name}</p>
@@ -305,10 +309,17 @@ export function Section08Testimonials() {
       className="testimonials-static-mobile relative overflow-hidden bg-[#FAFAFA] py-16 sm:bg-white sm:py-20 lg:py-24"
     >
       <div
-        className="pointer-events-none absolute -right-16 top-24 h-64 w-64 text-[#FF7A22]/15 sm:right-8 lg:top-32"
+        className="pointer-events-none absolute right-8 top-22 z-0 hidden sm:block lg:top-40"
+        style={{ width: '520px', height: '720px' }}
         aria-hidden
       >
-        <Star className="h-full w-full" aria-hidden />
+        <Image
+          src="/decor/Star_12.png"
+          alt=""
+          fill
+          className="object-contain"
+          sizes="520px"
+        />
       </div>
 
       <Container className="relative">
@@ -333,11 +344,10 @@ export function Section08Testimonials() {
           <div className="flex -space-x-2" aria-hidden>
             {["/Ellipse%20747.png", "/Ellipse%20748.png", "/Ellipse%20749.png"].map(
               (src, i) => (
-              <div
-                key={i}
-                className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white sm:h-11 sm:w-11"
-              >
-                {src ? (
+                <div
+                  key={i}
+                  className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white sm:h-11 sm:w-11"
+                >
                   <Image
                     src={src}
                     alt={`Utilisateur ${i + 1}`}
@@ -345,10 +355,7 @@ export function Section08Testimonials() {
                     className="object-cover"
                     sizes="44px"
                   />
-                ) : (
-                  <div className="absolute inset-0 bg-[#FE6C0E]" aria-hidden />
-                )}
-              </div>
+                </div>
               ),
             )}
           </div>
@@ -363,6 +370,7 @@ export function Section08Testimonials() {
         <div className="relative mx-auto mt-14 max-w-5xl">
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent sm:h-20" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-white to-transparent sm:h-32" />
+
           <div className="grid gap-6 md:grid-cols-2 md:gap-8">
             {[
               {
@@ -370,18 +378,24 @@ export function Section08Testimonials() {
                 className: 'testimonials-marquee-col',
                 items: [
                   {
-                    quote:
-                      "Je me suis mis à l'achat-revente il y a quelques mois, sans trop savoir par où commencer. Grâce à CarPulse, j'ai pu repérer mes premières vraies bonnes affaires rapidement.",
+                    quote: "Je me suis mis à l'achat-revente il y a quelques mois, sans trop savoir par où commencer. Grâce à CarPulse, j'ai pu repérer mes premières vraies bonnes affaires rapidement.",
                     name: 'Julien',
                     role: 'AutoStart Import, Vaud',
-                    faded: false,
                   },
                   {
-                    quote:
-                      "Le scoring et les mini-rapports nous font gagner un temps fou : on sait en un coup d'œil si le véhicule vaut le déplacement.",
+                    quote: "Le scoring et les mini-rapports nous font gagner un temps fou : on sait en un coup d'œil si le véhicule vaut le déplacement.",
                     name: 'Sarah M.',
                     role: 'Garage Léman, Genève',
-                    faded: true,
+                  },
+                  {
+                    quote: "En moins d'une semaine, j'avais déjà trouvé un véhicule avec plus de 2 000 CHF de marge potentielle. L'outil parle vraiment aux professionnels.",
+                    name: 'Thomas R.',
+                    role: 'Négociant auto, Lausanne',
+                  },
+                  {
+                    quote: "CarPulse m'a permis de structurer mon activité. Je ne cherche plus au hasard, je reçois les bonnes opportunités directement.",
+                    name: 'Karim B.',
+                    role: 'Revendeur indépendant, Fribourg',
                   },
                 ],
               },
@@ -390,18 +404,24 @@ export function Section08Testimonials() {
                 className: 'testimonials-marquee-col max-md:hidden md:mt-14',
                 items: [
                   {
-                    quote:
-                      "Nous sourcions plusieurs marques : CarPulse centralise les signaux et évite qu'on rate les annonces qui partent en quelques heures.",
+                    quote: "Nous sourcions plusieurs marques : CarPulse centralise les signaux et évite qu'on rate les annonces qui partent en quelques heures.",
                     name: 'Marc D.',
                     role: 'Revendeur indépendant, Neuchâtel',
-                    faded: false,
                   },
                   {
-                    quote:
-                      "L'alerte instantanée sur la zone d'action est devenue notre réflexe du matin — avant le café.",
+                    quote: "L'alerte instantanée sur la zone d'action est devenue notre réflexe du matin — avant le café.",
                     name: 'Équipe Delta Auto',
                     role: 'Import & négoce, Zurich',
-                    faded: true,
+                  },
+                  {
+                    quote: "La comparaison avec le prix du marché est ultra précise. On ne perd plus de temps à valider manuellement chaque annonce.",
+                    name: 'Pierre L.',
+                    role: 'Garage familial, Berne',
+                  },
+                  {
+                    quote: "J'utilise CarPulse depuis 3 mois et mes marges moyennes ont clairement progressé. Je recommande à tous ceux qui font de l'achat-revente sérieusement.",
+                    name: 'Nadia F.',
+                    role: 'Marchande auto, Genève',
                   },
                 ],
               },
@@ -420,7 +440,7 @@ export function Section08Testimonials() {
                       quote={t.quote}
                       name={t.name}
                       role={t.role}
-                      faded={t.faded}
+                      faded={false}
                     />
                   ))}
                 </div>

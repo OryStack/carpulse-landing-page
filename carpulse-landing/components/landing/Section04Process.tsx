@@ -37,7 +37,7 @@ const slides: ProcessSlide[] = [
     body: 'Les véhicules présentant un potentiel sont automatiquement sélectionnés et classés. Chaque opportunité inclut un score, une estimation du prix marché et une analyse rapide du véhicule.',
     visualSrc: '/process/decor-comparison.png',
     visualAlt:
-      'Sélection d’opportunités et alertes sur les bonnes affaires automobiles',
+    "Sélection d'opportunités et alertes sur les bonnes affaires automobiles",
     footer: 'resultat',
   },
 ];
@@ -55,7 +55,7 @@ function ProcessNavDot({
     <button
       type="button"
       onClick={onClick}
-      aria-label={`Afficher l’étape : ${stepLabel}`}
+      aria-label={`Afficher l'étape : ${stepLabel}`}
       aria-current={active ? 'step' : undefined}
       className={
         active
@@ -108,7 +108,7 @@ export function Section04Process() {
       id="processus"
       aria-roledescription="carousel"
       aria-label="Comment CarPulse détecte les opportunités du marché"
-      className="relative overflow-hidden bg-black py-16 text-white sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-black py-10 text-white"
     >
       <div
         className="pointer-events-none absolute inset-0 select-none"
@@ -122,7 +122,6 @@ export function Section04Process() {
           sizes="100vw"
           priority
         />
-        {/* Léger voile pour la lisibilité du texte à gauche, sans masquer la texture Figma */}
         <div className="absolute inset-0 bg-linear-to-br from-black/55 via-black/25 to-black/35" />
       </div>
 
@@ -138,7 +137,7 @@ export function Section04Process() {
             CarPulse travaille pour vous – 24h/24, sans rien laisser passer
           </span>
           <span className="hidden lg:inline">
-            Un processus simple qui transforme des milliers d’annonces en
+            Un processus simple qui transforme des milliers d'annonces en
             opportunités exploitables.
           </span>
         </h2>
@@ -188,8 +187,8 @@ export function Section04Process() {
             <p
               className={
                 isSlide1 || isSlide2
-                  ? 'mt-6 max-w-[520px] text-[13px] leading-[1.55] text-white/80 sm:text-[13.5px]'
-                  : 'mt-5 text-[15px] leading-relaxed text-white/88'
+                  ? 'mt-6 max-w-[520px] text-[16px] leading-[1.55] text-white/80'
+                  : 'mt-5 text-[16px] leading-relaxed text-white/88'
               }
             >
               {isSlide1 ? (
@@ -231,26 +230,15 @@ export function Section04Process() {
             {slide.footer === 'objectif' ? (
               <div className="mt-8 flex gap-3">
                 <ScanSearch
-                  className={
-                    isSlide1
-                      ? 'mt-0.5 h-[18px] w-[18px] shrink-0'
-                      : 'mt-0.5 h-6 w-6 shrink-0'
-                  }
-                  style={{ color: isSlide1 ? '#FF8E2B' : BRAND_ORANGE }}
+                  className="mt-3 h-[18px] w-[18px] shrink-0"
+                  style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className={
-                    isSlide1
-                      ? 'text-[12.5px] leading-[1.45]'
-                      : 'text-[14px] leading-relaxed text-white/90'
-                  }
-                  style={isSlide1 ? { color: '#FFD8A8' } : undefined}
+                  className="text-[16px] leading-[1.55]"
+                  style={{ color: '#FFD8A8' }}
                 >
-                  <span
-                    className="font-bold"
-                    style={{ color: isSlide1 ? '#FF8E2B' : BRAND_ORANGE }}
-                  >
+                  <span className="font-bold" style={{ color: '#FF8E2B' }}>
                     Objectif :
                   </span>{' '}
                   repérer les véhicules sous-évalués dès leur <br /> mise en
@@ -262,42 +250,22 @@ export function Section04Process() {
             {slide.footer === 'resultat' ? (
               <div className="mt-8 flex gap-3">
                 <Rocket
-                  className={
-                    isSlide3
-                      ? 'mt-0.5 h-[18px] w-[18px] shrink-0'
-                      : 'mt-0.5 h-6 w-6 shrink-0'
-                  }
-                  style={{ color: isSlide3 ? '#FF8E2B' : BRAND_ORANGE }}
+                  className="mt-0.5 h-[18px] w-[18px] shrink-0"
+                  style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className={
-                    isSlide3
-                      ? 'text-[12.5px] leading-[1.45]'
-                      : 'text-[14px] leading-relaxed text-white/90'
-                  }
-                  style={isSlide3 ? { color: '#FFD8A8' } : undefined}
+                  className="text-[16px] leading-[1.55]"
+                  style={{ color: '#FFD8A8' }}
                 >
-                  <span
-                    className="font-bold"
-                    style={{ color: isSlide3 ? '#FF8E2B' : BRAND_ORANGE }}
-                  >
+                  <span className="font-bold" style={{ color: '#FF8E2B' }}>
                     Résultat :
                   </span>{' '}
-                  {isSlide3 ? (
-                    <>
-                      vous ne manquez plus aucune bonne
-                      <br />
-                      affaire. Vous décidez, achetez et revendez plus vite
-                      <br />
-                      avec des marges maîtrisées.
-                    </>
-                  ) : (
-                    <>
-                      vous ne manquez plus aucune bonne affaire. Vous décidez,
-                      achetez et revendez plus vite avec des marges maîtrisées.
-                    </>
-                  )}
+                  vous ne manquez plus aucune bonne
+                  <br />
+                  affaire. Vous décidez, achetez et revendez plus vite
+                  <br />
+                  avec des marges maîtrisées.
                 </p>
               </div>
             ) : null}

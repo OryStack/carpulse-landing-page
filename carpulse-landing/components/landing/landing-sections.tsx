@@ -74,7 +74,7 @@ export function Section01Hero() {
             </div>
           </div>
           <nav
-            className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[13px]"
+            className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[18px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[16px]"
             aria-label="Navigation principale"
           >
             <a href="#processus" className="hover:text-[#1A1A1A]">
@@ -107,7 +107,7 @@ export function Section01Hero() {
             <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{' '}
             avant vos concurrents.
           </h1>
-          <p className="mx-auto mt-4 max-w-[640px] text-pretty text-[14px] leading-relaxed text-[#6B7280] sm:mt-5 md:mt-6">
+          <p className="mx-auto mt-4 max-w-[640px] text-pretty text-[18px] leading-relaxed text-[#6B7280] sm:mt-5 md:mt-6">
             CarPulse analyse automatiquement le marché des annonces automobiles
             et vous envoie uniquement les véhicules avec un réel potentiel de
             marge.
@@ -130,70 +130,77 @@ export function Section01Hero() {
       </Container>
 
       <div className="relative mt-8 sm:mt-12">
-        <Container>
-          <div className="mx-auto w-fit max-w-full">
-            <div
-              className="h-[12px] w-[980px] mx-auto rounded-t-[12px]"
-              style={{ boxShadow: '0px -8px 16.8px 0px #0000000F' }}
-              aria-hidden
-            />
-            <div className="relative z-10 overflow-hidden rounded-[12px] border border-[#E5E5E5] border-solid border-1px sm:rounded-[16px]">
-              <div className="flex justify-center">
-                <Image
-                  src="/landing/dashboard-mes-deals.png"
-                  alt="Aperçu du dashboard CarPulse (Mes deals)"
-                  width={1024}
-                  height={752}
-                  priority
-                  className="h-auto w-[1024px] max-w-full select-none"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
+  <Container>
+    <div className="mx-auto w-fit max-w-full">
+      <div className="relative z-10 overflow-hidden rounded-[12px]  sm:rounded-[16px]">
+        <div className="flex justify-center">
+          <Image
+            src="/landing/Frame_2304.png"
+            alt="Aperçu du dashboard CarPulse (Mes deals)"
+            width={1156}
+            height={613}
+            priority
+            className="h-auto w-[1156px] max-w-full select-none"
+            sizes="(max-width: 1156px) 100vw, 1156px"
+          />
+        </div>
       </div>
+    </div>
+  </Container>
+</div>
     </section>
   );
 }
 
 export function Section02Logos() {
   return (
-    <section className="relative z-20 -mt-20 bg-white py-9 pt-16 sm:-mt-20 sm:py-10 ">
+    <section className="relative z-20 -mt-20 overflow-hidden bg-white py-9 pt-16 sm:-mt-20 sm:py-10">
+      {/* fade edges */}
       <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(90.02deg, #FFFFFF -3.45%, rgba(255, 255, 255, 0.425676) 17.96%, rgba(255, 255, 255, 0) 75.41%, #FFFFFF 104.13%)',
-        }}
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 sm:w-32"
+        style={{ background: 'linear-gradient(90deg, #FFFFFF 60%, transparent)' }}
         aria-hidden
       />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 sm:w-32"
+        style={{ background: 'linear-gradient(270deg, #FFFFFF 60%, transparent)' }}
+        aria-hidden
+      />
+
       <Container>
         <h2 className="mb-8 text-center text-xl font-bold tracking-tight text-[#1A1A1A] md:hidden">
           Ils nous font confiance
         </h2>
-        <div className="relative flex flex-wrap items-center justify-center gap-x-10 gap-y-7 sm:flex-nowrap sm:justify-between sm:gap-x-8 lg:gap-x-12">
-          {brandLogos.map((b) => (
-            <div
-              key={b.src}
-              className="flex h-9 items-center justify-center opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0 sm:h-10"
-            >
-              <Image
-                src={b.src}
-                alt={b.alt}
-                width={b.w}
-                height={b.h}
-                className="h-[34px] w-auto select-none object-contain sm:h-[38px]"
-                sizes="160px"
-              />
-            </div>
-          ))}
-        </div>
       </Container>
+
+      <div className="flex">
+        {[0, 1].map((i) => (
+          <div
+            key={i}
+            className="flex shrink-0 animate-marquee items-center gap-x-14 px-7"
+            aria-hidden={i === 1}
+          >
+            {brandLogos.map((b) => (
+              <div
+                key={b.src}
+                className="flex h-9 items-center justify-center opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0 sm:h-10"
+              >
+                <Image
+                  src={b.src}
+                  alt={b.alt}
+                  width={b.w}
+                  height={b.h}
+                  className="h-[34px] w-auto select-none object-contain sm:h-[38px]"
+                  sizes="160px"
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
-
 function FeatureCard({
   icon,
   title,
@@ -206,10 +213,10 @@ function FeatureCard({
   return (
     <div className="rounded-3xl border border-[#FFE4CC] bg-[#FFF7ED] p-6 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.06)] sm:p-7 md:border-[1.5px] md:border-[#FFD8A8] md:bg-linear-to-b md:from-[#FDEFDE] md:to-[#FFFCF8] md:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.14)]">
       <div className="text-[#FE6C0E] md:text-[#FF7A22]">{icon}</div>
-      <h3 className="mt-4 text-[15px] font-bold leading-snug text-[#1A1A1A] sm:mt-5">
+      <h3 className="mt-4 text-[20px] font-bold leading-snug text-[#1A1A1A] sm:mt-5">
         {title}
       </h3>
-      <p className="mt-2.5 text-[13px] leading-relaxed text-[#4B5563]">
+      <p className="mt-2.5 text-[16px] leading-relaxed text-[#4B5563]">
         {children}
       </p>
     </div>
@@ -219,111 +226,151 @@ function FeatureCard({
 export function Section03SingleFlow() {
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-20 lg:py-24">
+
+<div
+  className="pointer-events-none absolute left-1/2 -translate-x-1/2"
+  style={{ top: '0px' }}
+  aria-hidden
+>
+  <div className="relative
+    w-[900px] h-[520px]
+    sm:w-[1200px] sm:h-[700px]
+    lg:w-[1600px] lg:h-[900px]
+    -translate-x-0 translate-y-[20%]
+    sm:translate-y-[28%]
+    lg:translate-y-[35%]
+  ">
+    <Image
+      src="/decor/Ellipse_790.png"
+      alt=""
+      fill
+      className="object-contain"
+      sizes="(max-width: 640px) 900px, (max-width: 1024px) 1200px, 1600px"
+    />
+  </div>
+</div>
+
       <Container>
-        <div className="relative mx-auto max-w-5xl isolate">
-          {/* décor desktop */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-[52%] z-0 hidden h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,122,34,0.20),transparent_62%)] blur-2xl md:block"
-            aria-hidden
-          />
-          <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white bg-[#E5E5E5] sm:rounded-[28px]">
-            <div className="relative aspect-video w-full">
-              <DriveVideo
-                driveUrl={HERO_VIDEO_URL}
-                title="Vidéo CarPulse"
-                maxWidth="100%"
-                autoplayOnView
-              />
+        <div className="mx-auto max-w-5xl">
+
+          {/* Vidéo + anneau orange */}
+          <div className="relative">
+            <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white bg-[#E5E5E5] shadow-[0_24px_64px_rgba(0,0,0,0.10)] sm:rounded-[28px]">
+              <div className="relative aspect-video w-full">
+                <DriveVideo
+                  driveUrl={HERO_VIDEO_URL}
+                  title="Vidéo CarPulse"
+                  maxWidth="100%"
+                  autoplayOnView
+                />
+              </div>
             </div>
-          </div>
-        </div>
 
-        <h2 className="relative z-10 mx-auto mt-10 max-w-4xl text-center text-balance text-2xl font-bold tracking-tight text-[#1A1A1A] sm:mt-14 sm:text-3xl md:text-4xl">
-          Un seul flux pour les{' '}
-          <span style={{ color: MOBILE_ACCENT }}>meilleures opportunités</span>{' '}
-          automobiles
-        </h2>
-
-        <div className="relative z-10 mt-8 grid gap-4 sm:mt-10 md:mt-12 md:grid-cols-3 md:gap-6">
-          <FeatureCard
-            icon={<ClockFading className="h-8 w-8 shrink-0" aria-hidden />}
-            title="Gagnez du temps"
-          >
-            Plus besoin de fouiller les plateformes, les meilleures opportunités
-            viennent à vous.
-          </FeatureCard>
-          <FeatureCard
-            icon={
-              <ScallopedPercentBadgeIcon
-                className="h-8 w-8 shrink-0"
-                aria-hidden
-              />
-            }
-            title="Augmentez vos marges"
-          >
-            Chaque véhicule est noté selon son écart au prix du marché.
-          </FeatureCard>
-          <FeatureCard
-            icon={<Medal className="h-8 w-8" aria-hidden />}
-            title="Décidez plus vite"
-          >
-            Un mini-rapport explique en quelques secondes pourquoi le deal vaut
-            le coup.
-          </FeatureCard>
-        </div>
-
-        <div className="relative z-10 mx-auto mt-10 max-w-5xl md:mt-16">
-          <div className="relative overflow-hidden rounded-[28px] bg-[#FE6C0E] px-5 py-10 text-center sm:px-12 sm:py-14 md:bg-[linear-gradient(69.08deg,#FE5E00_7.63%,#FF963A_54.5%)]">
-            <svg
-              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] max-md:block md:hidden"
-              xmlns="http://www.w3.org/2000/svg"
+            {/* Ellipse_792 — anneau orange, centré, dépasse légèrement sous la vidéo */}
+            <div
+              className="pointer-events-none absolute bottom-0 left-1/2 z-0 -translate-x-1/2 translate-y-[15%]"
+              style={{ width: '220px', height: '220px' }}
               aria-hidden
             >
-              <defs>
-                <pattern
-                  id="topo-cta-m"
-                  x="0"
-                  y="0"
-                  width="80"
-                  height="80"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M0 40 Q20 20 40 40 T80 40M0 60 Q30 40 60 60 T100 60M20 0 Q40 20 20 40"
-                    fill="none"
-                    stroke="#fff"
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#topo-cta-m)" />
-            </svg>
-            <div className="relative">
-              <p className="text-xl font-bold leading-snug text-white max-md:text-[1.5rem] md:text-[1.65rem]">
-                Réservez une démo <br className="md:hidden" />
-                gratuite de 15 minutes
-              </p>
-              <p className="mx-auto mt-4 max-w-xl text-[14px] leading-relaxed text-white/95 md:text-[15px]">
-                Découvrez comment CarPulse détecte les meilleures affaires avant
-                tout le monde.
-              </p>
-              <DemoFlowButton
-                variant="secondary"
-                size="lg"
-                className="mt-8 max-md:w-full max-md:max-w-sm max-md:border-[#1F1F1F]! max-md:bg-[#1F1F1F]! max-md:text-white! max-md:hover:opacity-95"
-                style={{
-                  boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
-                }}
-              >
-                <span className="md:inline">Réserver une démo gratuite</span>
-              </DemoFlowButton>
+              <Image
+                src="/decor/Ellipse_792.png"
+                alt=""
+                fill
+                className="object-contain"
+                sizes="220px"
+              />
             </div>
           </div>
+
+          <h2 className="relative z-10 mt-16 text-center text-balance text-3xl font-bold tracking-tight text-[#1A1A1A] sm:mt-20 sm:text-4xl md:text-5xl">
+            Un seul flux pour les{' '}
+            <span style={{ color: MOBILE_ACCENT }}>meilleures opportunités</span>{' '}
+            automobiles
+          </h2>
+
+          <div className="relative z-10 mt-8 grid gap-4 sm:mt-10 md:mt-12 md:grid-cols-3 md:gap-6">
+            <FeatureCard
+              icon={<ClockFading className="h-8 w-8 shrink-0" aria-hidden />}
+              title="Gagnez du temps"
+            >
+              Plus besoin de fouiller les plateformes, les meilleures opportunités
+              viennent à vous.
+            </FeatureCard>
+            <FeatureCard
+              icon={
+                <ScallopedPercentBadgeIcon
+                  className="h-8 w-8 shrink-0"
+                  aria-hidden
+                />
+              }
+              title="Augmentez vos marges"
+            >
+              Chaque véhicule est noté selon son écart au prix du marché.
+            </FeatureCard>
+            <FeatureCard
+              icon={<Medal className="h-8 w-8" aria-hidden />}
+              title="Décidez plus vite"
+            >
+              Un mini-rapport explique en quelques secondes pourquoi le deal vaut
+              le coup.
+            </FeatureCard>
+          </div>
+
+          <div className="relative z-10 mt-10 md:mt-16">
+            <div className="relative overflow-hidden rounded-[28px] bg-[#FE6C0E] px-5 py-10 text-center sm:px-12 sm:py-14 md:bg-[linear-gradient(69.08deg,#FE5E00_7.63%,#FF963A_54.5%)]">
+              <svg
+                className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] max-md:block md:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden
+              >
+                <defs>
+                  <pattern
+                    id="topo-cta-m"
+                    x="0"
+                    y="0"
+                    width="80"
+                    height="80"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path
+                      d="M0 40 Q20 20 40 40 T80 40M0 60 Q30 40 60 60 T100 60M20 0 Q40 20 20 40"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="0.5"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#topo-cta-m)" />
+              </svg>
+              <div className="relative">
+                <p className="text-xl font-bold leading-snug text-white max-md:text-[1.5rem] md:text-[1.65rem]">
+                  Réservez une démo <br className="md:hidden" />
+                  gratuite de 15 minutes
+                </p>
+                <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-white/95 md:text-[15px]">
+                  Découvrez comment CarPulse détecte les meilleures affaires avant
+                  tout le monde.
+                </p>
+                <DemoFlowButton
+                  variant="secondary"
+                  size="lg"
+                  className="mt-8 max-md:w-full max-md:max-w-sm max-md:border-[#1F1F1F]! max-md:bg-[#1F1F1F]! max-md:text-white! max-md:hover:opacity-95"
+                  style={{
+                    boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
+                  }}
+                >
+                  <span className="md:inline">Réserver une démo gratuite</span>
+                </DemoFlowButton>
+              </div>
+            </div>
+          </div>
+
         </div>
       </Container>
     </section>
   );
 }
+
 
 function WhyStatCard({
   icon,
@@ -342,7 +389,7 @@ function WhyStatCard({
       <p className={`mt-6 text-2xl font-bold tracking-tight ${titleClass}`}>
         {title}
       </p>
-      <p className="text-[15px] leading-relaxed text-[#6B7280]">{children}</p>
+      <p className="text-[16px] leading-relaxed text-[#6B7280]">{children}</p>
     </div>
   );
 }
@@ -351,106 +398,110 @@ export function Section04Why() {
   return (
     <section id="comment" className="bg-white py-16 sm:py-20 lg:py-24">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <span className="inline-flex items-center rounded-full border border-[#FE6C0E]/35 bg-[#FFF7ED] px-4 py-1.5 text-[12px] font-semibold text-[#FE6C0E]">
-              Pourquoi CarPulse ?
-            </span>
-            <h2 className="mt-6 text-3xl font-bold leading-[1.2] tracking-tight sm:text-4xl sm:leading-[1.15]">
-              <span className="block text-[#FE6C0E]">
-                Le sourcing{'\u00A0'}automobile,
-              </span>
-              <span className="mt-1 block text-[#111827] sm:mt-0.5">
-                c’est devenu une <br className="md:hidden" />
-                course contre la montre
-              </span>
-            </h2>
-          </div>
-          <div className="space-y-5 text-[15px] leading-relaxed text-[#6B7280] lg:pt-1">
-            <p>
-              Chaque jour, des milliers de nouvelles annonces apparaissent.{' '}
-              <br />
-              Les marges se resserrent et les meilleures opportunités
-              disparaissent souvent en quelques heures.
-            </p>
-            <p>
-              Trouver le bon véhicule demande du temps : <br />
-              parcourir les annonces, comparer les prix, appeler les vendeurs.
-              CarPulse surveille le marché en continu et vous alerte dès qu’un
-              véhicule réellement rentable apparaît.
-            </p>
-          </div>
-        </div>
+        <div className="mx-auto max-w-5xl">
 
-        <div className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3 md:gap-8">
-          <WhyStatCard
-            title="3h par jour"
-            icon={<Search className="h-8 w-8" aria-hidden strokeWidth={1.75} />}
-          >
-            Temps moyen passé à chercher des annonces
-          </WhyStatCard>
-          <WhyStatCard
-            title="70 % des bonnes affaires"
-            icon={
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden
-              >
-                <path
-                  d="M5.33594 11.9999H10.6693V26.6666H5.33594V11.9999ZM21.3359 17.3333H26.6693V26.6666H21.3359V17.3333ZM13.3359 5.33325H18.6693V26.6666H13.3359V5.33325Z"
-                  fill="#FF8E2B"
-                />
-              </svg>
-            }
-          >
-            Partent en quelques heures
-          </WhyStatCard>
-          <WhyStatCard
-            title="100 % automatisé"
-            titleClass="text-[#FE6C0E]"
-            icon={
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden
-              >
-                <path
-                  d="M19.4591 7.99997L20.2491 6.24997L21.9991 5.45997C22.0864 5.4202 22.1604 5.35615 22.2123 5.27548C22.2642 5.1948 22.2918 5.1009 22.2918 5.00497C22.2918 4.90904 22.2642 4.81514 22.2123 4.73446C22.1604 4.65379 22.0864 4.58974 21.9991 4.54997L20.2491 3.75997L19.4591 1.99997C19.4193 1.91268 19.3552 1.83867 19.2746 1.78677C19.1939 1.73487 19.1 1.70728 19.0041 1.70728C18.9081 1.70728 18.8142 1.73487 18.7336 1.78677C18.6529 1.83867 18.5888 1.91268 18.5491 1.99997L17.7591 3.74997L15.9991 4.53997C15.9118 4.57974 15.8378 4.64379 15.7859 4.72446C15.734 4.80514 15.7064 4.89904 15.7064 4.99497C15.7064 5.0909 15.734 5.1848 15.7859 5.26548C15.8378 5.34615 15.9118 5.4102 15.9991 5.44997L17.7491 6.23997L18.5391 7.99997C18.7191 8.38997 19.2791 8.38997 19.4591 7.99997ZM11.4991 9.49997L9.90906 5.99997C9.55906 5.21997 8.43906 5.21997 8.08906 5.99997L6.49906 9.49997L2.99906 11.09C2.21906 11.45 2.21906 12.56 2.99906 12.91L6.49906 14.5L8.08906 18C8.44906 18.78 9.55906 18.78 9.90906 18L11.4991 14.5L14.9991 12.91C15.7791 12.55 15.7791 11.44 14.9991 11.09L11.4991 9.49997ZM18.5391 16L17.7491 17.75L15.9991 18.54C15.9118 18.5797 15.8378 18.6438 15.7859 18.7245C15.734 18.8051 15.7064 18.899 15.7064 18.995C15.7064 19.0909 15.734 19.1848 15.7859 19.2655C15.8378 19.3462 15.9118 19.4102 15.9991 19.45L17.7491 20.24L18.5391 22C18.5788 22.0873 18.6429 22.1613 18.7236 22.2132C18.8042 22.2651 18.8981 22.2927 18.9941 22.2927C19.09 22.2927 19.1839 22.2651 19.2646 22.2132C19.3452 22.1613 19.4093 22.0873 19.4491 22L20.2391 20.25L21.9991 19.46C22.0864 19.4202 22.1604 19.3562 22.2123 19.2755C22.2642 19.1948 22.2918 19.1009 22.2918 19.005C22.2918 18.909 22.2642 18.8151 22.2123 18.7345C22.1604 18.6538 22.0864 18.5897 21.9991 18.55L20.2491 17.76L19.4591 16C19.4181 15.9126 19.3531 15.8386 19.2716 15.7868C19.1901 15.735 19.0956 15.7075 18.9991 15.7075C18.9025 15.7075 18.808 15.735 18.7265 15.7868C18.6451 15.8386 18.58 15.9126 18.5391 16Z"
-                  fill="#FF8E2B"
-                />
-              </svg>
-            }
-          >
-            CarPulse surveille le marché pour vous
-          </WhyStatCard>
-        </div>
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <span className="inline-flex items-center rounded-full border border-[#FE6C0E]/35 bg-[#FFF7ED] px-4 py-1.5 text-[12px] font-semibold text-[#FE6C0E]">
+                Pourquoi CarPulse ?
+              </span>
+              <h2 className="mt-6 text-3xl font-bold leading-[1.2] tracking-tight sm:text-4xl sm:leading-[1.15]">
+                <span className="block text-[#FE6C0E]">
+                  Le sourcing{'\u00A0'}automobile,
+                </span>
+                <span className="mt-1 block text-[#111827] sm:mt-0.5">
+                  c'est devenu une <br className="md:hidden" />
+                  course contre la montre
+                </span>
+              </h2>
+            </div>
+            <div className="space-y-5 text-[16px] leading-relaxed text-[#6B7280] lg:pt-1">
+              <p>
+                Chaque jour, des milliers de nouvelles annonces apparaissent.{' '}
+                <br />
+                Les marges se resserrent et les meilleures opportunités
+                disparaissent souvent en quelques heures.
+              </p>
+              <p>
+                Trouver le bon véhicule demande du temps : <br />
+                parcourir les annonces, comparer les prix, appeler les vendeurs.
+                CarPulse surveille le marché en continu et vous alerte dès qu'un
+                véhicule réellement rentable apparaît.
+              </p>
+            </div>
+          </div>
 
-        <div className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center max-sm:border-[#FEB578] max-sm:bg-[radial-gradient(ellipse_130%_110%_at_50%_38%,#FFFFFF_0%,#FFFCF9_35%,#FEF3EA_100%)] max-sm:py-12 sm:mt-14 sm:bg-[linear-gradient(180deg,#FEF8F2_0%,#FFFFFF_55%,#FFFFFF_100%)] sm:px-10 sm:py-12 lg:mt-16">
-          <p className="mx-auto max-w-2xl text-xl font-bold leading-snug text-[#111827] max-sm:text-[1.35rem] max-sm:leading-tight sm:text-balance sm:text-2xl">
-            Prenez de l&apos;avance avec <br className="sm:hidden" />
-            <span className="mt-1 block text-[#FE6C0E] sm:mt-0 sm:inline">
-              CarPulse
-            </span>
-          </p>
-          <DemoFlowButton
-            variant="primary"
-            size="lg"
-            className="mt-8 max-sm:mx-auto max-sm:w-full max-sm:max-w-sm"
-            style={{
-              background:
-                'linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)',
-              boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
-            }}
-          >
-            Réserver une démo gratuite
-          </DemoFlowButton>
+          <div className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3 md:gap-8">
+            <WhyStatCard
+              title="3h par jour"
+              icon={<Search className="h-8 w-8" aria-hidden strokeWidth={1.75} />}
+            >
+              Temps moyen passé à chercher des annonces
+            </WhyStatCard>
+            <WhyStatCard
+              title="70 % des bonnes affaires"
+              icon={
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden
+                >
+                  <path
+                    d="M5.33594 11.9999H10.6693V26.6666H5.33594V11.9999ZM21.3359 17.3333H26.6693V26.6666H21.3359V17.3333ZM13.3359 5.33325H18.6693V26.6666H13.3359V5.33325Z"
+                    fill="#FF8E2B"
+                  />
+                </svg>
+              }
+            >
+              Partent en quelques heures
+            </WhyStatCard>
+            <WhyStatCard
+              title="100 % automatisé"
+              titleClass="text-[#FE6C0E]"
+              icon={
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden
+                >
+                  <path
+                    d="M19.4591 7.99997L20.2491 6.24997L21.9991 5.45997C22.0864 5.4202 22.1604 5.35615 22.2123 5.27548C22.2642 5.1948 22.2918 5.1009 22.2918 5.00497C22.2918 4.90904 22.2642 4.81514 22.2123 4.73446C22.1604 4.65379 22.0864 4.58974 21.9991 4.54997L20.2491 3.75997L19.4591 1.99997C19.4193 1.91268 19.3552 1.83867 19.2746 1.78677C19.1939 1.73487 19.1 1.70728 19.0041 1.70728C18.9081 1.70728 18.8142 1.73487 18.7336 1.78677C18.6529 1.83867 18.5888 1.91268 18.5491 1.99997L17.7591 3.74997L15.9991 4.53997C15.9118 4.57974 15.8378 4.64379 15.7859 4.72446C15.734 4.80514 15.7064 4.89904 15.7064 4.99497C15.7064 5.0909 15.734 5.1848 15.7859 5.26548C15.8378 5.34615 15.9118 5.4102 15.9991 5.44997L17.7491 6.23997L18.5391 7.99997C18.7191 8.38997 19.2791 8.38997 19.4591 7.99997ZM11.4991 9.49997L9.90906 5.99997C9.55906 5.21997 8.43906 5.21997 8.08906 5.99997L6.49906 9.49997L2.99906 11.09C2.21906 11.45 2.21906 12.56 2.99906 12.91L6.49906 14.5L8.08906 18C8.44906 18.78 9.55906 18.78 9.90906 18L11.4991 14.5L14.9991 12.91C15.7791 12.55 15.7791 11.44 14.9991 11.09L11.4991 9.49997ZM18.5391 16L17.7491 17.75L15.9991 18.54C15.9118 18.5797 15.8378 18.6438 15.7859 18.7245C15.734 18.8051 15.7064 18.899 15.7064 18.995C15.7064 19.0909 15.734 19.1848 15.7859 19.2655C15.8378 19.3462 15.9118 19.4102 15.9991 19.45L17.7491 20.24L18.5391 22C18.5788 22.0873 18.6429 22.1613 18.7236 22.2132C18.8042 22.2651 18.8981 22.2927 18.9941 22.2927C19.09 22.2927 19.1839 22.2651 19.2646 22.2132C19.3452 22.1613 19.4093 22.0873 19.4491 22L20.2391 20.25L21.9991 19.46C22.0864 19.4202 22.1604 19.3562 22.2123 19.2755C22.2642 19.1948 22.2918 19.1009 22.2918 19.005C22.2918 18.909 22.2642 18.8151 22.2123 18.7345C22.1604 18.6538 22.0864 18.5897 21.9991 18.55L20.2491 17.76L19.4591 16C19.4181 15.9126 19.3531 15.8386 19.2716 15.7868C19.1901 15.735 19.0956 15.7075 18.9991 15.7075C18.9025 15.7075 18.808 15.735 18.7265 15.7868C18.6451 15.8386 18.58 15.9126 18.5391 16Z"
+                    fill="#FF8E2B"
+                  />
+                </svg>
+              }
+            >
+              CarPulse surveille le marché pour vous
+            </WhyStatCard>
+          </div>
+
+          <div className="mt-12 rounded-[32px] border border-[#FFD8A8] px-6 py-10 text-center max-sm:border-[#FEB578] max-sm:bg-[radial-gradient(ellipse_130%_110%_at_50%_38%,#FFFFFF_0%,#FFFCF9_35%,#FEF3EA_100%)] max-sm:py-12 sm:mt-14 sm:bg-[linear-gradient(180deg,#FEF8F2_0%,#FFFFFF_55%,#FFFFFF_100%)] sm:px-10 sm:py-12 lg:mt-16">
+            <p className="mx-auto max-w-2xl text-xl font-bold leading-snug text-[#111827] max-sm:text-[1.35rem] max-sm:leading-tight sm:text-balance sm:text-2xl">
+              Prenez de l&apos;avance avec <br className="sm:hidden" />
+              <span className="mt-1 block text-[#FE6C0E] sm:mt-0 sm:inline">
+                CarPulse
+              </span>
+            </p>
+            <DemoFlowButton
+              variant="primary"
+              size="lg"
+              className="mt-8 max-sm:mx-auto max-sm:w-full max-sm:max-w-sm"
+              style={{
+                background:
+                  'linear-gradient(69.08deg, #FE5E00 7.63%, #FF963A 54.5%)',
+                boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
+              }}
+            >
+              Réserver une démo gratuite
+            </DemoFlowButton>
+          </div>
+
         </div>
       </Container>
     </section>
@@ -481,7 +532,7 @@ export function Section05Opportunities() {
           </div>
         </div>
 
-        <div className="mt-10 rounded-[28px] p-4 sm:mt-12 sm:p-6">
+        <div className="mt-10 sm:mt-12">
           <div className="grid gap-6 md:grid-cols-3 md:gap-8">
             <CarOpportunityCard
               showMapPin
@@ -495,7 +546,6 @@ export function Section05Opportunities() {
               marginTone="blue"
               imageSrc="/opportunities/card-volvo.jpg"
               imageAlt="Volvo V60 grise"
-              imageAspectRatio="1024 / 682"
               imageFit="cover"
             />
             <CarOpportunityCard
@@ -511,7 +561,6 @@ export function Section05Opportunities() {
               marginTone="green"
               imageSrc="/opportunities/card-audi.jpg"
               imageAlt="Audi Q3 rouge"
-              imageAspectRatio="1024 / 573"
               imageFit="cover"
             />
             <CarOpportunityCard
@@ -526,7 +575,6 @@ export function Section05Opportunities() {
               marginTone="blue"
               imageSrc="/opportunities/card-renault.jpg"
               imageAlt="Renault Mégane blanche"
-              imageAspectRatio="1024 / 741"
               imageFit="cover"
             />
           </div>
@@ -605,6 +653,35 @@ export function Section06Automation() {
       id="marche"
       className="relative overflow-hidden bg-white pb-20 pt-16 sm:pb-24 sm:pt-20"
     >
+        <div
+    className="pointer-events-none absolute left-0 top-[30%] z-0 hidden -translate-x-1/6 md:block"
+    style={{ width: '1200px', height: '720px' }}
+    aria-hidden
+  >
+    <Image
+      src="/decor/Ellipse_787.png"
+      alt=""
+      fill
+      className="object-contain"
+      sizes="1200px"
+    />
+  </div>
+
+  {/* Motif droit — caché sur mobile */}
+  <div
+    className="pointer-events-none absolute right-0 top-[55%] z-0 hidden translate-x-1/6 md:block"
+    style={{ width: '1200px', height: '720px' }}
+    aria-hidden
+  >
+    <Image
+      src="/decor/Ellipse_788.png"
+      alt=""
+      fill
+      className="object-contain"
+      sizes="1200px"
+    />
+  </div>
+
       <Container className="relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <h2 className="mx-auto max-w-xl text-balance text-center text-3xl font-bold leading-tight tracking-tight text-[#111827] sm:text-4xl md:mx-0 md:text-left">
@@ -641,10 +718,10 @@ export function Section06Automation() {
                     idx % 2 === 1 ? "order-1" : "order-2",
                   ].join(" ")}
                 >
-                  <h3 className="text-[18px] font-bold leading-tight tracking-tight text-[#111827] sm:text-[19px]">
+                  <h3 className="text-[24px] font-bold leading-tight tracking-tight text-[#111827] sm:text-[22px]">
                     {f.title}
                   </h3>
-                  <p className="text-[13.5px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                  <p className="text-[18px] leading-relaxed text-[#6B7280] sm:text-[16px]">
                     {f.desc}
                   </p>
                 </header>
@@ -924,7 +1001,7 @@ export function Section06Automation() {
                 <p className="mt-4 text-3xl font-bold text-black sm:text-4xl">
                   {s.n}
                 </p>
-                <p className="mt-2 text-[14px] leading-snug text-[#6B7280]">
+                <p className="mt-2 text-[16px] leading-snug text-[#6B7280]">
                   {s.l}
                 </p>
               </div>
