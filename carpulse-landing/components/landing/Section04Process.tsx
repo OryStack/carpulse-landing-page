@@ -128,9 +128,9 @@ export function Section04Process() {
       <Container className="relative z-10">
         <p className="mx-auto max-w-[860px] text-[#FFBC71] text-center text-balance text-2xl leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">Comment ça marche&nbsp;?</span>
-          <span className="hidden lg:inline">
-            Comment CarPulse détecte les opportunités du marché
-          </span>
+          <span className="hidden lg:inline uppercase">
+  Comment CarPulse détecte les opportunités du marché
+</span>
         </p>
         <h2 className="mx-auto mt-5 max-w-[860px] text-center text-balance text-2xl font-bold leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">
@@ -187,8 +187,8 @@ export function Section04Process() {
             <p
               className={
                 isSlide1 || isSlide2
-                  ? 'mt-6 max-w-[520px] text-[16px] leading-[1.55] text-white/80'
-                  : 'mt-5 text-[16px] leading-relaxed text-white/88'
+                  ? 'mt-6 max-w-[520px] text-[18px] leading-[1.55] text-white/80'
+                  : 'mt-5 text-[18px] leading-relaxed text-white/88'
               }
             >
               {isSlide1 ? (
@@ -235,7 +235,7 @@ export function Section04Process() {
                   aria-hidden
                 />
                 <p
-                  className="text-[16px] leading-[1.55]"
+                  className="text-[18px] leading-[1.55]"
                   style={{ color: '#FFD8A8' }}
                 >
                   <span className="font-bold" style={{ color: '#FF8E2B' }}>

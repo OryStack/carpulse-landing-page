@@ -323,7 +323,7 @@ export function Section08Testimonials() {
       </div>
 
       <Container className="relative">
-        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-[2.5rem]">
+        <h2 className="text-center text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-[3.5rem]">
           <span className="md:hidden">
             <span className="text-[#FE6C0E]">Ils en parlent</span>{' '}
             <span>mieux</span>
@@ -335,7 +335,7 @@ export function Section08Testimonials() {
             <span className="text-[#1A1A1A]">mieux que nous</span>
           </span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-[15px] leading-relaxed text-[#6B7280] md:mt-5">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-[18px] leading-relaxed text-[#6B7280] md:mt-5">
           Des particuliers, des marchands et des passionnés qui ont tous la même
           longueur d&apos;avance.
         </p>
@@ -789,144 +789,101 @@ const FAQ_ITEMS = [
 export function Section10FaqCta() {
   return (
     <>
-      <section id="faq" className="bg-white py-16 sm:py-20 lg:py-24">
-        <Container>
-          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-            <span className="hidden sm:inline">
-              <span style={{ color: FAQ_CTA_ORANGE }}>Questions</span>{' '}
-              <span className="text-[#1A1A1A]">fréquentes</span>
-            </span>
-            <span className="flex flex-col items-center gap-0.5 sm:hidden">
-              <span style={{ color: FAQ_CTA_ORANGE }}>Questions</span>
-              <span className="text-[#1A1A1A]">fréquentes</span>
-            </span>
-          </h2>
-          <div className="mx-auto mt-10 max-w-3xl space-y-3">
-            {FAQ_ITEMS.map((q) => (
-              <details
-                key={q}
-                className="group rounded-xl border border-gray-200 bg-[#F9FAFB] px-5 py-4 transition hover:border-gray-300"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-[15px] font-medium text-[#374151] [&::-webkit-details-marker]:hidden">
-                  {q}
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-300 text-lg leading-none text-[#6B7280] group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 border-t border-gray-200/80 pt-3 text-[14px] leading-relaxed text-[#6B7280]">
-                  Notre équipe peut vous répondre en détail lors d&apos;une démo
-                  de 15 minutes — les réponses dépendent de votre plan et de
-                  votre zone.
-                </p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
+<section className="bg-white pb-16 pt-4 sm:pb-20 lg:pb-24">
+  <Container>
+    <div className="relative overflow-hidden rounded-3xl bg-[#FFF7ED] px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
 
-      <section className="bg-white pb-16 pt-4 sm:pb-20 lg:pb-24">
-        <Container>
-          <div className="relative overflow-hidden rounded-3xl bg-[#FFF7ED] px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-            <svg
-              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.14]"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden
-            >
-              <defs>
-                <pattern
-                  id="topo"
-                  x="0"
-                  y="0"
-                  width="80"
-                  height="80"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M0 40 Q20 20 40 40 T80 40M0 60 Q30 40 60 60 T100 60M20 0 Q40 20 20 40"
-                    fill="none"
-                    stroke="#92400e"
-                    strokeWidth="0.6"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#topo)" />
-            </svg>
+      {/* Background decorative image — desktop only */}
+      <Image
+        src="/decor/Group.png"
+        alt=""
+        fill
+        className="pointer-events-none hidden sm:block object-cover opacity-20"
+        aria-hidden
+      />
 
-            <div className="pointer-events-none absolute left-1 top-3 w-[min(34%,130px)] max-w-[130px] sm:left-4 sm:top-6 lg:left-10 lg:top-10">
-              <div className="relative flex flex-col items-center">
-                <MapPin
-                  className="relative z-10 h-5 w-5 shrink-0"
-                  style={{ color: FAQ_CTA_ORANGE }}
-                  aria-hidden
-                />
-                <Image
-                  src="/faq-cta/car-black.png"
-                  alt=""
-                  width={400}
-                  height={260}
-                  className="mt-1 h-auto w-full max-h-[88px] object-contain object-bottom drop-shadow-md sm:max-h-[100px] lg:max-h-[112px]"
-                  aria-hidden
-                />
-              </div>
-            </div>
-            <div className="pointer-events-none absolute bottom-20 left-2 w-[min(30%,120px)] max-w-[120px] sm:bottom-6 sm:left-4 md:bottom-8 lg:left-10">
-              <div className="relative flex flex-col items-center">
-                <MapPin
-                  className="relative z-10 h-5 w-5 shrink-0"
-                  style={{ color: FAQ_CTA_ORANGE }}
-                  aria-hidden
-                />
-                <Image
-                  src="/faq-cta/car-red.png"
-                  alt=""
-                  width={360}
-                  height={240}
-                  className="mt-1 h-auto w-full max-h-[74px] object-contain object-bottom drop-shadow-md md:max-h-[82px] lg:max-h-[92px]"
-                  aria-hidden
-                />
-              </div>
-            </div>
-            <div className="pointer-events-none absolute bottom-24 right-1 w-[min(36%,150px)] max-w-[150px] sm:bottom-10 sm:right-4 md:right-8">
-              <div className="relative flex flex-col items-center">
-                <MapPin
-                  className="relative z-10 h-5 w-5 shrink-0"
-                  style={{ color: FAQ_CTA_ORANGE }}
-                  aria-hidden
-                />
-                <Image
-                  src="/faq-cta/car-silver.png"
-                  alt=""
-                  width={440}
-                  height={280}
-                  className="mt-1 h-auto w-full max-h-[88px] object-contain object-bottom drop-shadow-md md:max-h-[100px] lg:max-h-[112px]"
-                  aria-hidden
-                />
-              </div>
-            </div>
+      {/* Black car — top-left on all breakpoints */}
+      <div className="pointer-events-none absolute left-1 top-3 w-[min(34%,130px)] max-w-[130px] sm:left-4 sm:top-6 lg:left-10 lg:top-10">
+        <div className="relative flex flex-col items-center">
+          <MapPin
+            className="relative z-10 h-5 w-5 shrink-0"
+            style={{ color: FAQ_CTA_ORANGE }}
+            aria-hidden
+          />
+          <Image
+            src="/faq-cta/car-black.png"
+            alt=""
+            width={400}
+            height={260}
+            className="mt-1 h-auto w-full max-h-[88px] object-contain object-bottom drop-shadow-md sm:max-h-[100px] lg:max-h-[112px]"
+            aria-hidden
+          />
+        </div>
+      </div>
 
-            <div className="relative z-10 mx-auto max-w-2xl px-1 text-center">
-              <h2 className="text-balance text-xl font-bold leading-snug text-[#1A1A1A] sm:text-3xl lg:text-[2rem]">
-                Prêt à repérer les{' '}
-                <span style={{ color: FAQ_CTA_ORANGE }}>
-                  meilleures affaires
-                </span>{' '}
-                avant tout le monde ?
-              </h2>
-              <DemoFlowButton
-                variant="primary"
-                size="lg"
-                className="mt-8 rounded-[16px] px-10"
-                style={{
-                  background: FAQ_CTA_ORANGE,
-                  borderColor: '#FFB366',
-                }}
-              >
-                Réserver ma démo maintenant
-              </DemoFlowButton>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Silver car — top-right on mobile, bottom-right on desktop */}
+      <div className="pointer-events-none absolute top-3 right-1 w-[min(30%,120px)] max-w-[120px] sm:top-auto sm:bottom-10 sm:right-4 md:right-8">
+        <div className="relative flex flex-col items-center">
+          <MapPin
+            className="relative z-10 h-5 w-5 shrink-0"
+            style={{ color: FAQ_CTA_ORANGE }}
+            aria-hidden
+          />
+          <Image
+            src="/faq-cta/car-silver.png"
+            alt=""
+            width={440}
+            height={280}
+            className="mt-1 h-auto w-full max-h-[88px] object-contain object-bottom drop-shadow-md md:max-h-[100px] lg:max-h-[112px]"
+            aria-hidden
+          />
+        </div>
+      </div>
+
+      {/* Red car — bottom-left on all breakpoints */}
+      <div className="pointer-events-none absolute bottom-6 left-2 w-[min(28%,110px)] max-w-[110px] sm:bottom-6 sm:left-4 md:bottom-8 lg:left-10">
+        <div className="relative flex flex-col items-center">
+          <MapPin
+            className="relative z-10 h-5 w-5 shrink-0"
+            style={{ color: FAQ_CTA_ORANGE }}
+            aria-hidden
+          />
+          <Image
+            src="/faq-cta/car-red.png"
+            alt=""
+            width={360}
+            height={240}
+            className="mt-1 h-auto w-full max-h-[74px] object-contain object-bottom drop-shadow-md md:max-h-[82px] lg:max-h-[92px]"
+            aria-hidden
+          />
+        </div>
+      </div>
+
+      {/* CTA content */}
+      <div className="relative z-10 mx-auto max-w-2xl px-1 text-center">
+        <h2 className="text-balance text-xl font-bold leading-snug text-[#1A1A1A] sm:text-3xl lg:text-[2rem]">
+          Prêt à repérer les{' '}
+          <span style={{ color: FAQ_CTA_ORANGE }}>
+            meilleures affaires
+          </span>{' '}
+          avant tout le monde ?
+        </h2>
+        <DemoFlowButton
+          variant="primary"
+          size="lg"
+          className="mt-8 rounded-[16px] px-10"
+          style={{
+            background: FAQ_CTA_ORANGE,
+            borderColor: '#FFB366',
+          }}
+        >
+          Réserver ma démo maintenant
+        </DemoFlowButton>
+      </div>
+
+    </div>
+  </Container>
+</section>
     </>
   );
 }

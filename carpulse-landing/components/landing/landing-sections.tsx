@@ -105,7 +105,7 @@ export function Section01Hero() {
           <h1 className="mx-auto max-w-[920px] text-balance text-[28px] font-bold leading-[1.1] tracking-tight text-[#1A1A1A] sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
             Détectez les{' '}
             <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{' '}
-            avant vos concurrents.
+            avant <br/> vos concurrents.
           </h1>
           <p className="mx-auto mt-4 max-w-[640px] text-pretty text-[18px] leading-relaxed text-[#6B7280] sm:mt-5 md:mt-6">
             CarPulse analyse automatiquement le marché des annonces automobiles
@@ -410,8 +410,8 @@ export function Section04Why() {
                   Le sourcing{'\u00A0'}automobile,
                 </span>
                 <span className="mt-1 block text-[#111827] sm:mt-0.5">
-                  c'est devenu une <br className="md:hidden" />
-                  course contre la montre
+                  c'est devenu une 
+                  course contre <br /> la montre
                 </span>
               </h2>
             </div>
