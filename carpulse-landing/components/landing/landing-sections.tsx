@@ -64,42 +64,33 @@ export function Section01Hero() {
       />
 
       <Container>
-        <header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center justify-between gap-4 md:contents">
-            <a href="#" className="inline-flex shrink-0 items-center">
-              <CarPulseLogo priority />
-            </a>
-            <div className="shrink-0 md:hidden">
-              <MobileMenu />
-            </div>
-          </div>
-          <nav
-            className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[18px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[16px]"
-            aria-label="Navigation principale"
-          >
-            <a href="#processus" className="hover:text-[#1A1A1A]">
-              Comment ça marche
-            </a>
-            <a href="#faq" className="hover:text-[#1A1A1A]">
-              FAQ
-            </a>
-            <a
-              href="https://dev.getcarpulse.com/login"
-              className="hover:text-[#1A1A1A]"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Se connecter
-            </a>
-            <DemoFlowButton
-              variant="secondary"
-              size="sm"
-              className="ml-0 md:ml-1"
-            >
-              Démo
-            </DemoFlowButton>
-          </nav>
-        </header>
+        {/* Header mobile — visible uniquement en dessous de md */}
+<header className="relative z-30 flex items-center justify-between px-2 py-2 md:hidden">
+  <a href="#" className="inline-flex shrink-0 items-center">
+    <CarPulseLogo priority />
+  </a>
+  <MobileMenu />
+</header>
+
+{/* Header desktop — caché en mobile */}
+<header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
+  <a href="#" className="inline-flex shrink-0 items-center">
+    <CarPulseLogo priority />
+  </a>
+  <nav
+    className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[18px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[16px]"
+    aria-label="Navigation principale"
+  >
+    <a href="#processus" className="hover:text-[#1A1A1A]">Comment ça marche</a>
+    <a href="#faq" className="hover:text-[#1A1A1A]">FAQ</a>
+    <a href="https://dev.getcarpulse.com/login" className="hover:text-[#1A1A1A]" target="_blank" rel="noreferrer">
+      Se connecter
+    </a>
+    <DemoFlowButton variant="secondary" size="sm" className="ml-0 md:ml-1">
+      Démo
+    </DemoFlowButton>
+  </nav>
+</header>
 
         <div className="relative pb-4 pt-2 text-center">
           <h1 className="mx-auto max-w-[920px] text-balance text-[28px] font-bold leading-[1.1] tracking-tight text-[#1A1A1A] sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
@@ -154,7 +145,7 @@ export function Section01Hero() {
 
 export function Section02Logos() {
   return (
-    <section className="relative z-20 -mt-20 overflow-hidden bg-white py-9 pt-16 sm:-mt-20 sm:py-10">
+    <section className="relative z-20 -mt-15 overflow-hidden bg-white py-9 sm:-mt-20 pt-16 sm:py-10">
       {/* fade edges */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 sm:w-32"
