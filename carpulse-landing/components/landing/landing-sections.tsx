@@ -6,7 +6,6 @@ import { CarOpportunityCard } from './CarOpportunityCard';
 import { DriveVideo } from '../DriveVideo';
 import { Container } from './Container';
 import { DashboardMockup } from './DashboardMockup';
-import { SiteHeader } from './SiteHeader';
 import { DemoFlowButton } from './DemoFlowButton';
 import { Section04Process } from './Section04Process';
 import {
@@ -14,7 +13,6 @@ import {
   Section08Testimonials,
   Section09PricingTrust,
   Section10FaqCta,
-  SiteFooter,
 } from './landing-bottom-sections';
 import { Button } from '../ui/button';
 import { Search, Medal, ClockFading } from 'lucide-react';
@@ -999,7 +997,6 @@ export function LandingPage() {
         className="pointer-events-none absolute left-0 top-0 h-px w-px overflow-hidden opacity-0"
         aria-hidden
       />
-      <SiteHeader />
       <Section01Hero />
       <Section02Logos />
       <Section03SingleFlow />
@@ -1011,7 +1008,6 @@ export function LandingPage() {
       <Section08Testimonials />
       <Section09PricingTrust />
       <Section10FaqCta />
-      <SiteFooter />
     </main>
   );
 }
