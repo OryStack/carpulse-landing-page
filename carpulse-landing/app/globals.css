@@ -410,7 +410,7 @@ input[type="reset"]:not(:disabled),
   padding-right: 34px;
 }
 
-/* HeroUI Select (Step 1) — mêmes specs que .planifier-demo-select */
+/* HeroUI Select (Step 1) - mêmes specs que .planifier-demo-select */
 .planifier-demo-heroui-trigger {
   height: 40px;
   min-height: 40px;
@@ -552,7 +552,7 @@ input[type="reset"]:not(:disabled),
 }
 
 /* ==============================================
-   PLANIFIER DEMO (STEP 2) — pixel perfect
+   PLANIFIER DEMO (STEP 2) - pixel perfect
    ============================================== */
 
 .planifier-demo-step2-grid {
@@ -866,7 +866,7 @@ input[type="reset"]:not(:disabled),
 }
 
 /* ==============================================
-   PLANIFIER DEMO (STEP 3) — pixel perfect
+   PLANIFIER DEMO (STEP 3) - pixel perfect
    ============================================== */
 
 .planifier-demo-step3-grid {
@@ -1035,7 +1035,7 @@ input[type="reset"]:not(:disabled),
 }
 
 /* ==============================================
-   PLANIFIER DEMO — modal succès (Figma)
+   PLANIFIER DEMO - modal succès (Figma)
    ============================================== */
 
 .planifier-demo-confirmation-overlay {

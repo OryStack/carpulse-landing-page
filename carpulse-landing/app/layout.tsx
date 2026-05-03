@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CarPulse — Landing",
+  title: "CarPulse - Détectez les voitures sous-évaluées avant vos concurrents",
   description:
     "CarPulse analyse le marché des annonces automobiles et détecte les voitures sous-évaluées.",
 };

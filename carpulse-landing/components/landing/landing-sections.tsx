@@ -64,7 +64,7 @@ export function Section01Hero() {
       />
 
       <Container>
-        {/* Header mobile — visible uniquement en dessous de md */}
+        {/* Header mobile - visible uniquement en dessous de md */}
 <header className="relative z-30 flex items-center justify-between px-2 py-2 md:hidden">
   <a href="#" className="inline-flex shrink-0 items-center">
     <CarPulseLogo priority />
@@ -72,7 +72,7 @@ export function Section01Hero() {
   <MobileMenu />
 </header>
 
-{/* Header desktop — caché en mobile */}
+{/* Header desktop - caché en mobile */}
 <header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
   <a href="#" className="inline-flex shrink-0 items-center">
     <CarPulseLogo priority />
@@ -257,7 +257,7 @@ export function Section03SingleFlow() {
               </div>
             </div>
 
-            {/* Ellipse_792 — anneau orange, centré, dépasse légèrement sous la vidéo */}
+            {/* Ellipse_792 - anneau orange, centré, dépasse légèrement sous la vidéo */}
             <div
               className="pointer-events-none absolute bottom-0 left-1/2 z-0 -translate-x-1/2 translate-y-[15%]"
               style={{ width: '220px', height: '220px' }}
@@ -624,7 +624,7 @@ export function Section06Automation() {
     {
       k: "zone",
       title: "Zone d'action personnalisée",
-      desc: "Définissez votre rayon d'action — CarPulse ne vous envoie que les opportunités dans votre périmètre réel.",
+      desc: "Définissez votre rayon d'action - CarPulse ne vous envoie que les opportunités dans votre périmètre réel.",
       aria: "Carte avec rayon d’action et annonces à proximité",
       bg: "/automation/zone-action.png",
       bgSize: "82%",
@@ -658,7 +658,7 @@ export function Section06Automation() {
     />
   </div>
 
-  {/* Motif droit — caché sur mobile */}
+  {/* Motif droit - caché sur mobile */}
   <div
     className="pointer-events-none absolute right-0 top-[55%] z-0 hidden translate-x-1/6 md:block"
     style={{ width: '1200px', height: '720px' }}

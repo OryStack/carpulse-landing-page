@@ -69,7 +69,7 @@ export function CarOpportunityCard({
             : "border-[#E5E7EB] shadow-[0_10px_30px_rgba(17,24,39,0.08)]"
         }`}
       >
-        {/* Image — hauteur fixe, ratio ignoré */}
+        {/* Image - hauteur fixe, ratio ignoré */}
         <div className="shrink-0 p-3">
           <div className="relative h-[210px] overflow-hidden rounded-2xl bg-[#F3F4F6]">
             {imageSrc ? (

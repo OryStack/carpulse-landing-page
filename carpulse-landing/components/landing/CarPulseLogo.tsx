@@ -11,7 +11,7 @@ type CarPulseLogoProps = {
 };
 
 /**
- * Logo fourni (icône + wordmark « CarPulse ») — ne pas dupliquer le texte à côté.
+ * Logo fourni (icône + wordmark « CarPulse ») - ne pas dupliquer le texte à côté.
  */
 export function CarPulseLogo({
   className = "",

@@ -33,7 +33,7 @@ function NavItem({
   );
 }
 
-/** Carte activité — layout horizontal compact (maquette mobile « Mon activité ») */
+/** Carte activité - layout horizontal compact (maquette mobile « Mon activité ») */
 function ActivityCardMobile({
   title,
   price,
@@ -188,7 +188,7 @@ function MobileActivityView() {
 
   return (
     <div className="overflow-hidden rounded-[14px] border border-gray-200/90 bg-white shadow-[0_12px_40px_-8px_rgba(0,0,0,0.12)]">
-      {/* Barre d’app — Figma */}
+      {/* Barre d’app - Figma */}
       <header className="flex items-center gap-2 bg-[#141414] px-2.5 py-2.5">
         <button
           type="button"
@@ -209,7 +209,7 @@ function MobileActivityView() {
         </button>
       </header>
 
-      {/* Stats — cartes crème Figma (#FFF7ED) */}
+      {/* Stats - cartes crème Figma (#FFF7ED) */}
       <div className="border-b border-gray-100 bg-white px-2.5 py-3">
         <p className="mb-2.5 text-center text-[13px] font-bold leading-snug text-[#111827]">
           Pilotez votre activité en un clin d&apos;œil.
@@ -241,7 +241,7 @@ function MobileActivityView() {
         </div>
       </div>
 
-      {/* Onglets — soulignement orange épais, espacement serré */}
+      {/* Onglets - soulignement orange épais, espacement serré */}
       <div className="flex border-b border-gray-200 bg-white px-0">
         {tabs.map((label, i) => {
           const isActive = i === activeTabIndex;
@@ -298,12 +298,12 @@ function MobileActivityView() {
 export function DashboardMockup() {
   return (
     <>
-      {/* Vue mobile « Mon activité » — Figma */}
+      {/* Vue mobile « Mon activité » - Figma */}
       <div className="lg:hidden">
         <MobileActivityView />
       </div>
 
-      {/* Vue desktop — dashboard large */}
+      {/* Vue desktop - dashboard large */}
       <div className="relative z-10 hidden overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)] lg:block">
         <div className="flex min-h-[420px]">
           <aside className="hidden w-[200px] shrink-0 border-r border-gray-100 bg-[#F9FAFB] lg:block">

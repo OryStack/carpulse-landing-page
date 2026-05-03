@@ -23,7 +23,7 @@ const ORANGE = '#FF7A22';
 /** Accent Figma section audience / stats marché */
 const AUDIENCE_ACCENT = '#FE6C0E';
 
-/* ——— Section 7 : Cible professionnels ——— */
+/* --- Section 7 : Cible professionnels --- */
 
 function AudienceIconCircle({ children }: { children: ReactNode }) {
   return (
@@ -233,7 +233,7 @@ export function Section07Audience() {
   );
 }
 
-/* ——— Section 8 : Témoignages ——— */
+/* --- Section 8 : Témoignages --- */
 
 function StarRow({ n = 5 }: { n?: number }) {
   return (
@@ -409,7 +409,7 @@ export function Section08Testimonials() {
                     role: 'Revendeur indépendant, Neuchâtel',
                   },
                   {
-                    quote: "L'alerte instantanée sur la zone d'action est devenue notre réflexe du matin — avant le café.",
+                    quote: "L'alerte instantanée sur la zone d'action est devenue notre réflexe du matin - avant le café.",
                     name: 'Équipe Delta Auto',
                     role: 'Import & négoce, Zurich',
                   },
@@ -453,7 +453,7 @@ export function Section08Testimonials() {
   );
 }
 
-/* ——— Section 9 : Tarifs + confiance ——— */
+/* --- Section 9 : Tarifs + confiance --- */
 
 const PRICING_STARTER_FEATURES: PlanFeature[] = [
   { text: 'Scoring', available: true },
@@ -678,7 +678,7 @@ export async function Section09PricingTrust() {
                     dealCountLabel={
                       plan.max_deals_per_month
                         ? `Jusqu'à ${plan.max_deals_per_month} deals`
-                        : '—'
+                        : '-'
                     }
                     features={planFeaturesFromApi(plan)}
                     buttonText={
@@ -772,7 +772,7 @@ export async function Section09PricingTrust() {
   );
 }
 
-/* ——— Section 10 : FAQ + CTA ——— */
+/* --- Section 10 : FAQ + CTA --- */
 
 /** Accent Figma FAQ + bandeau CTA (pins, titres) */
 const FAQ_CTA_ORANGE = '#FE6C0E';
@@ -793,7 +793,7 @@ export function Section10FaqCta() {
   <Container>
     <div className="relative overflow-hidden rounded-3xl bg-[#FFF7ED] px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
 
-      {/* Background decorative image — desktop only */}
+      {/* Background decorative image - desktop only */}
       <Image
         src="/decor/Group.png"
         alt=""
@@ -802,7 +802,7 @@ export function Section10FaqCta() {
         aria-hidden
       />
 
-      {/* Black car — top-left on all breakpoints */}
+      {/* Black car - top-left on all breakpoints */}
       <div className="pointer-events-none absolute left-1 top-3 w-[min(34%,130px)] max-w-[130px] sm:left-4 sm:top-6 lg:left-10 lg:top-10">
         <div className="relative flex flex-col items-center">
           <MapPin
@@ -821,7 +821,7 @@ export function Section10FaqCta() {
         </div>
       </div>
 
-      {/* Silver car — top-right on mobile, bottom-right on desktop */}
+      {/* Silver car - top-right on mobile, bottom-right on desktop */}
       <div className="pointer-events-none absolute top-3 right-1 w-[min(30%,120px)] max-w-[120px] sm:top-auto sm:bottom-10 sm:right-4 md:right-8">
         <div className="relative flex flex-col items-center">
           <MapPin
@@ -840,7 +840,7 @@ export function Section10FaqCta() {
         </div>
       </div>
 
-      {/* Red car — bottom-left on all breakpoints */}
+      {/* Red car - bottom-left on all breakpoints */}
       <div className="pointer-events-none absolute bottom-6 left-2 w-[min(28%,110px)] max-w-[110px] sm:bottom-6 sm:left-4 md:bottom-8 lg:left-10">
         <div className="relative flex flex-col items-center">
           <MapPin
@@ -888,7 +888,7 @@ export function Section10FaqCta() {
   );
 }
 
-/* ——— Footer ——— */
+/* --- Footer --- */
 
 function SocialIcon({
   children,
