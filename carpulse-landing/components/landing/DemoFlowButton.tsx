@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { useDemoUrl } from "../AppLink";
 import { Button } from "../ui/button";
 
 type DemoFlowButtonProps = {
@@ -11,7 +12,7 @@ type DemoFlowButtonProps = {
   className?: string;
   style?: React.CSSProperties;
   fullWidth?: boolean;
-  /** Destination après clic. */
+  /** Destination après clic. Si omis, résolu dynamiquement vers /planifier-demo de l'app. */
   planifierDemoHref?: string;
   /** Callback optionnel au clic (avant redirection). */
   onClick?: () => void;
@@ -24,9 +25,12 @@ export function DemoFlowButton({
   className,
   style,
   fullWidth,
-  planifierDemoHref = "https://dev.getcarpulse.com/planifier-demo",
+  planifierDemoHref,
   onClick,
 }: DemoFlowButtonProps) {
+  const defaultHref = useDemoUrl();
+  const href = planifierDemoHref ?? defaultHref;
+
   return (
     <Button
       variant={variant}
@@ -37,7 +41,7 @@ export function DemoFlowButton({
       asChild
     >
       <a
-        href={planifierDemoHref}
+        href={href}
         onClick={() => onClick?.()}
       >
         {children}

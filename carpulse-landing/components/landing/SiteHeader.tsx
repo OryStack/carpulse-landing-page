@@ -28,7 +28,7 @@ export function SiteHeader() {
       <Container>
         {/* Header mobile */}
         <header className="relative flex items-center justify-between px-2 py-2 md:hidden">
-          <a href="#" className="inline-flex shrink-0 items-center">
+          <a href="/" aria-label="Accueil CarPulse" className="inline-flex shrink-0 items-center">
             <CarPulseLogo variant="image-dark" priority />
           </a>
           <MobileMenu />
@@ -36,7 +36,7 @@ export function SiteHeader() {
 
         {/* Header desktop */}
         <header className="relative hidden gap-4 py-2 sm:gap-6 sm:py-4 md:flex md:flex-row md:items-center md:justify-between">
-          <a href="#" className="inline-flex shrink-0 items-center">
+          <a href="/" aria-label="Accueil CarPulse" className="inline-flex shrink-0 items-center">
             <CarPulseLogo variant="image-dark" priority />
           </a>
           <nav
