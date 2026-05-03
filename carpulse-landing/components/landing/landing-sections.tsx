@@ -4,10 +4,9 @@ import Image from 'next/image';
 
 import { CarOpportunityCard } from './CarOpportunityCard';
 import { DriveVideo } from '../DriveVideo';
-import { CarPulseLogo } from './CarPulseLogo';
 import { Container } from './Container';
 import { DashboardMockup } from './DashboardMockup';
-import { MobileMenu } from './MobileMenu';
+import { SiteHeader } from './SiteHeader';
 import { DemoFlowButton } from './DemoFlowButton';
 import { Section04Process } from './Section04Process';
 import {
@@ -64,36 +63,8 @@ export function Section01Hero() {
       />
 
       <Container>
-        {/* Header mobile - visible uniquement en dessous de md */}
-<header className="relative z-30 flex items-center justify-between px-2 py-2 md:hidden">
-  <a href="#" className="inline-flex shrink-0 items-center">
-    <CarPulseLogo variant="image-dark" priority />
-  </a>
-  <MobileMenu />
-</header>
-
-{/* Header desktop - caché en mobile */}
-<header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
-  <a href="#" className="inline-flex shrink-0 items-center">
-    <CarPulseLogo variant="image-dark" priority />
-  </a>
-  <nav
-    className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[18px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[16px]"
-    aria-label="Navigation principale"
-  >
-    <a href="#processus" className="hover:text-[#1A1A1A]">Comment ça marche</a>
-    <a href="#faq" className="hover:text-[#1A1A1A]">FAQ</a>
-    <a href="https://dev.getcarpulse.com/login" className="hover:text-[#1A1A1A]" target="_blank" rel="noreferrer">
-      Se connecter
-    </a>
-    <DemoFlowButton variant="secondary" size="sm" className="ml-0 md:ml-1">
-      Démo
-    </DemoFlowButton>
-  </nav>
-</header>
-
-        <div className="relative pb-4 pt-2 text-center">
-          <h1 className="mx-auto max-w-[920px] text-balance text-[28px] font-bold leading-[1.1] tracking-tight text-[#1A1A1A] sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
+        <div className="relative pb-4 pt-12 text-center">
+          <h1 className="mx-auto mt-6 max-w-[920px] text-balance text-[28px] font-bold leading-[1.1] tracking-tight text-[#1A1A1A] sm:mt-20 sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
             Détectez les{' '}
             <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{' '}
             avant <br/> vos concurrents.
@@ -1028,6 +999,7 @@ export function LandingPage() {
         className="pointer-events-none absolute left-0 top-0 h-px w-px overflow-hidden opacity-0"
         aria-hidden
       />
+      <SiteHeader />
       <Section01Hero />
       <Section02Logos />
       <Section03SingleFlow />

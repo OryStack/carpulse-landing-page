@@ -29,7 +29,7 @@ export function CarPulseLogo({
         alt="CarPulse"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
-        className={`h-9 w-auto sm:h-10 ${className}`}
+        className={className}
         priority={priority}
       />
     );
