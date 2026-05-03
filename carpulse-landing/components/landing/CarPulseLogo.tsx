@@ -5,8 +5,8 @@ const LOGO_HEIGHT = 40;
 
 type CarPulseLogoProps = {
   className?: string;
-  /** `svg` pour header, `image` pour footer */
-  variant?: "svg" | "image";
+  /** `svg` pour rendu inline, `image` pour le PNG blanc (footer), `image-dark` pour le PNG noir (header) */
+  variant?: "svg" | "image" | "image-dark";
   priority?: boolean;
 };
 
@@ -18,10 +18,14 @@ export function CarPulseLogo({
   variant = "svg",
   priority,
 }: CarPulseLogoProps) {
-  if (variant === "image") {
+  if (variant === "image" || variant === "image-dark") {
+    const src =
+      variant === "image-dark"
+        ? "/logo-carpulse-dark.png"
+        : "/logo-carpulse.png";
     return (
       <Image
-        src="/logo-carpulse.png"
+        src={src}
         alt="CarPulse"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}

@@ -67,7 +67,7 @@ export function Section01Hero() {
         {/* Header mobile - visible uniquement en dessous de md */}
 <header className="relative z-30 flex items-center justify-between px-2 py-2 md:hidden">
   <a href="#" className="inline-flex shrink-0 items-center">
-    <CarPulseLogo priority />
+    <CarPulseLogo variant="image-dark" priority />
   </a>
   <MobileMenu />
 </header>
@@ -75,7 +75,7 @@ export function Section01Hero() {
 {/* Header desktop - caché en mobile */}
 <header className="relative z-30 hidden gap-4 py-5 sm:gap-6 sm:py-7 md:flex md:flex-row md:items-center md:justify-between">
   <a href="#" className="inline-flex shrink-0 items-center">
-    <CarPulseLogo priority />
+    <CarPulseLogo variant="image-dark" priority />
   </a>
   <nav
     className="hidden w-full min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[18px] font-medium text-[#4B5563] sm:gap-x-5 md:flex md:w-auto md:flex-nowrap md:justify-end md:gap-6 md:text-[16px]"
