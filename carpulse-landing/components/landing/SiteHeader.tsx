@@ -50,7 +50,7 @@ export function SiteHeader() {
               FAQ
             </a>
             <a
-              href="https://dev.getcarpulse.com/login"
+              href="https://app.getcarpulse.com/login"
               className="hover:text-[#1A1A1A]"
               target="_blank"
               rel="noreferrer"
