@@ -50,7 +50,7 @@ export function SiteHeader() {
               FAQ
             </a>
             <a
-              href="https://app.getcarpulse.com/login"
+              href={`${process.env.NEXT_PUBLIC_CARPULSE_CLIENT_URL}/login`}
               className="hover:text-[#1A1A1A]"
               target="_blank"
               rel="noreferrer"

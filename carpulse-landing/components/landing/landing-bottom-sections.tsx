@@ -521,7 +521,7 @@ function joinUrl(base: string, path: string) {
 }
 
 async function fetchPlans(): Promise<ApiPlan[] | null> {
-  const base = process.env.CARPULSE_CLIENT_API;
+  const base = process.env.NEXT_PUBLIC_CARPULSE_CLIENT_API;
   if (!base) return null;
 
   const url = new URL(joinUrl(base, 'plans'));
