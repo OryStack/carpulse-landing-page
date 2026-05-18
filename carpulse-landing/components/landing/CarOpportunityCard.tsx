@@ -57,21 +57,21 @@ export function CarOpportunityCard({
   return (
     <div className="relative overflow-visible">
       {highlight ? (
-        <div className="pointer-events-none absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#FE5E00] px-3.5 py-1 text-[11px] font-bold leading-none text-white shadow-[0_6px_16px_rgba(0,0,0,0.22)] ring-2 ring-white">
+        <div className="pointer-events-none absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#FE5E00] px-3 py-0.5 text-[10px] font-bold leading-none text-white shadow-[0_6px_16px_rgba(0,0,0,0.22)] ring-2 ring-white sm:px-3.5 sm:py-1 sm:text-[11px]">
           Meilleur deal
         </div>
       ) : null}
 
       <article
-        className={`relative flex h-[520px] flex-col overflow-hidden rounded-[28px] border bg-white ${
+        className={`relative flex h-auto flex-col overflow-hidden rounded-[24px] border bg-white sm:h-[520px] sm:rounded-[28px] ${
           highlight
             ? "border-[#FE5E00] shadow-[0_14px_38px_rgba(254,94,0,0.14)] ring-1 ring-[#FE5E00]/20"
             : "border-[#E5E7EB] shadow-[0_10px_30px_rgba(17,24,39,0.08)]"
         }`}
       >
         {/* Image - hauteur fixe, ratio ignoré */}
-        <div className="shrink-0 p-3">
-          <div className="relative h-[210px] overflow-hidden rounded-2xl bg-[#F3F4F6]">
+        <div className="shrink-0 p-2.5 sm:p-3">
+          <div className="relative h-[168px] overflow-hidden rounded-xl bg-[#F3F4F6] sm:h-[210px] sm:rounded-2xl">
             {imageSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -90,7 +90,7 @@ export function CarOpportunityCard({
             )}
 
             {/* Rating badge */}
-            <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-[#E5E7EB] bg-white px-2.5 py-1 text-[11px] font-semibold text-[#374151] shadow-[0_8px_18px_rgba(17,24,39,0.12)]">
+            <div className="absolute left-2.5 top-2.5 inline-flex items-center gap-1 rounded-full border border-[#E5E7EB] bg-white px-2 py-0.5 text-[10px] font-semibold text-[#374151] shadow-[0_8px_18px_rgba(17,24,39,0.12)] sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[11px]">
               <span className="text-[#F59E0B]" aria-hidden>★</span>
               {rating}
             </div>
@@ -111,11 +111,11 @@ export function CarOpportunityCard({
         </div>
 
         {/* Contenu */}
-        <div className="flex flex-1 flex-col px-5 pb-5">
-          <h3 className="line-clamp-2 text-[18px] font-bold leading-snug tracking-tight text-[#111827]">
+        <div className="flex flex-1 flex-col px-4 pb-4 pt-0.5 sm:px-5 sm:pb-5">
+          <h3 className="line-clamp-2 text-[16px] font-bold leading-snug tracking-tight text-[#111827] sm:text-[18px]">
             {title}
           </h3>
-          <p className="mt-2 flex items-center gap-1.5 text-[13px] text-[#6B7280]">
+          <p className="mt-1.5 flex items-center gap-1.5 text-[12px] text-[#6B7280] sm:mt-2 sm:text-[13px]">
             <MapPin
               className="h-3.5 w-3.5 shrink-0 text-[#FE6C0E] md:hidden"
               strokeWidth={2}
@@ -125,34 +125,34 @@ export function CarOpportunityCard({
             {meta}
           </p>
 
-          <div className="mt-4 h-px w-full bg-[#E5E7EB]" />
+          <div className="mt-3 h-px w-full bg-[#E5E7EB] sm:mt-4" />
 
-          <div className="mt-4 grid grid-cols-2 gap-4">
+          <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:gap-4">
             <div>
-              <p className="text-[11px] text-[#6B7280]">{saleLabel}</p>
-              <p className="text-[18px] font-bold text-[#FE5E00]">{sale}</p>
+              <p className="text-[10px] text-[#6B7280] sm:text-[11px]">{saleLabel}</p>
+              <p className="text-[16px] font-bold text-[#FE5E00] sm:text-[18px]">{sale}</p>
             </div>
             <div>
-              <p className="text-[11px] text-[#6B7280]">Prix du marché</p>
-              <p className="text-[18px] font-bold text-[#111827]">{market}</p>
+              <p className="text-[10px] text-[#6B7280] sm:text-[11px]">Prix du marché</p>
+              <p className="text-[16px] font-bold text-[#111827] sm:text-[18px]">{market}</p>
             </div>
           </div>
 
           <div
-            className={`mt-4 flex items-center justify-between gap-2 rounded-2xl px-4 py-3 ${tone.box}`}
+            className={`mt-3 flex items-center justify-between gap-2 rounded-xl px-3 py-2.5 sm:mt-4 sm:rounded-2xl sm:px-4 sm:py-3 ${tone.box}`}
           >
             <div>
-              <p className="text-[11px] text-[#6B7280]">Marge potentielle</p>
-              <p className={`text-[18px] font-bold ${tone.margin}`}>{margin}</p>
+              <p className="text-[10px] text-[#6B7280] sm:text-[11px]">Marge potentielle</p>
+              <p className={`text-[16px] font-bold sm:text-[18px] ${tone.margin}`}>{margin}</p>
             </div>
             <span
-              className={`shrink-0 rounded-xl border bg-white px-3 py-1.5 text-[12px] font-bold ${tone.badge}`}
+              className={`shrink-0 rounded-lg border bg-white px-2.5 py-1 text-[11px] font-bold sm:rounded-xl sm:px-3 sm:py-1.5 sm:text-[12px] ${tone.badge}`}
             >
               {marginBadge}
             </span>
           </div>
 
-          <DemoLink className="mt-auto flex w-full items-center justify-center rounded-[16px] bg-[#F3F4F6] py-3.5 text-center text-[13px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB]">
+          <DemoLink className="mt-3 flex w-full items-center justify-center rounded-[14px] bg-[#F3F4F6] py-3 text-center text-[12px] font-semibold text-[#111827]/80 transition hover:bg-[#E5E7EB] sm:mt-auto sm:rounded-[16px] sm:py-3.5 sm:text-[13px]">
             Voir détails
           </DemoLink>
         </div>

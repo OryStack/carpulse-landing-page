@@ -67,7 +67,7 @@ function ProcessNavDot({
 }
 
 const navBtnClass =
-  'inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#A67C52]/70 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45 lg:h-11 lg:w-11 lg:rounded-[16px] lg:border-white/30';
+  'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#A67C52]/70 bg-white/[0.06] text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE5E00]/45 sm:h-10 sm:w-10 lg:h-11 lg:w-11 lg:rounded-[16px] lg:border-white/30';
 
 export function Section04Process() {
   const [index, setIndex] = useState(0);
@@ -108,7 +108,7 @@ export function Section04Process() {
       id="processus"
       aria-roledescription="carousel"
       aria-label="Comment CarPulse détecte les opportunités du marché"
-      className="relative overflow-hidden bg-black py-10 text-white"
+      className="relative overflow-hidden bg-black py-8 text-white sm:py-10"
     >
       <div
         className="pointer-events-none absolute inset-0 select-none"
@@ -126,13 +126,13 @@ export function Section04Process() {
       </div>
 
       <Container className="relative z-10">
-        <p className="mx-auto max-w-[860px] text-[#FFBC71] text-center text-balance text-2xl leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
+        <p className="mx-auto max-w-[860px] text-center text-balance text-xl leading-snug text-[#FFBC71] sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">Comment ça marche&nbsp;?</span>
           <span className="hidden lg:inline uppercase">
   Comment CarPulse détecte les opportunités du marché
 </span>
         </p>
-        <h2 className="mx-auto mt-5 max-w-[860px] text-center text-balance text-2xl font-bold leading-snug sm:text-3xl lg:text-[2rem] lg:leading-tight">
+        <h2 className="mx-auto mt-3 max-w-[860px] text-center text-balance text-xl font-bold leading-snug sm:mt-5 sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">
             CarPulse travaille pour vous – 24h/24, sans rien laisser passer
           </span>
@@ -144,14 +144,14 @@ export function Section04Process() {
 
         <div
           key={index}
-          className="mt-10 grid items-center gap-8 max-lg:mt-12 max-lg:gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
+          className="mt-6 grid items-center gap-6 sm:mt-10 sm:gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
         >
           <div className="order-2 min-w-0 max-lg:text-left lg:order-1 lg:pr-4">
             <h3
               className={
                 hasGradientTitle
-                  ? 'bg-clip-text text-[38px] font-bold leading-[1.02] tracking-tight text-transparent sm:text-[44px] lg:text-[52px]'
-                  : 'text-2xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight'
+                  ? 'bg-clip-text text-[28px] font-bold leading-[1.05] tracking-tight text-transparent sm:text-[44px] lg:text-[52px]'
+                  : 'text-xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight'
               }
               style={
                 hasGradientTitle
@@ -165,19 +165,19 @@ export function Section04Process() {
               {isSlide1 ? (
                 <>
                   1. Analyse des
-                  <br />
+                  <br className="hidden sm:block" />
                   annonces
                 </>
               ) : isSlide2 ? (
                 <>
                   2. Comparaison
-                  <br />
+                  <br className="hidden sm:block" />
                   avec le marché
                 </>
               ) : isSlide3 ? (
                 <>
                   3. Détection des
-                  <br />
+                  <br className="hidden sm:block" />
                   opportunités
                 </>
               ) : (
@@ -187,40 +187,29 @@ export function Section04Process() {
             <p
               className={
                 isSlide1 || isSlide2
-                  ? 'mt-6 max-w-[520px] text-[18px] leading-[1.55] text-white/80'
-                  : 'mt-5 text-[18px] leading-relaxed text-white/88'
+                  ? 'mt-4 max-w-[520px] text-[15px] leading-[1.5] text-white/80 sm:mt-6 sm:text-[18px] sm:leading-[1.55]'
+                  : 'mt-4 text-[15px] leading-relaxed text-white/88 sm:mt-5 sm:text-[18px]'
               }
             >
               {isSlide1 ? (
                 <>
-                  CarPulse scanne en continu les nouvelles annonces
-                  <br />
-                  publiées sur les principales plateformes automobiles.
-                  <br />
-                  Chaque véhicule est analysé selon plusieurs critères : prix,
-                  <br />
-                  kilométrage, version, équipements et historique du marché.
+                  CarPulse scanne en continu les nouvelles annonces publiées sur
+                  les principales plateformes automobiles. Chaque véhicule est
+                  analysé selon plusieurs critères : prix, kilométrage, version,
+                  équipements et historique du marché.
                 </>
               ) : isSlide2 ? (
                 <>
                   L&apos;algorithme compare chaque véhicule aux transactions et
-                  <br />
-                  annonces similaires.
-                  <br />
-                  Cela permet d&apos;identifier rapidement les écarts de prix et
-                  les
-                  <br />
-                  véhicules potentiellement sous-évalués.
+                  annonces similaires. Cela permet d&apos;identifier rapidement les
+                  écarts de prix et les véhicules potentiellement sous-évalués.
                 </>
               ) : isSlide3 ? (
                 <>
                   Les véhicules présentant un potentiel sont automatiquement
-                  sélectionnés
-                  <br />
-                  et classés. Chaque opportunité inclut un score, une estimation
-                  du prix
-                  <br />
-                  marché et une analyse rapide du véhicule.
+                  sélectionnés et classés. Chaque opportunité inclut un score,
+                  une estimation du prix marché et une analyse rapide du
+                  véhicule.
                 </>
               ) : (
                 slide.body
@@ -228,51 +217,47 @@ export function Section04Process() {
             </p>
 
             {slide.footer === 'objectif' ? (
-              <div className="mt-8 flex gap-3">
+              <div className="mt-5 flex gap-2.5 sm:mt-8 sm:gap-3">
                 <ScanSearch
-                  className="mt-3 h-[18px] w-[18px] shrink-0"
+                  className="mt-2.5 h-4 w-4 shrink-0 sm:mt-3 sm:h-[18px] sm:w-[18px]"
                   style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className="text-[18px] leading-[1.55]"
+                  className="text-[15px] leading-[1.5] sm:text-[18px] sm:leading-[1.55]"
                   style={{ color: '#FFD8A8' }}
                 >
                   <span className="font-bold" style={{ color: '#FF8E2B' }}>
                     Objectif :
                   </span>{' '}
-                  repérer les véhicules sous-évalués dès leur <br /> mise en
-                  ligne.
+                  repérer les véhicules sous-évalués dès leur mise en ligne.
                 </p>
               </div>
             ) : null}
 
             {slide.footer === 'resultat' ? (
-              <div className="mt-8 flex gap-3">
+              <div className="mt-5 flex gap-2.5 sm:mt-8 sm:gap-3">
                 <Rocket
-                  className="mt-0.5 h-[18px] w-[18px] shrink-0"
+                  className="mt-0.5 h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]"
                   style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className="text-[16px] leading-[1.55]"
+                  className="text-[14px] leading-[1.5] sm:text-[16px] sm:leading-[1.55]"
                   style={{ color: '#FFD8A8' }}
                 >
                   <span className="font-bold" style={{ color: '#FF8E2B' }}>
                     Résultat :
                   </span>{' '}
-                  vous ne manquez plus aucune bonne
-                  <br />
-                  affaire. Vous décidez, achetez et revendez plus vite
-                  <br />
-                  avec des marges maîtrisées.
+                  vous ne manquez plus aucune bonne affaire. Vous décidez,
+                  achetez et revendez plus vite avec des marges maîtrisées.
                 </p>
               </div>
             ) : null}
           </div>
 
           <div className="relative order-1 mx-auto w-full max-w-[560px] lg:order-2 lg:max-w-none lg:justify-self-end">
-            <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
+            <div className="relative aspect-[4/3] w-full max-lg:max-h-[200px] sm:aspect-[5/4] sm:max-h-none lg:aspect-[4/3]">
               <Image
                 src={slide.visualSrc}
                 alt={slide.visualAlt}
@@ -290,7 +275,7 @@ export function Section04Process() {
         </div>
 
         <div
-          className="mt-10 flex items-center justify-center gap-6 sm:mt-12 sm:gap-6 lg:mt-14 lg:gap-6"
+          className="mt-6 flex items-center justify-center gap-4 sm:mt-12 sm:gap-6 lg:mt-14 lg:gap-6"
           role="group"
           aria-label="Contrôles du carrousel"
         >
