@@ -124,13 +124,14 @@ export function Section04Process() {
         />
         <div className="absolute inset-0 bg-linear-to-br from-black/55 via-black/25 to-black/35" />
       </div>
-
-      <Container className="relative z-10">
+  
+      {/* WRAPPER avec hauteur fixe sur mobile uniquement */}
+      <Container className="relative z-10 flex min-h-[calc(100dvh-6rem)] flex-col sm:min-h-0 sm:block">
         <p className="mx-auto max-w-[860px] text-center text-balance text-xl leading-snug text-[#FFBC71] sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">Comment ça marche&nbsp;?</span>
           <span className="hidden lg:inline uppercase">
-  Comment CarPulse détecte les opportunités du marché
-</span>
+            Comment CarPulse détecte les opportunités du marché
+          </span>
         </p>
         <h2 className="mx-auto mt-3 max-w-[860px] text-center text-balance text-xl font-bold leading-snug sm:mt-5 sm:text-3xl lg:text-[2rem] lg:leading-tight">
           <span className="lg:hidden">
@@ -141,16 +142,36 @@ export function Section04Process() {
             opportunités exploitables.
           </span>
         </h2>
-
+  
+        {/* CONTENU SLIDE : flex-1 sur mobile pour remplir, normal sur desktop */}
         <div
           key={index}
-          className="mt-6 grid items-center gap-6 sm:mt-10 sm:gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
+          className="mt-6 grid flex-1 items-center gap-6 max-lg:flex max-lg:flex-col sm:mt-10 sm:gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16"
         >
-          <div className="order-2 min-w-0 max-lg:text-left lg:order-1 lg:pr-4">
+          {/* IMAGE : hauteur fixe sur mobile */}
+          <div className="relative order-1 mx-auto w-full max-w-[560px] max-lg:h-[180px] max-lg:shrink-0 lg:order-2 lg:max-w-none lg:justify-self-end">
+            <div className="relative h-full w-full sm:aspect-5/4 sm:max-h-none lg:aspect-4/3">
+              <Image
+                src={slide.visualSrc}
+                alt={slide.visualAlt}
+                fill
+                className={
+                  isSlide1
+                    ? 'object-contain object-center drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)] lg:scale-[1.06] lg:translate-x-4 lg:object-right'
+                    : 'object-contain object-center drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)]'
+                }
+                sizes="(min-width: 1024px) 50vw, 90vw"
+                priority={index === 0}
+              />
+            </div>
+          </div>
+  
+          {/* TEXTE : flex-1 sur mobile pour absorber les variations */}
+          <div className="order-2 flex min-w-0 flex-1 flex-col max-lg:text-left lg:order-1 lg:flex-none lg:pr-4">
             <h3
               className={
                 hasGradientTitle
-                  ? 'bg-clip-text text-[28px] font-bold leading-[1.05] tracking-tight text-transparent sm:text-[44px] lg:text-[52px]'
+                  ? 'bg-clip-text text-[24px] font-bold leading-[1.05] tracking-tight text-transparent sm:text-[44px] lg:text-[52px]'
                   : 'text-xl font-bold sm:text-3xl lg:text-[1.75rem] lg:leading-tight'
               }
               style={
@@ -164,19 +185,19 @@ export function Section04Process() {
             >
               {isSlide1 ? (
                 <>
-                  1. Analyse des
+                  1. Analyse des {' '}
                   <br className="hidden sm:block" />
                   annonces
                 </>
               ) : isSlide2 ? (
                 <>
-                  2. Comparaison
+                  2. Comparaison {' '}
                   <br className="hidden sm:block" />
                   avec le marché
                 </>
               ) : isSlide3 ? (
                 <>
-                  3. Détection des
+                  3. Détection des {' '}
                   <br className="hidden sm:block" />
                   opportunités
                 </>
@@ -187,8 +208,8 @@ export function Section04Process() {
             <p
               className={
                 isSlide1 || isSlide2
-                  ? 'mt-4 max-w-[520px] text-[15px] leading-[1.5] text-white/80 sm:mt-6 sm:text-[18px] sm:leading-[1.55]'
-                  : 'mt-4 text-[15px] leading-relaxed text-white/88 sm:mt-5 sm:text-[18px]'
+                  ? 'mt-3 max-w-[520px] text-[13px] leading-[1.45] text-white/80 sm:mt-6 sm:text-[18px] sm:leading-[1.55]'
+                  : 'mt-3 text-[13px] leading-[1.45] text-white/88 sm:mt-5 sm:text-[18px] sm:leading-relaxed'
               }
             >
               {isSlide1 ? (
@@ -215,16 +236,16 @@ export function Section04Process() {
                 slide.body
               )}
             </p>
-
+  
             {slide.footer === 'objectif' ? (
-              <div className="mt-5 flex gap-2.5 sm:mt-8 sm:gap-3">
+              <div className="mt-3 flex gap-2.5 sm:mt-8 sm:gap-3">
                 <ScanSearch
-                  className="mt-2.5 h-4 w-4 shrink-0 sm:mt-3 sm:h-[18px] sm:w-[18px]"
+                  className="mt-1 h-4 w-4 shrink-0 sm:mt-3 sm:h-[18px] sm:w-[18px]"
                   style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className="text-[15px] leading-[1.5] sm:text-[18px] sm:leading-[1.55]"
+                  className="text-[13px] leading-[1.45] sm:text-[18px] sm:leading-[1.55]"
                   style={{ color: '#FFD8A8' }}
                 >
                   <span className="font-bold" style={{ color: '#FF8E2B' }}>
@@ -234,16 +255,16 @@ export function Section04Process() {
                 </p>
               </div>
             ) : null}
-
+  
             {slide.footer === 'resultat' ? (
-              <div className="mt-5 flex gap-2.5 sm:mt-8 sm:gap-3">
+              <div className="mt-3 flex gap-2.5 sm:mt-8 sm:gap-3">
                 <Rocket
                   className="mt-0.5 h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]"
                   style={{ color: '#FF8E2B' }}
                   aria-hidden
                 />
                 <p
-                  className="text-[14px] leading-[1.5] sm:text-[16px] sm:leading-[1.55]"
+                  className="text-[13px] leading-[1.45] sm:text-[16px] sm:leading-[1.55]"
                   style={{ color: '#FFD8A8' }}
                 >
                   <span className="font-bold" style={{ color: '#FF8E2B' }}>
@@ -255,25 +276,9 @@ export function Section04Process() {
               </div>
             ) : null}
           </div>
-
-          <div className="relative order-1 mx-auto w-full max-w-[560px] lg:order-2 lg:max-w-none lg:justify-self-end">
-            <div className="relative aspect-[4/3] w-full max-lg:max-h-[200px] sm:aspect-[5/4] sm:max-h-none lg:aspect-[4/3]">
-              <Image
-                src={slide.visualSrc}
-                alt={slide.visualAlt}
-                fill
-                className={
-                  isSlide1
-                    ? 'object-contain object-right drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)] lg:scale-[1.06] lg:translate-x-4'
-                    : 'object-contain object-center drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)]'
-                }
-                sizes="(min-width: 1024px) 50vw, 90vw"
-                priority={index === 0}
-              />
-            </div>
-          </div>
         </div>
-
+  
+        {/* CONTROLES : toujours en bas sur mobile */}
         <div
           className="mt-6 flex items-center justify-center gap-4 sm:mt-12 sm:gap-6 lg:mt-14 lg:gap-6"
           role="group"

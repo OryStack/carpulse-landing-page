@@ -1,4 +1,7 @@
+// components/landing/landing-bottom-sections.tsx
+
 import Image from 'next/image';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import { CarPulseLogo } from './CarPulseLogo';
@@ -156,7 +159,7 @@ export function Section07Audience() {
               </div>
             </div>
 
-            {/* Desktop/tablette : grille existante (inchangée) */}
+            {/* Desktop/tablette */}
             <div
               className="pointer-events-none absolute left-[8%] right-[8%] top-[32px] hidden h-px bg-[#FE6C0E]/35 sm:block"
               aria-hidden
@@ -241,14 +244,21 @@ function StarRow({ n = 5 }: { n?: number }) {
   return (
     <div className="flex gap-0.5 text-[#FF7A22]" aria-hidden>
       {Array.from({ length: n }).map((_, i) => (
-        <Star key={i} className="h-3.5 w-3.5 fill-current sm:h-4 sm:w-4" aria-hidden />
+        <Star
+          key={i}
+          className="h-3.5 w-3.5 fill-current sm:h-4 sm:w-4"
+          aria-hidden
+        />
       ))}
     </div>
   );
 }
 
 function getInitials(name: string): string {
-  const words = name.replace(/[.]/g, '').split(/\s+/).filter(Boolean);
+  const words = name
+    .replace(/[.]/g, '')
+    .split(/\s+/)
+    .filter(Boolean);
   if (words.length === 1) {
     return words[0].charAt(0).toUpperCase();
   }
@@ -256,6 +266,24 @@ function getInitials(name: string): string {
     .slice(0, 2)
     .map((w) => w.charAt(0).toUpperCase())
     .join('');
+}
+
+function getAvatarColor(name: string): { bg: string; text: string } {
+  const palette = [
+    { bg: '#FFE4CC', text: '#C2410C' },
+    { bg: '#DBEAFE', text: '#1D4ED8' },
+    { bg: '#DCFCE7', text: '#15803D' },
+    { bg: '#FCE7F3', text: '#BE185D' },
+    { bg: '#F3E8FF', text: '#7E22CE' },
+    { bg: '#FEF3C7', text: '#A16207' },
+    { bg: '#E0F2FE', text: '#0369A1' },
+    { bg: '#FEE2E2', text: '#B91C1C' },
+  ];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return palette[Math.abs(hash) % palette.length];
 }
 
 function TestimonialCard({
@@ -269,6 +297,9 @@ function TestimonialCard({
   role: string;
   faded?: boolean;
 }) {
+  const initials = getInitials(name);
+  const colors = getAvatarColor(name);
+
   return (
     <article
       className={`rounded-2xl border border-gray-100 bg-white p-4 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] sm:p-8 ${
@@ -280,14 +311,12 @@ function TestimonialCard({
         {quote}
       </p>
       <div className="mt-3.5 flex items-center gap-3 sm:mt-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg sm:h-11 sm:w-11">
-          <Image
-            src="/decor/Rectangle_852.png"
-            alt={name}
-            fill
-            className="object-cover"
-            sizes="44px"
-          />
+        <div
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[13px] font-bold sm:h-11 sm:w-11 sm:text-[14px]"
+          style={{ backgroundColor: colors.bg, color: colors.text }}
+          aria-label={`Avatar de ${name}`}
+        >
+          {initials}
         </div>
         <div>
           <p className="text-[14px] font-bold text-[#1A1A1A] sm:text-base">
@@ -300,13 +329,6 @@ function TestimonialCard({
   );
 }
 
-const USER_AVATARS = [
-  '/Ellipse 747.png',
-  '/Ellipse 748.png',
-  '/Ellipse 749.png',
-];
-
-/** Items mobile (limités à 2) */
 const MOBILE_TESTIMONIALS = [
   {
     quote:
@@ -345,8 +367,7 @@ export function Section08Testimonials() {
       <Container className="relative">
         <h2 className="text-center text-[22px] font-bold leading-tight tracking-tight md:text-5xl lg:text-[3.5rem]">
           <span className="md:hidden">
-            <span className="text-[#FE6C0E]">Ils en parlent</span>{' '}
-            <span>mieux</span>
+            <span className="text-[#FE6C0E]">Ils en parlent</span> <span>mieux</span>
             <br />
             <span className="text-[#1A1A1A]">que nous</span>
           </span>
@@ -389,7 +410,7 @@ export function Section08Testimonials() {
           </div>
         </div>
 
-        {/* ============== MOBILE : 2 témoignages statiques ============== */}
+        {/* MOBILE */}
         <div className="mt-7 space-y-3 md:hidden">
           {MOBILE_TESTIMONIALS.map((t, i) => (
             <TestimonialCard
@@ -401,7 +422,7 @@ export function Section08Testimonials() {
           ))}
         </div>
 
-        {/* ============== DESKTOP : marquee 2 colonnes (inchangé) ============== */}
+        {/* DESKTOP marquee */}
         <div className="relative mx-auto mt-10 hidden max-w-5xl md:block md:mt-14">
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent sm:h-20" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-white to-transparent sm:h-32" />
@@ -658,7 +679,6 @@ function planFeaturesFromApi(plan: ApiPlan): PlanFeature[] {
   return f;
 }
 
-/** Données des items de confiance (réutilisées mobile + desktop) */
 const TRUST_ITEMS = [
   {
     t: 'Garantie satisfaction',
@@ -687,7 +707,7 @@ export async function Section09PricingTrust() {
     const plans = await fetchPlans();
     plansFromApi = plans?.filter((p) => p.is_active) ?? null;
   } catch {
-    // fallback silencieux sur le contenu statique (design)
+    // fallback silencieux
   }
 
   return (
@@ -707,11 +727,7 @@ export async function Section09PricingTrust() {
           </p>
         </div>
 
-        <div
-          className={`mt-8 grid gap-4 sm:mt-14 sm:gap-6 lg:items-stretch lg:gap-5 ${
-            plansFromApi?.length ? 'lg:grid-cols-3' : 'lg:grid-cols-3'
-          }`}
-        >
+        <div className="mt-8 grid gap-4 sm:mt-14 sm:gap-6 lg:grid-cols-3 lg:items-stretch lg:gap-5">
           {plansFromApi?.length
             ? plansFromApi.map((plan, idx) => {
                 const isCustom = plan.kind === 'personalized';
@@ -720,13 +736,11 @@ export async function Section09PricingTrust() {
                   : idx === 0
                     ? 'starter'
                     : 'premium';
-
                 const buttonVariant = isCustom
                   ? 'custom'
                   : idx === 0
                     ? 'starter'
                     : 'premium';
-
                 const price = formatPlanPrice(plan) ?? undefined;
 
                 return (
@@ -800,9 +814,8 @@ export async function Section09PricingTrust() {
               ]}
         </div>
 
-        {/* ============== BLOC CONFIANCE ============== */}
+        {/* BLOC CONFIANCE */}
         <div className="mt-10 sm:mt-16">
-          {/* MOBILE : cards horizontales compactes avec icône circulaire */}
           <div className="space-y-2.5 md:hidden">
             {TRUST_ITEMS.map(({ t, dMobile, icon: Icon }) => (
               <div
@@ -812,7 +825,7 @@ export async function Section09PricingTrust() {
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-[0_2px_8px_-2px_rgba(254,108,14,0.18)]">
                   <Icon className="h-5 w-5 text-[#FF7A22]" aria-hidden />
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="min-w-0 flex-1">
                   <h3 className="text-[14px] font-bold leading-tight text-[#1A1A1A]">
                     {t}
                   </h3>
@@ -824,7 +837,6 @@ export async function Section09PricingTrust() {
             ))}
           </div>
 
-          {/* DESKTOP : grille 3 colonnes dans un bloc cream (inchangé) */}
           <div className="hidden rounded-[28px] bg-[#FFF9F2] px-10 py-12 md:block">
             <div className="grid gap-8 md:grid-cols-3">
               {TRUST_ITEMS.map(({ t, d, icon: Icon }) => (
@@ -833,7 +845,7 @@ export async function Section09PricingTrust() {
                     <Icon className="h-8 w-8" aria-hidden />
                   </div>
                   <h3 className="mt-4 text-lg font-bold text-[#1A1A1A]">{t}</h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-[#6B7280] whitespace-pre-line">
+                  <p className="mt-2 whitespace-pre-line text-[14px] leading-relaxed text-[#6B7280]">
                     {d}
                   </p>
                 </div>
@@ -845,6 +857,8 @@ export async function Section09PricingTrust() {
     </section>
   );
 }
+
+/* --- Section 10 : FAQ + CTA --- */
 
 const FAQ_CTA_ORANGE = '#FE6C0E';
 
@@ -905,201 +919,196 @@ export function Section10FaqCta() {
       </section>
 
       <section className="bg-white pb-10 pt-2 sm:pb-20 sm:pt-4 lg:pb-24">
-  <Container>
-    <div className="relative overflow-hidden rounded-[20px] bg-[#FFF7ED] sm:rounded-3xl">
+        <Container>
+          <div className="relative overflow-hidden rounded-[20px] bg-[#FFF7ED] sm:rounded-3xl">
+            {/* MOBILE */}
+            <div className="relative md:hidden">
+              <div className="relative z-10 px-5 pb-6 pt-8 text-center">
+                <h2 className="text-balance text-[18px] font-bold leading-snug text-[#1A1A1A]">
+                  Prêt à repérer les{' '}
+                  <span style={{ color: FAQ_CTA_ORANGE }}>
+                    meilleures affaires
+                  </span>{' '}
+                  avant tout le monde ?
+                </h2>
+                <DemoFlowButton
+                  variant="primary"
+                  size="lg"
+                  className="mt-5 w-full rounded-[14px] px-6 text-[13px] font-semibold"
+                  style={{
+                    background: FAQ_CTA_ORANGE,
+                    borderColor: '#FFB366',
+                  }}
+                >
+                  Réserver ma démo maintenant
+                </DemoFlowButton>
+              </div>
 
-      {/* ============== MOBILE LAYOUT ============== */}
-      <div className="relative md:hidden">
-        {/* Texte + CTA en haut */}
-        <div className="relative z-10 px-5 pt-8 pb-6 text-center">
-          <h2 className="text-balance text-[18px] font-bold leading-snug text-[#1A1A1A]">
-            Prêt à repérer les{' '}
-            <span style={{ color: FAQ_CTA_ORANGE }}>meilleures affaires</span>{' '}
-            avant tout le monde ?
-          </h2>
-          <DemoFlowButton
-            variant="primary"
-            size="lg"
-            className="mt-5 w-full rounded-[14px] px-6 text-[13px] font-semibold"
-            style={{
-              background: FAQ_CTA_ORANGE,
-              borderColor: '#FFB366',
-            }}
-          >
-            Réserver ma démo maintenant
-          </DemoFlowButton>
-        </div>
+              <div className="relative h-[100px] overflow-hidden">
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FE6C0E]/20 to-transparent"
+                  aria-hidden
+                />
+                <div className="absolute bottom-0 left-3 w-[28%] max-w-[110px]">
+                  <div className="relative flex flex-col items-center">
+                    <MapPin
+                      className="relative z-10 h-3.5 w-3.5"
+                      style={{ color: FAQ_CTA_ORANGE }}
+                      aria-hidden
+                    />
+                    <Image
+                      src="/faq-cta/car-black.png"
+                      alt=""
+                      width={400}
+                      height={260}
+                      className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
+                      aria-hidden
+                    />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-1/2 w-[28%] max-w-[110px] -translate-x-1/2">
+                  <div className="relative flex flex-col items-center">
+                    <MapPin
+                      className="relative z-10 h-3.5 w-3.5"
+                      style={{ color: FAQ_CTA_ORANGE }}
+                      aria-hidden
+                    />
+                    <Image
+                      src="/faq-cta/car-red.png"
+                      alt=""
+                      width={360}
+                      height={240}
+                      className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
+                      aria-hidden
+                    />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 right-3 w-[28%] max-w-[110px]">
+                  <div className="relative flex flex-col items-center">
+                    <MapPin
+                      className="relative z-10 h-3.5 w-3.5"
+                      style={{ color: FAQ_CTA_ORANGE }}
+                      aria-hidden
+                    />
+                    <Image
+                      src="/faq-cta/car-silver.png"
+                      alt=""
+                      width={440}
+                      height={280}
+                      className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
+                      aria-hidden
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        {/* Scène voitures : rangée horizontale alignée */}
-        <div className="relative h-[100px] overflow-hidden">
-          {/* Fond route subtil */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FE6C0E]/20 to-transparent"
-            aria-hidden
-          />
-
-          {/* Voiture noire - gauche */}
-          <div className="absolute bottom-0 left-3 w-[28%] max-w-[110px]">
-            <div className="relative flex flex-col items-center">
-              <MapPin
-                className="relative z-10 h-3.5 w-3.5"
-                style={{ color: FAQ_CTA_ORANGE }}
-                aria-hidden
-              />
+            {/* DESKTOP */}
+            <div className="relative hidden px-10 py-16 md:block lg:px-16 lg:py-20">
               <Image
-                src="/faq-cta/car-black.png"
+                src="/decor/Group.png"
                 alt=""
-                width={400}
-                height={260}
-                className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
+                fill
+                className="pointer-events-none object-cover opacity-20"
                 aria-hidden
               />
+              <div className="pointer-events-none absolute left-4 top-6 w-[min(34%,130px)] max-w-[130px] lg:left-10 lg:top-10">
+                <div className="relative flex flex-col items-center">
+                  <MapPin
+                    className="relative z-10 h-5 w-5 shrink-0"
+                    style={{ color: FAQ_CTA_ORANGE }}
+                    aria-hidden
+                  />
+                  <Image
+                    src="/faq-cta/car-black.png"
+                    alt=""
+                    width={400}
+                    height={260}
+                    className="mt-1 h-auto w-full max-h-[100px] object-contain object-bottom drop-shadow-md lg:max-h-[112px]"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute bottom-10 right-4 w-[min(30%,120px)] max-w-[120px] md:right-8">
+                <div className="relative flex flex-col items-center">
+                  <MapPin
+                    className="relative z-10 h-5 w-5 shrink-0"
+                    style={{ color: FAQ_CTA_ORANGE }}
+                    aria-hidden
+                  />
+                  <Image
+                    src="/faq-cta/car-silver.png"
+                    alt=""
+                    width={440}
+                    height={280}
+                    className="mt-1 h-auto w-full max-h-[100px] object-contain object-bottom drop-shadow-md lg:max-h-[112px]"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute bottom-6 left-4 w-[min(28%,110px)] max-w-[110px] md:bottom-8 lg:left-10">
+                <div className="relative flex flex-col items-center">
+                  <MapPin
+                    className="relative z-10 h-5 w-5 shrink-0"
+                    style={{ color: FAQ_CTA_ORANGE }}
+                    aria-hidden
+                  />
+                  <Image
+                    src="/faq-cta/car-red.png"
+                    alt=""
+                    width={360}
+                    height={240}
+                    className="mt-1 h-auto w-full max-h-[82px] object-contain object-bottom drop-shadow-md lg:max-h-[92px]"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+              <div className="relative z-10 mx-auto max-w-2xl px-1 text-center">
+                <h2 className="text-balance text-3xl font-bold leading-snug text-[#1A1A1A] lg:text-[2rem]">
+                  Prêt à repérer les{' '}
+                  <span style={{ color: FAQ_CTA_ORANGE }}>
+                    meilleures affaires
+                  </span>{' '}
+                  avant tout le monde ?
+                </h2>
+                <DemoFlowButton
+                  variant="primary"
+                  size="lg"
+                  className="mt-8 rounded-[16px] px-10"
+                  style={{
+                    background: FAQ_CTA_ORANGE,
+                    borderColor: '#FFB366',
+                  }}
+                >
+                  Réserver ma démo maintenant
+                </DemoFlowButton>
+              </div>
             </div>
           </div>
-
-          {/* Voiture rouge - centre */}
-          <div className="absolute bottom-0 left-1/2 w-[28%] max-w-[110px] -translate-x-1/2">
-            <div className="relative flex flex-col items-center">
-              <MapPin
-                className="relative z-10 h-3.5 w-3.5"
-                style={{ color: FAQ_CTA_ORANGE }}
-                aria-hidden
-              />
-              <Image
-                src="/faq-cta/car-red.png"
-                alt=""
-                width={360}
-                height={240}
-                className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
-                aria-hidden
-              />
-            </div>
-          </div>
-
-          {/* Voiture grise - droite */}
-          <div className="absolute bottom-0 right-3 w-[28%] max-w-[110px]">
-            <div className="relative flex flex-col items-center">
-              <MapPin
-                className="relative z-10 h-3.5 w-3.5"
-                style={{ color: FAQ_CTA_ORANGE }}
-                aria-hidden
-              />
-              <Image
-                src="/faq-cta/car-silver.png"
-                alt=""
-                width={440}
-                height={280}
-                className="mt-0.5 h-auto w-full object-contain drop-shadow-md"
-                aria-hidden
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ============== DESKTOP LAYOUT (inchangé) ============== */}
-      <div className="relative hidden px-10 py-16 md:block lg:px-16 lg:py-20">
-        <Image
-          src="/decor/Group.png"
-          alt=""
-          fill
-          className="pointer-events-none object-cover opacity-20"
-          aria-hidden
-        />
-
-        <div className="pointer-events-none absolute left-4 top-6 w-[min(34%,130px)] max-w-[130px] lg:left-10 lg:top-10">
-          <div className="relative flex flex-col items-center">
-            <MapPin
-              className="relative z-10 h-5 w-5 shrink-0"
-              style={{ color: FAQ_CTA_ORANGE }}
-              aria-hidden
-            />
-            <Image
-              src="/faq-cta/car-black.png"
-              alt=""
-              width={400}
-              height={260}
-              className="mt-1 h-auto w-full max-h-[100px] object-contain object-bottom drop-shadow-md lg:max-h-[112px]"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        <div className="pointer-events-none absolute bottom-10 right-4 w-[min(30%,120px)] max-w-[120px] md:right-8">
-          <div className="relative flex flex-col items-center">
-            <MapPin
-              className="relative z-10 h-5 w-5 shrink-0"
-              style={{ color: FAQ_CTA_ORANGE }}
-              aria-hidden
-            />
-            <Image
-              src="/faq-cta/car-silver.png"
-              alt=""
-              width={440}
-              height={280}
-              className="mt-1 h-auto w-full max-h-[100px] object-contain object-bottom drop-shadow-md lg:max-h-[112px]"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        <div className="pointer-events-none absolute bottom-6 left-4 w-[min(28%,110px)] max-w-[110px] md:bottom-8 lg:left-10">
-          <div className="relative flex flex-col items-center">
-            <MapPin
-              className="relative z-10 h-5 w-5 shrink-0"
-              style={{ color: FAQ_CTA_ORANGE }}
-              aria-hidden
-            />
-            <Image
-              src="/faq-cta/car-red.png"
-              alt=""
-              width={360}
-              height={240}
-              className="mt-1 h-auto w-full max-h-[82px] object-contain object-bottom drop-shadow-md lg:max-h-[92px]"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-2xl px-1 text-center">
-          <h2 className="text-balance text-3xl font-bold leading-snug text-[#1A1A1A] lg:text-[2rem]">
-            Prêt à repérer les{' '}
-            <span style={{ color: FAQ_CTA_ORANGE }}>
-              meilleures affaires
-            </span>{' '}
-            avant tout le monde ?
-          </h2>
-          <DemoFlowButton
-            variant="primary"
-            size="lg"
-            className="mt-8 rounded-[16px] px-10"
-            style={{
-              background: FAQ_CTA_ORANGE,
-              borderColor: '#FFB366',
-            }}
-          >
-            Réserver ma démo maintenant
-          </DemoFlowButton>
-        </div>
-      </div>
-
-    </div>
-  </Container>
-</section>
+        </Container>
+      </section>
     </>
   );
 }
 
+/* ================================================================
+   FOOTER — avec liens légaux opérationnels
+   ================================================================ */
+
 function SocialIcon({
+  href,
   children,
   label,
 }: {
+  href: string;
   children: ReactNode;
   label: string;
 }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="text-white transition hover:opacity-90"
       aria-label={label}
     >
@@ -1108,60 +1117,95 @@ function SocialIcon({
   );
 }
 
-const footerNav = {
-  main: [
-    { href: '#processus', label: 'Comment ça marche ?' },
-    { href: '#marche', label: 'Analyse du marché' },
-    { href: '#temoignages', label: 'Témoignages' },
-    { href: '#confidentialite', label: 'Politique de Confidentialité' },
-  ],
+/** Liens de navigation principale (ancres landing page) */
+const FOOTER_NAV_MAIN = [
+  { href: '/#processus', label: 'Comment ça marche ?' },
+  { href: '/#marche', label: 'Analyse du marché' },
+  { href: '/#temoignages', label: 'Témoignages' },
+  { href: '/#offres', label: 'Tarifs' },
+  { href: '/#faq', label: 'FAQ' },
+] as const;
+
+/** Liens légaux (pages internes Next.js) */
+const FOOTER_NAV_LEGAL = [
+  { href: '/cgv-cgu', label: 'CGV / CGU' },
+  { href: '/politique-confidentialite', label: 'Confidentialité' },
+  { href: '/politique-cookies', label: 'Cookies' },
+  { href: '/mentions-legales', label: 'Mentions légales' },
+] as const;
+
+/** Liens réseaux sociaux — remplacer # par vos vraies URLs */
+const SOCIAL_LINKS = {
+  instagram: '#',
+  facebook: '#',
+  x: '#',
 } as const;
 
 export function SiteFooter() {
   return (
     <footer className="bg-[#111111] text-white">
       <Container className="py-10 md:py-16">
-        <div className="flex flex-col gap-8 md:gap-12">
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center md:gap-8">
-            <a href="#" className="inline-flex items-center">
-              <CarPulseLogo variant="image" />
-            </a>
+        {/* ── Ligne 1 : Logo + navigation principale ── */}
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center md:gap-8">
+          <Link href="/" className="inline-flex items-center" aria-label="Accueil CarPulse">
+            <CarPulseLogo variant="image" />
+          </Link>
 
-            <nav
-              className="flex flex-wrap items-center justify-start gap-x-5 gap-y-2.5 text-[12px] font-medium text-white/85 md:justify-end md:gap-x-8"
-              aria-label="Liens pied de page"
-            >
-              {footerNav.main.map((item) => (
-                <a
-                  key={item.href + item.label}
-                  href={item.href}
-                  className="transition hover:text-white"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+          <nav
+            className="flex flex-wrap items-center justify-start gap-x-5 gap-y-2.5 text-[12px] font-medium text-white/85 md:justify-end md:gap-x-8"
+            aria-label="Navigation principale"
+          >
+            {FOOTER_NAV_MAIN.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
-        <div
-          className="mx-auto mt-10 h-px w-full max-w-[min(100%,520px)] bg-[#2a2a2a] md:mt-14"
-          aria-hidden
-        />
+        {/* ── Ligne 2 : Liens légaux ── */}
+        <nav
+          className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#2a2a2a] pt-6 text-[11px] text-[#888888] sm:gap-x-6 sm:text-[12px] md:mt-10"
+          aria-label="Liens légaux"
+        >
+          {FOOTER_NAV_LEGAL.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="transition hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-        <div className="mt-6 flex flex-col gap-5 sm:mt-10 md:flex-row md:items-center md:justify-between">
+        {/* ── Ligne 3 : Copyright + réseaux sociaux ── */}
+        <div className="mt-6 flex flex-col gap-5 sm:mt-8 md:flex-row md:items-center md:justify-between">
           <p className="text-[12px] text-[#888888] sm:text-[13px]">
-            © 2026 CarPulse. Tous droits réservés.
+            © {new Date().getFullYear()} CarPulse. Tous droits réservés.
           </p>
-          <div className="flex items-center gap-5 md:gap-5">
-            <SocialIcon label="Instagram">
-              <FaInstagram className="h-[18px] w-[18px] sm:h-5 sm:w-5" aria-hidden />
+          <div className="flex items-center gap-5">
+            <SocialIcon href={SOCIAL_LINKS.instagram} label="Instagram">
+              <FaInstagram
+                className="h-[18px] w-[18px] sm:h-5 sm:w-5"
+                aria-hidden
+              />
             </SocialIcon>
-            <SocialIcon label="Facebook">
-              <FaFacebookF className="h-[18px] w-[18px] sm:h-5 sm:w-5" aria-hidden />
+            <SocialIcon href={SOCIAL_LINKS.facebook} label="Facebook">
+              <FaFacebookF
+                className="h-[18px] w-[18px] sm:h-5 sm:w-5"
+                aria-hidden
+              />
             </SocialIcon>
-            <SocialIcon label="X">
-              <FaXTwitter className="h-[18px] w-[18px] sm:h-5 sm:w-5" aria-hidden />
+            <SocialIcon href={SOCIAL_LINKS.x} label="X">
+              <FaXTwitter
+                className="h-[18px] w-[18px] sm:h-5 sm:w-5"
+                aria-hidden
+              />
             </SocialIcon>
           </div>
         </div>

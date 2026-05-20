@@ -227,7 +227,7 @@ export function Section01Hero() {
 
       <Container>
         <div className="relative pb-2 pt-6 text-center sm:pb-4 sm:pt-12">
-          <h1 className="mx-auto mt-2 max-w-[920px] text-balance px-2 text-[22px] font-bold leading-[1.15] tracking-tight text-[#1A1A1A] sm:mt-20 sm:px-0 sm:text-[30px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
+          <h1 className="mx-auto mt-2 max-w-[920px] text-balance px-2 text-[26px] font-bold leading-[1.15] tracking-tight text-[#1A1A1A]  sm:px-0 sm:text-[32px] md:text-4xl lg:text-[44px] lg:leading-[1.08]">
             Détectez les{' '}
             <span style={{ color: MOBILE_ACCENT }}>voitures sous-évaluées</span>{' '}
             avant <br /> vos concurrents.
@@ -707,15 +707,15 @@ export function Section05Opportunities() {
         </div>
 
         <div className="mt-7 flex justify-center md:hidden">
-          <DemoFlowButton
-            variant="primary"
-            size="sm"
-            className="rounded-[14px] px-8 text-[12.5px] font-bold"
-            style={{ background: '#FE6C0E', borderColor: '#FE6C0E' }}
-          >
-            Analyses complètes
-          </DemoFlowButton>
-        </div>
+  <DemoFlowButton
+    variant="primary"
+    size="sm"
+    className="w-full max-w-[340px] rounded-[14px] px-8 text-[12.5px] font-bold"
+    style={{ background: '#FE6C0E', borderColor: '#FE6C0E' }}
+  >
+    Analyses complètes
+  </DemoFlowButton>
+</div>
       </Container>
     </section>
   );
@@ -931,21 +931,21 @@ export function Section06Automation() {
   </div>
 </div>
 
-        <div className="mt-7 flex justify-center sm:mt-12">
-          <DemoFlowButton
-            variant="primary"
-            size="xl"
-            className="rounded-[14px] px-7 text-[13px] sm:rounded-[16px] sm:px-10 sm:text-base"
-            style={{
-              background:
-                'linear-gradient(69.08deg, #FE6C0E 7.63%, #FF963A 54.5%)',
-              borderColor: '#FFBC71',
-              boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
-            }}
-          >
-            Voir les opportunités CarPulse
-          </DemoFlowButton>
-        </div>
+<div className="mt-7 flex justify-center sm:mt-12">
+  <DemoFlowButton
+    variant="primary"
+    size="xl"
+    className="w-full max-w-[340px] rounded-[14px] px-7 text-[13px] sm:w-auto sm:max-w-none sm:rounded-[16px] sm:px-10 sm:text-base"
+    style={{
+      background:
+        'linear-gradient(69.08deg, #FE6C0E 7.63%, #FF963A 54.5%)',
+      borderColor: '#FFBC71',
+      boxShadow: '0px 4px 10px 0px #FFFFFF40 inset',
+    }}
+  >
+    Voir les opportunités CarPulse
+  </DemoFlowButton>
+</div>
       </Container>
     </section>
   );
