@@ -21,7 +21,7 @@ import { SiteHeader } from './SiteHeader';
 
 const MOBILE_ACCENT = '#FE6C0E';
 const HERO_VIDEO_URL = 'https://vimeo.com/1181924989?share=copy&fl=sv&fe=ci';
-
+const baseUrl = process.env.NEXT_PUBLIC_CARPULSE_CLIENT_URL;
 const STATS_DATA = [
   {
     k: '1',
@@ -248,7 +248,7 @@ export function Section01Hero() {
               }}
               asChild
             >
-              <a href="#processus">Découvrir CarPulse</a>
+              <a href={`${baseUrl}/planifier-demo`}>Découvrir CarPulse</a>
             </Button>
           </div>
         </div>
