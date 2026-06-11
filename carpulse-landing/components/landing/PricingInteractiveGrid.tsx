@@ -286,7 +286,7 @@ export function PricingInteractiveGrid({ plans }: PricingInteractiveGridProps) {
                       disabled={isSubmitting}
                       className="rounded-xl bg-[#FF7A22] px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#E66A15] disabled:opacity-70"
                     >
-                      {isSubmitting ? 'Création...' : 'Suivant'}
+                      {isSubmitting ? 'Création...' : 'Valider'}
                     </button>
                   </div>
                 </form>
