@@ -150,7 +150,7 @@ export default function PolitiqueCookiesPage() {
         <SectionTitle>2. Types de cookies utilisés</SectionTitle>
 
         <div className="space-y-6">
-          {/* a — Nécessaires */}
+          {/* a - Nécessaires */}
           <div className="rounded-2xl border border-gray-100 bg-[#FAFAFA] p-5 sm:p-6">
             <div className="mb-3 flex items-center gap-3">
               <CookieBadge label="Nécessaires" color="green" />
@@ -172,7 +172,7 @@ export default function PolitiqueCookiesPage() {
             </div>
           </div>
 
-          {/* b — Analytiques */}
+          {/* b - Analytiques */}
           <div className="rounded-2xl border border-gray-100 bg-[#FAFAFA] p-5 sm:p-6">
             <div className="mb-3 flex items-center gap-3">
               <CookieBadge label="Analytiques" color="blue" />
@@ -197,7 +197,7 @@ export default function PolitiqueCookiesPage() {
             </p>
           </div>
 
-          {/* c — Marketing */}
+          {/* c - Marketing */}
           <div className="rounded-2xl border border-gray-100 bg-[#FAFAFA] p-5 sm:p-6">
             <div className="mb-3 flex items-center gap-3">
               <CookieBadge label="Marketing" color="purple" />

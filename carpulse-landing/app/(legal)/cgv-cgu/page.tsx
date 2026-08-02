@@ -168,7 +168,7 @@ export default function CGVCGUPage() {
           </p>
         </div>
 
-        {/* 3.4 — Tableau */}
+        {/* 3.4 - Tableau */}
         <div className="mb-8">
           <h3 className="mb-4 text-[15px] font-semibold text-[#1A1A1A] sm:text-[17px]">
             3.4. Offres d&apos;abonnement
@@ -193,7 +193,7 @@ export default function CGVCGUPage() {
                     plan: 'Standard',
                     deals:
                       'Volume mensuel indiqué à la souscription (± quelques deals)',
-                    filtres: 'Aucun — deals pertinents du marché',
+                    filtres: 'Aucun - deals pertinents du marché',
                     zone: '100 à 200 km',
                   },
                   {
@@ -549,7 +549,7 @@ export default function CGVCGUPage() {
         </p>
       </section>
 
-      {/* Article 12 — Contact */}
+      {/* Article 12 - Contact */}
       <section className="mb-2">
         <h2 className="mb-4 text-[18px] font-bold text-[#1A1A1A] sm:text-2xl">
           12. Contact

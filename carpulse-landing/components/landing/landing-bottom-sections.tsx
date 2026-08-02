@@ -1016,7 +1016,7 @@ export function Section10FaqCta() {
 }
 
 /* ================================================================
-   FOOTER — avec liens légaux opérationnels
+   FOOTER - avec liens légaux opérationnels
    ================================================================ */
 
 function SocialIcon({
@@ -1058,7 +1058,7 @@ const FOOTER_NAV_LEGAL = [
   { href: '/mentions-legales', label: 'Mentions légales' },
 ] as const;
 
-/** Liens réseaux sociaux — remplacer # par vos vraies URLs */
+/** Liens réseaux sociaux - remplacer # par vos vraies URLs */
 const SOCIAL_LINKS = {
   instagram: '#',
   facebook: '#',

@@ -213,7 +213,7 @@ export default function PolitiqueConfidentialitePage() {
           {/* FIX 1 */}
           <BulletList
             items={[
-              "Les informations de carte bancaire (numéro, date d'expiration, CVV) — jamais stockées sur nos serveurs",
+              "Les informations de carte bancaire (numéro, date d'expiration, CVV) - jamais stockées sur nos serveurs",
               "L'adresse e-mail et l'adresse de facturation",
               'Des données techniques sur l\u2019appareil et le navigateur utilisé',
               'Des données comportementales (mouvements de souris, patterns de frappe) à des fins de détection de fraude via Stripe Radar',
@@ -336,7 +336,7 @@ export default function PolitiqueConfidentialitePage() {
               {[
                 {
                   name: 'Stripe',
-                  role: 'Paiements et facturation — data processor',
+                  role: 'Paiements et facturation - data processor',
                   location: 'UE / États-Unis – RGPD, PCI-DSS L1, Swiss-U.S. DPF',
                 },
                 {
@@ -511,7 +511,7 @@ export default function PolitiqueConfidentialitePage() {
             >
               contact@getcarpulse.com
             </a>{' '}
-            — réponse sous 30 jours maximum.
+            - réponse sous 30 jours maximum.
           </p>
         </div>
 
